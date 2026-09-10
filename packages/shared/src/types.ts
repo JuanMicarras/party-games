@@ -1,0 +1,1 @@
+// # ej. interface Player, interface RoomState
