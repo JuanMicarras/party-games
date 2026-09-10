@@ -8,13 +8,16 @@ import {
   MessageBody,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-
-// Aquí importaremos los tipos desde @party-games/shared más adelante
+import {
+  SocketEvents,
+  type JoinRoomPayload,
+  type RoomUpdatedPayload,
+} from '@party-games/shared';
 
 @WebSocketGateway({
   cors: {
     origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'],
+    credentials: true,
   },
 })
 export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
@@ -29,17 +32,22 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     console.log(`🔴 Cliente desconectado: ${client.id}`);
   }
 
-  @SubscribeMessage('join_room')
+  @SubscribeMessage(SocketEvents.JOIN_ROOM)
   handleJoinRoom(
-    @MessageBody() data: { roomCode: string; playerName: string },
+    @MessageBody() data: JoinRoomPayload,
     @ConnectedSocket() client: Socket,
   ) {
+    // 1. Unir el socket a la sala de Socket.io
     client.join(data.roomCode);
-    console.log(`${data.playerName} se unió a la sala ${data.roomCode}`);
-    
-    // Notifica a todos en la sala (incluyendo al que acaba de entrar)
-    this.server.to(data.roomCode).emit('room_updated', {
+    console.log(`🎮 [Sala ${data.roomCode}] ${data.playerName} se unió.`);
+
+    // 2. Preparar la respuesta cumpliendo el contrato de @party-games/shared
+    const response: RoomUpdatedPayload = {
+      roomCode: data.roomCode,
       message: `${data.playerName} ha entrado a la sala`,
-    });
+    };
+
+    // 3. Emitir el evento a todos los clientes conectados a esa sala en particular
+    this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, response);
   }
 }
