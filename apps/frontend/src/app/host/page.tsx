@@ -42,57 +42,70 @@ export default function HostPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-slate-900 text-white">
-      <div className="text-center space-y-8 max-w-2xl w-full">
-        <h1 className="text-3xl font-bold text-slate-400">Únete en tu celular</h1>
-        
-        <div className="bg-slate-800 p-8 rounded-3xl border-4 border-slate-700 shadow-2xl">
-          <p className="text-xl mb-4 text-slate-300">Ingresa el código:</p>
-          <p className="text-8xl font-mono font-black tracking-widest text-emerald-400">
-            {room.roomCode}
-          </p>
-        </div>
+      
+      {/* VISTA 1: EL LOBBY */}
+      {room.mode === 'LOBBY' && (
+        <div className="text-center space-y-8">
+          <h1 className="text-3xl font-bold text-slate-400">Únete en tu celular</h1>
+          <div className="bg-slate-800 p-8 rounded-3xl border-4 border-slate-700 shadow-2xl">
+            <p className="text-8xl font-mono font-black tracking-widest text-emerald-400">
+              {room.roomCode}
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap gap-3 justify-center max-w-2xl mt-8">
+            {room.players.map((player) => (
+              <span key={player.id} className="px-4 py-2 bg-blue-600 rounded-full font-semibold shadow-lg text-lg">
+                {player.name}
+              </span>
+            ))}
+          </div>
 
-        <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 min-w-[400px]">
-          <h2 className="text-lg uppercase font-semibold text-slate-500 mb-4">
-            Jugadores en el Lobby ({room.players.length})
-          </h2>
-          {room.players.length === 0 ? (
-            <p className="text-slate-600 italic">Esperando jugadores...</p>
-          ) : (
-            <div className="flex flex-wrap gap-3 justify-center">
-              {room.players.map((player) => (
-                <span 
-                  key={player.id} 
-                  className={`px-4 py-2 rounded-full font-semibold shadow-lg text-lg flex items-center gap-2 ${
-                    player.team === 'A'
-                      ? 'bg-rose-600'
-                      : player.team === 'B'
-                      ? 'bg-sky-600'
-                      : 'bg-blue-600'
-                  }`}
-                >
-                  {player.name}
-                  {player.team && (
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-black/30">
-                      Equipo {player.team}
-                    </span>
-                  )}
-                </span>
-              ))}
-            </div>
+          {room.players.length >= 2 && (
+            <button 
+              onClick={handleStartGame}
+              className="mt-8 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold text-2xl"
+            >
+              ¡Empezar Juego!
+            </button>
           )}
         </div>
+      )}
 
-        {/* Botón para arrancar Mimireto */}
-        {room.players.length >= 2 && (
-          <button 
-            onClick={handleStartGame}
-            className="mt-8 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold text-2xl transition transform hover:scale-105 shadow-xl cursor-pointer"
-          >
-            ¡Empezar Juego!
-          </button>
-        )}
-      </div>
+      {/* VISTA 2: EL TABLERO DE MIMIRETO */}
+      {room.mode === 'MIMIRETO' && room.mimireto && (
+        <div className="text-center w-full max-w-4xl space-y-8">
+          <h1 className="text-5xl font-black text-amber-400 mb-12">MIMIRETO</h1>
+          
+          <div className="flex justify-between items-center bg-slate-800 p-8 rounded-3xl border border-slate-700">
+            {/* Marcador Equipo A */}
+            <div className="text-center">
+              <h2 className="text-2xl text-blue-400 font-bold mb-2">EQUIPO A</h2>
+              <p className="text-6xl font-black">{room.mimireto.teamAScore}</p>
+            </div>
+
+            {/* Centro: Estado del turno */}
+            <div className="flex flex-col items-center justify-center space-y-4 px-8">
+              <div className="text-xl text-slate-300">
+                Turno del Equipo <span className="font-bold text-amber-400">{room.mimireto.currentTurn}</span>
+              </div>
+              <div className="text-3xl font-bold">
+                Orador: {room.players.find(p => p.id === room.mimireto?.speakerId)?.name}
+              </div>
+              <div className="text-xl text-red-400">
+                Juez: {room.players.find(p => p.id === room.mimireto?.judgeId)?.name}
+              </div>
+            </div>
+
+            {/* Marcador Equipo B */}
+            <div className="text-center">
+              <h2 className="text-2xl text-rose-400 font-bold mb-2">EQUIPO B</h2>
+              <p className="text-6xl font-black">{room.mimireto.teamBScore}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
     </main>
   );
 }

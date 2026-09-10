@@ -1,5 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { RoomState, Player } from '@party-games/shared';
+const MIMIRETO_DECK = [
+  { word: 'Guitarra Acústica', forbidden: ['Instrumento', 'Cuerdas', 'Tocar', 'Música', 'Madera'] },
+  { word: 'Pepperoni', forbidden: ['Pizza', 'Domino\'s', 'Queso', 'Comida', 'Masa'] },
+  { word: 'Pádel', forbidden: ['Deporte', 'Raqueta', 'Pelota', 'Cancha', 'Jaula'] },
+  { word: 'Cosmere', forbidden: ['Libros', 'Sanderson', 'Fantasía', 'Universo', 'Leer'] },
+  { word: 'Percy', forbidden: ['Perro', 'Mascota', 'Animal', 'Peludo', 'Pasear'] }
+];
 
 @Injectable()
 export class RoomService {
@@ -27,19 +34,14 @@ export class RoomService {
 
   startGame(roomCode: string): RoomState | null {
     const room = this.rooms.get(roomCode);
-    
-    // Necesitamos al menos 2 jugadores para jugar
     if (!room || room.players.length < 2) return null;
 
     room.mode = 'MIMIRETO';
 
-    // 1. Barajar aleatoriamente a los jugadores
     const shuffledPlayers = [...room.players].sort(() => Math.random() - 0.5);
-    
     const teamA: Player[] = [];
     const teamB: Player[] = [];
 
-    // 2. Dividir en Equipo A y Equipo B de forma intercalada
     shuffledPlayers.forEach((player, index) => {
       if (index % 2 === 0) {
         player.team = 'A';
@@ -50,22 +52,22 @@ export class RoomService {
       }
     });
 
-    // 3. Inicializar el estado de Mimireto
+    // Robar una carta aleatoria del mazo
+    const randomCard = MIMIRETO_DECK[Math.floor(Math.random() * MIMIRETO_DECK.length)];
+
     room.mimireto = {
       teamAScore: 0,
       teamBScore: 0,
       currentTurn: 'A',
-      // El primer jugador del equipo A empieza hablando
       speakerId: teamA[0]?.id || null,
-      // El primer jugador del equipo B empieza de juez
       judgeId: teamB[0]?.id || null,
-      currentCard: null,
+      currentCard: randomCard, // Asignamos la carta al estado
       status: 'WAITING',
     };
 
     return room;
   }
-  
+
   joinRoom(roomCode: string, player: Player): RoomState | null {
     const room = this.rooms.get(roomCode);
     if (!room) return null;
