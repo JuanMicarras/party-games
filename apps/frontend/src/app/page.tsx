@@ -49,6 +49,15 @@ export default function Home() {
     socket.emit(SocketEvents.JOIN_ROOM, payload);
   };
 
+  const emitCardAction = (action: "SUCCESS" | "PASS" | "FOUL") => {
+    if (room) {
+      socket.emit(SocketEvents.CARD_ACTION, {
+        roomCode: room.roomCode,
+        action,
+      });
+    }
+  };
+
   const currentPlayer = room?.players.find((p) => p.id === socket?.id);
 
   return (
@@ -158,65 +167,76 @@ export default function Home() {
                   Equipo {currentPlayer?.team ?? "Sin Asignar"}
                 </div>
 
-                {/* ROL 1: ORADOR */}
-                {room.mimireto.speakerId === socket?.id &&
+                {/* ROL 1: ERES EL ORADOR */}
+                {room.mimireto.speakerId === socket.id &&
                   room.mimireto.currentCard && (
-                    <div className="bg-emerald-950/40 border-2 border-emerald-500 rounded-2xl p-6 text-center shadow-xl">
-                      <p className="text-emerald-400 font-bold text-sm tracking-wider uppercase mb-1">
-                        ¡Es tu turno!
+                    <div className="bg-emerald-900/30 border-2 border-emerald-500 rounded-xl p-6 text-center shadow-lg">
+                      <p className="text-emerald-400 font-bold mb-1">
+                        ¡ES TU TURNO!
                       </p>
-                      <p className="text-xs text-slate-400 mb-4">
+                      <p className="text-sm text-slate-300 mb-4">
                         Haz que tu equipo adivine:
                       </p>
-                      <h2 className="text-3xl font-black text-white mb-6 uppercase tracking-wider">
+                      <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-wider">
                         {room.mimireto.currentCard.word}
                       </h2>
 
-                      <div className="bg-red-950/40 border border-red-900/60 p-4 rounded-xl">
-                        <p className="text-red-400 font-bold text-xs mb-3 tracking-wider uppercase text-center">
-                          Palabras Prohibidas
+                      <div className="bg-red-950/50 border border-red-900 p-4 rounded-lg">
+                        <p className="text-red-400 font-bold text-sm mb-3">
+                          PALABRAS PROHIBIDAS:
                         </p>
-                        <div className="flex flex-col gap-2">
+                        <ul className="space-y-2">
                           {room.mimireto.currentCard.forbidden.map(
                             (word, idx) => (
-                              <div
+                              <li
                                 key={idx}
-                                className="flex items-center justify-between px-3 py-2 bg-red-900/20 border border-red-500/20 rounded-lg"
+                                className="text-lg font-semibold text-red-200 line-through decoration-red-500 decoration-2"
                               >
-                                <span className="text-base font-semibold text-red-200">
-                                  {word}
-                                </span>
-                                <span className="text-xs font-bold text-red-500 bg-red-500/10 px-2 py-0.5 rounded-full border border-red-500/30">
-                                  ✕
-                                </span>
-                              </div>
+                                {word}
+                              </li>
                             ),
                           )}
-                        </div>
+                        </ul>
+                      </div>
+
+                      {/* NUEVOS BOTONES DEL ORADOR */}
+                      <div className="flex gap-4 mt-6">
+                        <button
+                          onClick={() => emitCardAction("PASS")}
+                          className="flex-1 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition"
+                        >
+                          Pasar
+                        </button>
+                        <button
+                          onClick={() => emitCardAction("SUCCESS")}
+                          className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 active:shadow-none transition"
+                        >
+                          +1 Acierto
+                        </button>
                       </div>
                     </div>
                   )}
 
-                {/* ROL 2: JUEZ RIVAL */}
-                {room.mimireto.judgeId === socket?.id &&
+                {/* ROL 2: ERES EL JUEZ */}
+                {room.mimireto.judgeId === socket.id &&
                   room.mimireto.currentCard && (
-                    <div className="bg-red-950/40 border-2 border-red-500 rounded-2xl p-6 text-center shadow-xl">
-                      <p className="text-red-400 font-bold text-sm tracking-wider uppercase mb-1">
-                        Eres el Juez
+                    <div className="bg-red-900/30 border-2 border-red-500 rounded-xl p-6 text-center shadow-lg">
+                      <p className="text-red-400 font-bold mb-1">
+                        ERES EL JUEZ
                       </p>
-                      <p className="text-xs text-slate-400 mb-2">
-                        Vigila que no digan:
+                      <p className="text-sm text-slate-300 mb-4">
+                        Vigila que no diga:
                       </p>
-                      <h2 className="text-xl font-bold text-slate-300 mb-4">
+                      <h2 className="text-2xl font-bold text-slate-400 mb-4">
                         {room.mimireto.currentCard.word}
                       </h2>
 
-                      <ul className="space-y-2 mb-6 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                      <ul className="space-y-2 mb-8">
                         {room.mimireto.currentCard.forbidden.map(
                           (word, idx) => (
                             <li
                               key={idx}
-                              className="text-lg font-bold text-red-400"
+                              className="text-xl font-bold text-red-400"
                             >
                               {word}
                             </li>
@@ -224,7 +244,11 @@ export default function Home() {
                         )}
                       </ul>
 
-                      <button className="w-full py-4 bg-red-600 hover:bg-red-500 active:translate-y-1 text-white font-black text-xl rounded-xl shadow-[0_4px_0_rgb(153,27,27)] active:shadow-none transition-all cursor-pointer">
+                      {/* BOTÓN DEL JUEZ ACTUALIZADO */}
+                      <button
+                        onClick={() => emitCardAction("FOUL")}
+                        className="w-full py-4 bg-red-600 hover:bg-red-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(153,27,27)] active:shadow-[0_0px_0_rgb(153,27,27)] active:translate-y-1 transition-all"
+                      >
                         ¡FALTA!
                       </button>
                     </div>

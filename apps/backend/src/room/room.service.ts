@@ -68,6 +68,34 @@ export class RoomService {
     return room;
   }
 
+  handleCardAction(roomCode: string, action: 'SUCCESS' | 'PASS' | 'FOUL'): RoomState | null {
+    const room = this.rooms.get(roomCode);
+    if (!room || room.mode !== 'MIMIRETO' || !room.mimireto) return null;
+
+    const state = room.mimireto;
+
+    // 1. Aplicar la lógica de puntos
+    if (action === 'SUCCESS') {
+      if (state.currentTurn === 'A') state.teamAScore += 1;
+      else state.teamBScore += 1;
+    } else if (action === 'FOUL') {
+      // Las faltas restan 1 punto
+      if (state.currentTurn === 'A') state.teamAScore -= 1;
+      else state.teamBScore -= 1;
+    }
+    // Si la acción es 'PASS', no sumamos ni restamos puntos por ahora
+
+    // 2. Robar una carta nueva que no sea la misma que la anterior
+    let nextCard;
+    do {
+      nextCard = MIMIRETO_DECK[Math.floor(Math.random() * MIMIRETO_DECK.length)];
+    } while (state.currentCard && nextCard.word === state.currentCard.word);
+    
+    state.currentCard = nextCard;
+
+    return room;
+  }
+
   joinRoom(roomCode: string, player: Player): RoomState | null {
     const room = this.rooms.get(roomCode);
     if (!room) return null;

@@ -6,6 +6,7 @@ export const SocketEvents = {
   ROOM_UPDATED: "room_updated",
   LEAVE_ROOM: "leave_room",
   START_GAME: 'start_game',
+  CARD_ACTION: 'card_action',
   ERROR: "error",
 } as const;
 
@@ -57,4 +58,9 @@ export interface RoomUpdatedPayload {
 
 export interface StartGamePayload {
   roomCode: string;
+}
+
+export interface CardActionPayload {
+  roomCode: string;
+  action: 'SUCCESS' | 'PASS' | 'FOUL';
 }

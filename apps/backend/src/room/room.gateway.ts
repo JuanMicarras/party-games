@@ -12,6 +12,7 @@ import {
   SocketEvents,
   type JoinRoomPayload,
   type RoomUpdatedPayload,
+  type CardActionPayload,
 //   type startGamePayload,
     type Player,
 } from '@party-games/shared';
@@ -81,6 +82,22 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
       });
     } else {
       client.emit(SocketEvents.ERROR, { message: 'No hay suficientes jugadores para empezar' });
+    }
+  }
+
+  @SubscribeMessage(SocketEvents.CARD_ACTION)
+  handleCardAction(
+    @MessageBody() data: CardActionPayload,
+    @ConnectedSocket() client: Socket,
+  ) {
+    const updatedRoom = this.roomService.handleCardAction(data.roomCode, data.action);
+    
+    if (updatedRoom) {
+      // Emitimos el estado actualizado a toda la sala
+      this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
+        message: `Acción procesada: ${data.action}`,
+        room: updatedRoom,
+      });
     }
   }
 
