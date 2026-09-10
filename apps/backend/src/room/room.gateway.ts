@@ -48,19 +48,32 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     }
   }
 
+  // NUEVO: El TV llama a este evento para generar un código
+  @SubscribeMessage(SocketEvents.CREATE_ROOM)
+  handleCreateRoom(@ConnectedSocket() client: Socket) {
+    const roomCode = this.roomService.createRoom(client.id);
+    client.join(roomCode); // El TV se une a la sala invisiblemente
+    
+    const room = this.roomService.getRoom(roomCode);
+    if (room) {
+      client.emit(SocketEvents.ROOM_UPDATED, {
+        message: 'Sala creada exitosamente',
+        room,
+      });
+    }
+  }
+
+  // ACTUALIZADO: Quitamos la creación de sala temporal que teníamos aquí
   @SubscribeMessage(SocketEvents.JOIN_ROOM)
   handleJoinRoom(
     @MessageBody() data: JoinRoomPayload,
     @ConnectedSocket() client: Socket,
   ) {
-    // Si la sala no existe en memoria (simulamos que siempre existe para probar por ahora)
-    let room = this.roomService.getRoom(data.roomCode);
+    const room = this.roomService.getRoom(data.roomCode);
     if (!room) {
-       // Temporal: si intentan unirse a una sala que no existe, la creamos
-       const newCode = this.roomService.createRoom(client.id);
-       // Forzamos el código temporal para la prueba
-       data.roomCode = newCode; 
-       room = this.roomService.getRoom(newCode);
+       // Si el código no existe, le avisamos al cliente
+       client.emit(SocketEvents.ERROR, { message: 'La sala no existe' });
+       return;
     }
 
     const newPlayer: Player = {
