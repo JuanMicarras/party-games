@@ -12,6 +12,7 @@ import {
   SocketEvents,
   type JoinRoomPayload,
   type RoomUpdatedPayload,
+//   type startGamePayload,
     type Player,
 } from '@party-games/shared';
 import { RoomService } from './room.service.js';
@@ -60,6 +61,26 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
         message: 'Sala creada exitosamente',
         room,
       });
+    }
+  }
+
+  // NUEVO: El TV dispara este evento para iniciar la partida
+  @SubscribeMessage(SocketEvents.START_GAME)
+  handleStartGame(
+    @MessageBody() data: { roomCode: string },
+    @ConnectedSocket() client: Socket,
+  ) {
+    const updatedRoom = this.roomService.startGame(data.roomCode);
+    
+    if (updatedRoom) {
+      console.log(`🚀 [Sala ${data.roomCode}] Modo cambiado a MIMIRETO`);
+      
+      this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
+        message: '¡Los equipos han sido formados!',
+        room: updatedRoom,
+      });
+    } else {
+      client.emit(SocketEvents.ERROR, { message: 'No hay suficientes jugadores para empezar' });
     }
   }
 

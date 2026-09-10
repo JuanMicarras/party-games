@@ -5,6 +5,7 @@ export const SocketEvents = {
   JOIN_ROOM: "join_room",
   ROOM_UPDATED: "room_updated",
   LEAVE_ROOM: "leave_room",
+  START_GAME: 'start_game',
   ERROR: "error",
 } as const;
 
@@ -18,13 +19,29 @@ export interface Player {
   team?: "A" | "B";
   isHost: boolean;
 }
+// NUEVO: Estructura de una carta de Mimireto
+export interface MimiretoCard {
+  word: string;
+  forbidden: string[];
+}
 
-// NUEVO: La estructura de la sala en la memoria del servidor
+// NUEVO: El estado específico de una partida de Mimireto
+export interface MimiretoState {
+  teamAScore: number;
+  teamBScore: number;
+  currentTurn: 'A' | 'B';
+  speakerId: string | null; // Quien tiene que hacer adivinar
+  judgeId: string | null;   // El rival que vigila las prohibidas
+  currentCard: MimiretoCard | null;
+  status: 'WAITING' | 'PLAYING' | 'FINISHED';
+}
+
 export interface RoomState {
   roomCode: string;
   mode: GameMode;
   players: Player[];
   hostId: string;
+  mimireto?: MimiretoState;
 }
 
 export interface JoinRoomPayload {
@@ -32,8 +49,12 @@ export interface JoinRoomPayload {
   playerName: string;
 }
 
-// ACTUALIZADO: Ahora el evento envía el estado completo de la sala
+
 export interface RoomUpdatedPayload {
   message: string;
   room: RoomState;
+}
+
+export interface StartGamePayload {
+  roomCode: string;
 }

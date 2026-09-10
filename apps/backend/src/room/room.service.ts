@@ -25,6 +25,47 @@ export class RoomService {
     return roomCode;
   }
 
+  startGame(roomCode: string): RoomState | null {
+    const room = this.rooms.get(roomCode);
+    
+    // Necesitamos al menos 2 jugadores para jugar
+    if (!room || room.players.length < 2) return null;
+
+    room.mode = 'MIMIRETO';
+
+    // 1. Barajar aleatoriamente a los jugadores
+    const shuffledPlayers = [...room.players].sort(() => Math.random() - 0.5);
+    
+    const teamA: Player[] = [];
+    const teamB: Player[] = [];
+
+    // 2. Dividir en Equipo A y Equipo B de forma intercalada
+    shuffledPlayers.forEach((player, index) => {
+      if (index % 2 === 0) {
+        player.team = 'A';
+        teamA.push(player);
+      } else {
+        player.team = 'B';
+        teamB.push(player);
+      }
+    });
+
+    // 3. Inicializar el estado de Mimireto
+    room.mimireto = {
+      teamAScore: 0,
+      teamBScore: 0,
+      currentTurn: 'A',
+      // El primer jugador del equipo A empieza hablando
+      speakerId: teamA[0]?.id || null,
+      // El primer jugador del equipo B empieza de juez
+      judgeId: teamB[0]?.id || null,
+      currentCard: null,
+      status: 'WAITING',
+    };
+
+    return room;
+  }
+  
   joinRoom(roomCode: string, player: Player): RoomState | null {
     const room = this.rooms.get(roomCode);
     if (!room) return null;

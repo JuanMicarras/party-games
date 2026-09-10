@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
-import { SocketEvents, RoomUpdatedPayload, RoomState } from '@party-games/shared';
+import { SocketEvents, type RoomUpdatedPayload, type RoomState } from '@party-games/shared';
 
 let socket: Socket;
 
@@ -13,7 +13,7 @@ export default function HostPage() {
     socket = io('http://localhost:4000');
 
     socket.on('connect', () => {
-      // Apenas se conecta el TV, pide crear una sala nueva
+      // Apenas se conecta el TV/Host, pide crear una sala nueva
       socket.emit(SocketEvents.CREATE_ROOM);
     });
 
@@ -26,6 +26,12 @@ export default function HostPage() {
     };
   }, []);
 
+  const handleStartGame = () => {
+    if (room && room.players.length >= 2) {
+      socket.emit(SocketEvents.START_GAME, { roomCode: room.roomCode });
+    }
+  };
+
   if (!room) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-slate-900 text-white">
@@ -36,7 +42,7 @@ export default function HostPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-slate-900 text-white">
-      <div className="text-center space-y-8">
+      <div className="text-center space-y-8 max-w-2xl w-full">
         <h1 className="text-3xl font-bold text-slate-400">Únete en tu celular</h1>
         
         <div className="bg-slate-800 p-8 rounded-3xl border-4 border-slate-700 shadow-2xl">
@@ -57,18 +63,32 @@ export default function HostPage() {
               {room.players.map((player) => (
                 <span 
                   key={player.id} 
-                  className="px-4 py-2 bg-blue-600 rounded-full font-semibold shadow-lg text-lg"
+                  className={`px-4 py-2 rounded-full font-semibold shadow-lg text-lg flex items-center gap-2 ${
+                    player.team === 'A'
+                      ? 'bg-rose-600'
+                      : player.team === 'B'
+                      ? 'bg-sky-600'
+                      : 'bg-blue-600'
+                  }`}
                 >
                   {player.name}
+                  {player.team && (
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-black/30">
+                      Equipo {player.team}
+                    </span>
+                  )}
                 </span>
               ))}
             </div>
           )}
         </div>
 
-        {/* Botón que programaremos luego para arrancar Mimireto */}
+        {/* Botón para arrancar Mimireto */}
         {room.players.length >= 2 && (
-          <button className="mt-8 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold text-2xl transition transform hover:scale-105">
+          <button 
+            onClick={handleStartGame}
+            className="mt-8 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold text-2xl transition transform hover:scale-105 shadow-xl cursor-pointer"
+          >
             ¡Empezar Juego!
           </button>
         )}
