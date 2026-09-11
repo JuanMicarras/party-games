@@ -1,7 +1,8 @@
-import { io, Socket } from 'socket.io-client';
+import { io } from 'socket.io-client';
 
-// 'autoConnect: false' permite decidir exactamente en qué componente 
-// (ej. la pantalla de Lobby) queremos abrir la conexión.
-export const socket: Socket = io('http://localhost:4000', {
-  autoConnect: false,
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:4000';
+
+export const socket = io(BACKEND_URL, {
+  autoConnect: true,
+  transports: ['websocket', 'polling'],
 });

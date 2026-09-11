@@ -15,7 +15,9 @@ export default function HostPage() {
   const [multiplier, setMultiplier] = useState<number>(1); // 1 = Rápida, 2 = Estándar
 
   useEffect(() => {
-    socket = io("http://localhost:4000");
+    // En la nube usará tu URL de Render, en local seguirá usando el 4000
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:4000';
+    socket = io(backendUrl);
 
     socket.on("connect", () => {
       // Apenas se conecta el TV/Host, pide crear una sala nueva
