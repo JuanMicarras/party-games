@@ -2,8 +2,8 @@
 
 import { useHostRoom } from "@/hooks/useHostRoom";
 import { HostLobby } from "@/components/host/HostLobby";
-import { HostBoard } from "@/components/host/HostBoard"; // Aquí iría el marcador central
-import { HostVictory } from "@/components/host/HostVictory"; // Aquí iría la pantalla de ganador
+import { HostBoard } from "@/components/host/HostBoard";
+import { HostVictory } from "@/components/host/HostVictory";
 
 export default function HostPage() {
   const { room, startGame } = useHostRoom();

@@ -7,16 +7,21 @@ export function useGameRoom() {
   const [room, setRoom] = useState<RoomState | null>(null);
 
   useEffect(() => {
-    socket.on("connect", () => setIsConnected(true));
-    socket.on("disconnect", () => {
+    // 2. Por si acaso se conectó en los milisegundos entre la línea de arriba y esta
+    setIsConnected(socket.connected);
+    const onConnect = () => setIsConnected(true);
+    const onDisconnect = () => {
       setIsConnected(false);
       setRoom(null);
-    });
+    };
+
+    socket.on("connect", onConnect);
+    socket.on("disconnect", onDisconnect);
     socket.on(SocketEvents.ROOM_UPDATED, (data) => setRoom(data.room));
 
     return () => {
-      socket.off("connect");
-      socket.off("disconnect");
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
       socket.off(SocketEvents.ROOM_UPDATED);
     };
   }, []);

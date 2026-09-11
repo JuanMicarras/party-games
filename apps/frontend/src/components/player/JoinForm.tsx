@@ -7,7 +7,7 @@ interface JoinFormProps {
 }
 
 export function JoinForm({ isConnected, onJoin }: JoinFormProps) {
-  const [roomCode, setRoomCode] = useState("");
+  const [roomCode, setRoomCode] = useState("ABCD");
   const [playerName, setPlayerName] = useState("");
 
   const handleSubmit = () => {

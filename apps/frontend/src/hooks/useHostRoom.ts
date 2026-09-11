@@ -1,28 +1,41 @@
 import { useEffect, useState } from "react";
 import { socket } from "@/lib/socket";
-import { playSoundEffect } from "@/lib/audio"; // El archivo que creamos en el paso anterior
+import { playSoundEffect } from "@/lib/audio";
 import { RoomState, SocketEvents } from "@party-games/shared";
 
 export function useHostRoom() {
   const [room, setRoom] = useState<RoomState | null>(null);
 
   useEffect(() => {
-    socket.on("connect", () => {
+    // 1. Si el socket ya estaba conectado al momento de cargar la página del host,
+    // pedimos crear la sala inmediatamente.
+    if (socket.connected) {
       socket.emit(SocketEvents.CREATE_ROOM);
-    });
+    }
 
-    socket.on(SocketEvents.ROOM_UPDATED, (data) => {
+    // 2. Definimos los manejadores de eventos
+    const onConnect = () => {
+      socket.emit(SocketEvents.CREATE_ROOM);
+    };
+
+    const onRoomUpdated = (data: { room: RoomState }) => {
       setRoom(data.room);
-    });
+    };
 
-    socket.on(SocketEvents.PLAY_SOUND, (data: { sound: string }) => {
+    const onPlaySound = (data: { sound: string }) => {
       playSoundEffect(data.sound);
-    });
+    };
 
+    // 3. Nos suscribimos a los eventos del socket
+    socket.on("connect", onConnect);
+    socket.on(SocketEvents.ROOM_UPDATED, onRoomUpdated);
+    socket.on(SocketEvents.PLAY_SOUND, onPlaySound);
+
+    // 4. Limpiamos los eventos al desmontar para evitar duplicados
     return () => {
-      socket.off("connect");
-      socket.off(SocketEvents.ROOM_UPDATED);
-      socket.off(SocketEvents.PLAY_SOUND);
+      socket.off("connect", onConnect);
+      socket.off(SocketEvents.ROOM_UPDATED, onRoomUpdated);
+      socket.off(SocketEvents.PLAY_SOUND, onPlaySound);
     };
   }, []);
 
