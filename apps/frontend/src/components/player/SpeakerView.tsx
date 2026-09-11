@@ -18,14 +18,25 @@ export function SpeakerView({ room, onAction, onStartTurn }: SpeakerViewProps) {
 
       {isWaiting ? (
         <div className="mt-8 space-y-4">
-          <p className="text-slate-300">
-            {mimireto.status === "PAUSED"
-              ? "Juego en pausa."
-              : "Asegúrate de que todos estén listos."}
-          </p>
+          {mimireto.status === "PAUSED" ? (
+            <div className="bg-amber-950/70 border border-amber-500/50 rounded-xl p-3 text-amber-300 text-xs font-medium space-y-1">
+              <p className="font-bold text-sm text-amber-400 uppercase tracking-wide">
+                ⏸️ Partida en Pausa
+              </p>
+              <p>
+                Alguien se desconectó. Solo tú (el Orador) puedes reanudar el reloj
+                cuando todos estén listos.
+              </p>
+            </div>
+          ) : (
+            <p className="text-slate-300 text-sm">
+              Asegúrate de que todos estén listos.
+            </p>
+          )}
+
           <button
             onClick={onStartTurn}
-            className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 transition-all"
+            className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 transition-all cursor-pointer"
           >
             {mimireto.status === "PAUSED"
               ? "¡Reanudar Reloj!"
