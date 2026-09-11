@@ -108,7 +108,13 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     );
 
     if (updatedRoom) {
-      // Emitimos el estado actualizado a toda la sala
+      // Emitimos el sonido a la sala (Solo si es Acierto o Falta)
+      if (data.action === 'SUCCESS' || data.action === 'FOUL') {
+        this.server
+          .to(data.roomCode)
+          .emit(SocketEvents.PLAY_SOUND, { sound: data.action });
+      }
+
       this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
         message: `Acción procesada: ${data.action}`,
         room: updatedRoom,
@@ -174,16 +180,28 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
       if (room.mimireto && room.mimireto.timeLeft > 0) {
         room.mimireto.timeLeft -= 1;
 
-        // Emitimos el tick a todos
+        // Sonido de "Tic-Tac" en los últimos 5 segundos
+        if (room.mimireto.timeLeft <= 5 && room.mimireto.timeLeft > 0 && room.mimireto.timeLeft % 2 === 1) {
+          this.server
+            .to(data.roomCode)
+            .emit(SocketEvents.PLAY_SOUND, { sound: 'TICK' });
+        }
+
         this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
           message: 'Tick',
           room,
         });
 
-        // Si llegó a cero, paramos el reloj y rotamos
         if (room.mimireto.timeLeft === 0) {
           clearInterval(this.activeTimers.get(data.roomCode));
+
+          // Sonido de tiempo agotado
+          this.server
+            .to(data.roomCode)
+            .emit(SocketEvents.PLAY_SOUND, { sound: 'TIME_UP' });
+
           const updatedRoom = this.roomService.rotateTurn(data.roomCode);
+
           if (updatedRoom) {
             this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
               message: '¡Tiempo agotado! Cambio de turno.',

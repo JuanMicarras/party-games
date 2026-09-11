@@ -6,6 +6,7 @@
   START_GAME: 'start_game',
   CARD_ACTION: 'card_action',
   START_TURN: 'start_turn',
+  PLAY_SOUND: 'play_sound', 
   ERROR: "error",
 } as const;
 
@@ -69,4 +70,8 @@ export interface StartGamePayload {
 export interface CardActionPayload {
   roomCode: string;
   action: 'SUCCESS' | 'PASS' | 'FOUL';
+}
+
+export interface PlaySoundPayload {
+  sound: 'SUCCESS' | 'FOUL' | 'TICK' | 'TIME_UP';
 }

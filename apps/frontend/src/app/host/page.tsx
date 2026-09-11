@@ -25,6 +25,32 @@ export default function HostPage() {
     socket.on(SocketEvents.ROOM_UPDATED, (data: RoomUpdatedPayload) => {
       setRoom(data.room);
     });
+    
+    // NUEVO: Escuchador de sonidos
+    socket.on(SocketEvents.PLAY_SOUND, (data: { sound: string }) => {
+      let audioUrl = '';
+      switch (data.sound) {
+        case 'SUCCESS':
+          audioUrl = 'https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg'; // Ding
+          break;
+        case 'FOUL':
+          audioUrl = 'https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg'; 
+          break;
+        case 'TICK':
+          audioUrl = 'https://actions.google.com/sounds/v1/ui/button_click.ogg'; 
+          break;
+        case 'TIME_UP':
+          audioUrl = 'https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg'; // Alarma final
+          break;
+      }
+
+      if (audioUrl) {
+        const audio = new Audio(audioUrl);
+        // Bajamos un poco el volumen del tick para que no aturda
+        if (data.sound === 'TICK') audio.volume = 0.3;
+        audio.play().catch((err) => console.log('Bloqueado por el navegador', err));
+      }
+    });
 
     return () => {
       socket.disconnect();

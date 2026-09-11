@@ -8,20 +8,19 @@ export class RoomService {
   private rooms: Map<string, RoomState> = new Map();
 
   private getDeck(): MimiretoCard[] {
-    try {
-      // process.cwd() apunta a apps/backend
-      const filePath = path.join(process.cwd(), 'cartas.json');
-      const fileData = fs.readFileSync(filePath, 'utf-8');
-      return JSON.parse(fileData);
-    } catch (error) {
-      console.error(
-        'Error leyendo cartas.json. Verifica que el archivo exista en apps/backend.',
-        error,
-      );
-      // Mazo de respaldo por si el archivo falla
-      return [{ word: 'Error', forbidden: ['Falta', 'Archivo', 'JSON'] }];
-    }
+  try {
+    // Apuntamos a la nueva ruta dentro de src/
+    const filePath = path.join(process.cwd(), 'src', 'room', 'data', 'cartas.json');
+    const fileData = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(fileData);
+  } catch (error) {
+    console.error(
+      'Error leyendo cartas.json. Verifica la ruta en apps/backend/src/room/data/',
+      error,
+    );
+    return [{ word: 'Error', forbidden: ['Falta', 'Archivo', 'JSON'] }];
   }
+}
 
   createRoom(hostId: string): string {
     // Generar un código aleatorio de 4 letras (A-Z)
