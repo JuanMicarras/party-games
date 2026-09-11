@@ -163,29 +163,32 @@ export class RoomService {
     const room = this.rooms.get(roomCode);
     if (!room) return null;
 
-    // Buscar si ya existe un jugador con exactamente el mismo nombre (ignorando mayúsculas)
     const existingPlayer = room.players.find(
-      (p) => p.name.toLowerCase() === player.name.toLowerCase(),
+      (p) => p.name.toLowerCase() === player.name.toLowerCase()
     );
 
     if (existingPlayer) {
-      // ¡Reconexión! Actualizamos su ID de socket y lo marcamos conectado
+      // 1. Guardamos el ID viejo ANTES de sobreescribirlo
+      const oldSocketId = existingPlayer.id;
+
+      // 2. Actualizamos el jugador con su nuevo socket
       existingPlayer.id = player.id;
       existingPlayer.connected = true;
 
-      // Actualizamos los roles en el estado de Mimireto si era él
+      // 3. Comparamos los roles usando el ID viejo, y asignamos el nuevo
       if (room.mimireto) {
-        if (room.mimireto.speakerId === existingPlayer.id)
+        if (room.mimireto.speakerId === oldSocketId) {
           room.mimireto.speakerId = player.id;
-        if (room.mimireto.judgeId === existingPlayer.id)
+        }
+        if (room.mimireto.judgeId === oldSocketId) {
           room.mimireto.judgeId = player.id;
+        }
       }
     } else {
-      // Jugador nuevo
       player.connected = true;
       room.players.push(player);
     }
-
+    
     return room;
   }
 
