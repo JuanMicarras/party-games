@@ -14,10 +14,11 @@ export type SocketEventName = (typeof SocketEvents)[keyof typeof SocketEvents];
 export type GameMode = "LOBBY" | "MIMIRETO" | "POPSAUCE";
 
 export interface Player {
-  id: string; // El ID del socket del cliente
+  id: string; 
   name: string;
   team?: "A" | "B";
   isHost: boolean;
+  connected?: boolean;
 }
 // NUEVO: Estructura de una carta de Mimireto
 export interface MimiretoCard {
@@ -33,7 +34,7 @@ export interface MimiretoState {
   speakerId: string | null; // Quien tiene que hacer adivinar
   judgeId: string | null;   // El rival que vigila las prohibidas
   currentCard: MimiretoCard | null;
-  status: 'WAITING' | 'PLAYING' | 'TIME_UP' | 'FINISHED';
+  status: 'WAITING' | 'PLAYING' | 'TIME_UP' | 'FINISHED' | 'PAUSED' ;
   timeLeft: number; // <-- El reloj
   teamASpeakerIndex: number; // <-- Para saber quién sigue
   teamBSpeakerIndex: number;

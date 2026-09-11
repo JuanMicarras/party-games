@@ -13,8 +13,8 @@ import {
   type JoinRoomPayload,
   type RoomUpdatedPayload,
   type CardActionPayload,
-//   type startGamePayload,
-    type Player,
+  //   type startGamePayload,
+  type Player,
 } from '@party-games/shared';
 import { RoomService } from './room.service.js';
 
@@ -29,7 +29,6 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
   server: Server;
   private activeTimers: Map<string, NodeJS.Timeout> = new Map();
 
-
   // Inyectar el RoomService
   constructor(private readonly roomService: RoomService) {}
 
@@ -40,12 +39,19 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
   handleDisconnect(client: Socket) {
     console.log(`🔴 Cliente desconectado: ${client.id}`);
     const affectedRoomCode = this.roomService.removePlayer(client.id);
-    
+
     if (affectedRoomCode) {
       const room = this.roomService.getRoom(affectedRoomCode);
       if (room) {
+        // Si el servicio pausó el juego, detenemos el cronómetro
+        if (room.mimireto?.status === 'PAUSED') {
+          if (this.activeTimers.has(affectedRoomCode)) {
+            clearInterval(this.activeTimers.get(affectedRoomCode));
+          }
+        }
+
         this.server.to(affectedRoomCode).emit(SocketEvents.ROOM_UPDATED, {
-          message: 'Un jugador se ha desconectado',
+          message: 'Alguien se ha desconectado.',
           room,
         });
       }
@@ -57,7 +63,7 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
   handleCreateRoom(@ConnectedSocket() client: Socket) {
     const roomCode = this.roomService.createRoom(client.id);
     client.join(roomCode); // El TV se une a la sala invisiblemente
-    
+
     const room = this.roomService.getRoom(roomCode);
     if (room) {
       client.emit(SocketEvents.ROOM_UPDATED, {
@@ -74,15 +80,20 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @ConnectedSocket() client: Socket,
   ) {
     // Pasamos el multiplicador al servicio
-    const updatedRoom = this.roomService.startGame(data.roomCode, data.roundsMultiplier);
-    
+    const updatedRoom = this.roomService.startGame(
+      data.roomCode,
+      data.roundsMultiplier,
+    );
+
     if (updatedRoom) {
       this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
         message: '¡Los equipos han sido formados!',
         room: updatedRoom,
       });
     } else {
-      client.emit(SocketEvents.ERROR, { message: 'No hay suficientes jugadores para empezar' });
+      client.emit(SocketEvents.ERROR, {
+        message: 'No hay suficientes jugadores para empezar',
+      });
     }
   }
 
@@ -91,8 +102,11 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @MessageBody() data: CardActionPayload,
     @ConnectedSocket() client: Socket,
   ) {
-    const updatedRoom = this.roomService.handleCardAction(data.roomCode, data.action);
-    
+    const updatedRoom = this.roomService.handleCardAction(
+      data.roomCode,
+      data.action,
+    );
+
     if (updatedRoom) {
       // Emitimos el estado actualizado a toda la sala
       this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
@@ -110,9 +124,9 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
   ) {
     const room = this.roomService.getRoom(data.roomCode);
     if (!room) {
-       // Si el código no existe, le avisamos al cliente
-       client.emit(SocketEvents.ERROR, { message: 'La sala no existe' });
-       return;
+      // Si el código no existe, le avisamos al cliente
+      client.emit(SocketEvents.ERROR, { message: 'La sala no existe' });
+      return;
     }
 
     const newPlayer: Player = {
@@ -144,7 +158,6 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     const room = this.roomService.getRoom(data.roomCode);
     if (!room || !room.mimireto) return;
 
-    // Cambiamos el estado y avisamos que arrancó
     room.mimireto.status = 'PLAYING';
     this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
       message: '¡El tiempo corre!',
@@ -160,7 +173,7 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     const timer = setInterval(() => {
       if (room.mimireto && room.mimireto.timeLeft > 0) {
         room.mimireto.timeLeft -= 1;
-        
+
         // Emitimos el tick a todos
         this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
           message: 'Tick',
@@ -183,5 +196,4 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
     this.activeTimers.set(data.roomCode, timer);
   }
-
 }

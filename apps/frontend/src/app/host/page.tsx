@@ -141,6 +141,10 @@ export default function HostPage() {
                       ¡TIEMPO!
                     </span>
                   </div>
+                ) : room.mimireto.status === "PAUSED" ? (
+                  <div className="animate-pulse bg-amber-500 px-6 py-2 rounded-full mb-4 text-slate-950 font-black tracking-wide uppercase">
+                    ⚠️ ¡JUEGO PAUSADO! ALGUIEN SE DESCONECTÓ
+                  </div>
                 ) : (
                   <div className="text-xl text-slate-300">
                     Turno del Equipo{" "}
@@ -152,10 +156,12 @@ export default function HostPage() {
 
                 {/* El Reloj Gigante */}
                 <div
-                  className={`text-8xl font-black font-mono tabular-nums ${
-                    room.mimireto.timeLeft <= 10
-                      ? "text-red-500 animate-pulse"
-                      : "text-emerald-400"
+                  className={`text-8xl font-black font-mono tabular-nums transition-colors duration-300 ${
+                    room.mimireto.status === "PAUSED"
+                      ? "text-amber-500 opacity-60"
+                      : (room.mimireto.timeLeft ?? 0) <= 10
+                        ? "text-red-500 animate-pulse"
+                        : "text-emerald-400"
                   }`}
                 >
                   00:{(room.mimireto.timeLeft ?? 0).toString().padStart(2, "0")}

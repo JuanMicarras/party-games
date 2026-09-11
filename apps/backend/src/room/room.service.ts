@@ -163,9 +163,26 @@ export class RoomService {
     const room = this.rooms.get(roomCode);
     if (!room) return null;
 
-    // Evitar duplicados si el mismo socket intenta unirse dos veces
-    const exists = room.players.find((p) => p.id === player.id);
-    if (!exists) {
+    // Buscar si ya existe un jugador con exactamente el mismo nombre (ignorando mayúsculas)
+    const existingPlayer = room.players.find(
+      (p) => p.name.toLowerCase() === player.name.toLowerCase(),
+    );
+
+    if (existingPlayer) {
+      // ¡Reconexión! Actualizamos su ID de socket y lo marcamos conectado
+      existingPlayer.id = player.id;
+      existingPlayer.connected = true;
+
+      // Actualizamos los roles en el estado de Mimireto si era él
+      if (room.mimireto) {
+        if (room.mimireto.speakerId === existingPlayer.id)
+          room.mimireto.speakerId = player.id;
+        if (room.mimireto.judgeId === existingPlayer.id)
+          room.mimireto.judgeId = player.id;
+      }
+    } else {
+      // Jugador nuevo
+      player.connected = true;
       room.players.push(player);
     }
 
@@ -177,19 +194,28 @@ export class RoomService {
   }
 
   removePlayer(socketId: string) {
-    // Buscar al jugador en todas las salas para eliminarlo si se desconecta
-    for (const [roomCode, room] of this.rooms.entries()) {
-      const initialLength = room.players.length;
-      room.players = room.players.filter((p) => p.id !== socketId);
+    let affectedRoomCode = null;
 
-      if (room.players.length < initialLength) {
-        // Si la sala queda vacía, la eliminamos de la memoria
-        if (room.players.length === 0) {
-          this.rooms.delete(roomCode);
+    for (const [roomCode, room] of this.rooms.entries()) {
+      const player = room.players.find((p) => p.id === socketId);
+
+      if (player) {
+        player.connected = false;
+        affectedRoomCode = roomCode;
+
+        // Si estamos jugando y se desconecta un jugador clave, pausamos la partida
+        if (room.mimireto && room.mimireto.status === 'PLAYING') {
+          if (
+            room.mimireto.speakerId === socketId ||
+            room.mimireto.judgeId === socketId
+          ) {
+            room.mimireto.status = 'PAUSED';
+          }
         }
-        return roomCode; // Retorna el código de la sala afectada
+
+        // Opcional: Si el lobby está en modo LOBBY y todos se van, limpiamos la sala (lo omitimos por simplicidad del MVP)
       }
     }
-    return null;
+    return affectedRoomCode;
   }
 }

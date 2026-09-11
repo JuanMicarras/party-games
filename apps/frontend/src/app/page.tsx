@@ -196,17 +196,23 @@ export default function Home() {
                             ¡ES TU TURNO!
                           </p>
 
+                          {/* Botón de Iniciar / Reanudar */}
                           {room.mimireto.status === "WAITING" ||
-                          room.mimireto.status === "TIME_UP" ? (
+                          room.mimireto.status === "TIME_UP" ||
+                          room.mimireto.status === "PAUSED" ? (
                             <div className="mt-8 space-y-4">
                               <p className="text-slate-300">
-                                Asegúrate de que todos estén listos.
+                                {room.mimireto.status === "PAUSED"
+                                  ? "Juego en pausa."
+                                  : "Asegúrate de que todos estén listos."}
                               </p>
                               <button
                                 onClick={startTurn}
-                                className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 transition-all cursor-pointer"
+                                className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 transition-all"
                               >
-                                ¡Iniciar Reloj!
+                                {room.mimireto.status === "PAUSED"
+                                  ? "¡Reanudar Reloj!"
+                                  : "¡Iniciar Reloj!"}
                               </button>
                             </div>
                           ) : (
