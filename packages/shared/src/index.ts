@@ -33,10 +33,12 @@ export interface MimiretoState {
   speakerId: string | null; // Quien tiene que hacer adivinar
   judgeId: string | null;   // El rival que vigila las prohibidas
   currentCard: MimiretoCard | null;
-  status: 'WAITING' | 'PLAYING' | 'TIME_UP';
+  status: 'WAITING' | 'PLAYING' | 'TIME_UP' | 'FINISHED';
   timeLeft: number; // <-- El reloj
   teamASpeakerIndex: number; // <-- Para saber quién sigue
   teamBSpeakerIndex: number;
+  totalTurns: number;  // <-- Límite calculado de turnos
+  turnsPlayed: number; // <-- Turnos transcurridos
 }
 
 export interface RoomState {
@@ -60,6 +62,7 @@ export interface RoomUpdatedPayload {
 
 export interface StartGamePayload {
   roomCode: string;
+  roundsMultiplier: number; // 1 para Rápida, 2 para Estándar
 }
 
 export interface CardActionPayload {

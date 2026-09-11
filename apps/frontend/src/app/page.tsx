@@ -173,124 +173,151 @@ export default function Home() {
                   Equipo {currentPlayer?.team ?? "Sin Asignar"}
                 </div>
 
-                {/* ROL 1: ERES EL ORADOR */}
-                {room.mimireto.speakerId === socket.id &&
-                  room.mimireto.currentCard && (
-                    <div className="bg-emerald-900/30 border-2 border-emerald-500 rounded-xl p-6 text-center shadow-lg">
-                      <p className="text-emerald-400 font-bold mb-1">
-                        ¡ES TU TURNO!
-                      </p>
+                {/* SI EL JUEGO TERMINÓ */}
+                {room.mimireto.status === "FINISHED" ? (
+                  <div className="text-center p-8 bg-slate-950 rounded-2xl border border-slate-800 shadow-xl">
+                    <span className="text-6xl animate-bounce inline-block">
+                      🏆
+                    </span>
+                    <p className="mt-6 font-bold text-2xl text-amber-400">
+                      ¡Partida Finalizada!
+                    </p>
+                    <p className="text-slate-400 mt-2 text-sm">
+                      Mira los resultados en la pantalla principal.
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    {/* ROL 1: ERES EL ORADOR */}
+                    {room.mimireto.speakerId === socket?.id &&
+                      room.mimireto.currentCard && (
+                        <div className="bg-emerald-900/30 border-2 border-emerald-500 rounded-xl p-6 text-center shadow-lg">
+                          <p className="text-emerald-400 font-bold mb-1">
+                            ¡ES TU TURNO!
+                          </p>
 
-                      {room.mimireto.status === "WAITING" ||
-                      room.mimireto.status === "TIME_UP" ? (
-                        <div className="mt-8 space-y-4">
-                          <p className="text-slate-300">
-                            Asegúrate de que todos estén listos.
-                          </p>
-                          <button
-                            onClick={startTurn}
-                            className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 transition-all"
-                          >
-                            ¡Iniciar Reloj!
-                          </button>
+                          {room.mimireto.status === "WAITING" ||
+                          room.mimireto.status === "TIME_UP" ? (
+                            <div className="mt-8 space-y-4">
+                              <p className="text-slate-300">
+                                Asegúrate de que todos estén listos.
+                              </p>
+                              <button
+                                onClick={startTurn}
+                                className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 transition-all cursor-pointer"
+                              >
+                                ¡Iniciar Reloj!
+                              </button>
+                            </div>
+                          ) : (
+                            <>
+                              <p className="text-sm text-slate-300 mb-4">
+                                Haz que tu equipo adivine:
+                              </p>
+                              <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-wider">
+                                {room.mimireto.currentCard.word}
+                              </h2>
+
+                              {/* Palabras Prohibidas con lectura limpia */}
+                              <div className="bg-red-950/40 border border-red-900/60 p-4 rounded-xl text-left">
+                                <p className="text-red-400 font-bold text-xs mb-3 tracking-wider uppercase text-center">
+                                  Palabras Prohibidas
+                                </p>
+                                <div className="flex flex-col gap-2">
+                                  {room.mimireto.currentCard.forbidden.map(
+                                    (word, idx) => (
+                                      <div
+                                        key={idx}
+                                        className="flex items-center justify-between px-3 py-2 bg-red-900/20 border border-red-500/20 rounded-lg"
+                                      >
+                                        <span className="text-base font-semibold text-red-200">
+                                          {word}
+                                        </span>
+                                        <span className="text-xs font-bold text-red-500 bg-red-500/10 px-2 py-0.5 rounded-full border border-red-500/30">
+                                          ✕
+                                        </span>
+                                      </div>
+                                    ),
+                                  )}
+                                </div>
+                              </div>
+
+                              <div className="flex gap-4 mt-6">
+                                <button
+                                  onClick={() => emitCardAction("PASS")}
+                                  className="flex-1 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition cursor-pointer"
+                                >
+                                  Pasar
+                                </button>
+                                <button
+                                  onClick={() => emitCardAction("SUCCESS")}
+                                  className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 active:shadow-none transition cursor-pointer"
+                                >
+                                  +1 Acierto
+                                </button>
+                              </div>
+                            </>
+                          )}
                         </div>
-                      ) : (
-                        <>
-                          <p className="text-sm text-slate-300 mb-4">
-                            Haz que tu equipo adivine:
+                      )}
+
+                    {/* ROL 2: ERES EL JUEZ */}
+                    {room.mimireto.judgeId === socket?.id &&
+                      room.mimireto.currentCard && (
+                        <div className="bg-red-900/30 border-2 border-red-500 rounded-xl p-6 text-center shadow-lg">
+                          <p className="text-red-400 font-bold mb-1">
+                            ERES EL JUEZ
                           </p>
-                          <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-wider">
+                          <p className="text-sm text-slate-300 mb-4">
+                            Vigila que no diga:
+                          </p>
+                          <h2 className="text-2xl font-bold text-slate-400 mb-4">
                             {room.mimireto.currentCard.word}
                           </h2>
 
-                          <div className="bg-red-950/50 border border-red-900 p-4 rounded-lg">
-                            <p className="text-red-400 font-bold text-sm mb-3">
-                              PALABRAS PROHIBIDAS:
-                            </p>
-                            <ul className="space-y-2">
-                              {room.mimireto.currentCard.forbidden.map(
-                                (word, idx) => (
-                                  <li
-                                    key={idx}
-                                    className="text-lg font-semibold text-red-200 line-through decoration-red-500 decoration-2"
-                                  >
+                          <div className="flex flex-col gap-2 mb-8 text-left">
+                            {room.mimireto.currentCard.forbidden.map(
+                              (word, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-center justify-between px-3 py-2 bg-red-950/60 border border-red-800/50 rounded-lg"
+                                >
+                                  <span className="text-lg font-bold text-red-400">
                                     {word}
-                                  </li>
-                                ),
-                              )}
-                            </ul>
+                                  </span>
+                                  <span className="text-xs font-bold text-red-500 bg-red-500/20 px-2 py-0.5 rounded-full border border-red-500/40">
+                                    ✕
+                                  </span>
+                                </div>
+                              ),
+                            )}
                           </div>
 
-                          <div className="flex gap-4 mt-6">
-                            <button
-                              onClick={() => emitCardAction("PASS")}
-                              className="flex-1 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition"
-                            >
-                              Pasar
-                            </button>
-                            <button
-                              onClick={() => emitCardAction("SUCCESS")}
-                              className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 active:shadow-none transition"
-                            >
-                              +1 Acierto
-                            </button>
-                          </div>
-                        </>
+                          <button
+                            onClick={() => emitCardAction("FOUL")}
+                            className="w-full py-4 bg-red-600 hover:bg-red-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(153,27,27)] active:shadow-[0_0px_0_rgb(153,27,27)] active:translate-y-1 transition-all cursor-pointer"
+                          >
+                            ¡FALTA!
+                          </button>
+                        </div>
                       )}
-                    </div>
-                  )}
 
-                {/* ROL 2: ERES EL JUEZ */}
-                {room.mimireto.judgeId === socket.id &&
-                  room.mimireto.currentCard && (
-                    <div className="bg-red-900/30 border-2 border-red-500 rounded-xl p-6 text-center shadow-lg">
-                      <p className="text-red-400 font-bold mb-1">
-                        ERES EL JUEZ
-                      </p>
-                      <p className="text-sm text-slate-300 mb-4">
-                        Vigila que no diga:
-                      </p>
-                      <h2 className="text-2xl font-bold text-slate-400 mb-4">
-                        {room.mimireto.currentCard.word}
-                      </h2>
-
-                      <ul className="space-y-2 mb-8">
-                        {room.mimireto.currentCard.forbidden.map(
-                          (word, idx) => (
-                            <li
-                              key={idx}
-                              className="text-xl font-bold text-red-400"
-                            >
-                              {word}
-                            </li>
-                          ),
-                        )}
-                      </ul>
-
-                      {/* BOTÓN DEL JUEZ ACTUALIZADO */}
-                      <button
-                        onClick={() => emitCardAction("FOUL")}
-                        className="w-full py-4 bg-red-600 hover:bg-red-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(153,27,27)] active:shadow-[0_0px_0_rgb(153,27,27)] active:translate-y-1 transition-all"
-                      >
-                        ¡FALTA!
-                      </button>
-                    </div>
-                  )}
-
-                {/* ROL 3: ESPECTADOR / ADIVINADOR */}
-                {room.mimireto.speakerId !== socket?.id &&
-                  room.mimireto.judgeId !== socket?.id && (
-                    <div className="text-center p-8 bg-slate-950 rounded-2xl border border-slate-800">
-                      <div className="text-5xl animate-bounce mb-4">🤔</div>
-                      <p className="font-bold text-xl text-amber-400">
-                        ¡Adivina la palabra!
-                      </p>
-                      <p className="text-slate-400 text-sm mt-2">
-                        Escucha con atención las pistas de tu orador y no te
-                        dejes penalizar.
-                      </p>
-                    </div>
-                  )}
+                    {/* ROL 3: ESPECTADOR / ADIVINADOR */}
+                    {room.mimireto.speakerId !== socket?.id &&
+                      room.mimireto.judgeId !== socket?.id && (
+                        <div className="text-center p-8 bg-slate-950 rounded-2xl border border-slate-800">
+                          <div className="text-5xl animate-bounce mb-4">🤔</div>
+                          <p className="font-bold text-xl text-amber-400">
+                            ¡Adivina la palabra!
+                          </p>
+                          <p className="text-slate-400 text-sm mt-2">
+                            Escucha con atención las pistas de tu orador y no te
+                            dejes penalizar.
+                          </p>
+                        </div>
+                      )}
+                  </>
+                )}
               </div>
             )}
           </div>

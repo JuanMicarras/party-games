@@ -67,17 +67,16 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     }
   }
 
-  // NUEVO: El TV dispara este evento para iniciar la partida
+  // Actualiza handleStartGame:
   @SubscribeMessage(SocketEvents.START_GAME)
   handleStartGame(
-    @MessageBody() data: { roomCode: string },
+    @MessageBody() data: { roomCode: string; roundsMultiplier: number }, // <-- Tipado actualizado
     @ConnectedSocket() client: Socket,
   ) {
-    const updatedRoom = this.roomService.startGame(data.roomCode);
+    // Pasamos el multiplicador al servicio
+    const updatedRoom = this.roomService.startGame(data.roomCode, data.roundsMultiplier);
     
     if (updatedRoom) {
-      console.log(`🚀 [Sala ${data.roomCode}] Modo cambiado a MIMIRETO`);
-      
       this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
         message: '¡Los equipos han sido formados!',
         room: updatedRoom,
@@ -184,5 +183,5 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
     this.activeTimers.set(data.roomCode, timer);
   }
-  
+
 }
