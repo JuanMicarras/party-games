@@ -28,6 +28,9 @@ export class MimiretoService {
       }
     });
 
+    const teamAPlayerIds = teamA.map((p) => p.id);
+    const teamBPlayerIds = teamB.map((p) => p.id);
+
     const maxTeamSize = Math.max(teamA.length, teamB.length);
     const totalTurns = maxTeamSize * 2 * roundsMultiplier;
     const initialCard = this.deckService.getRandomCard();
@@ -36,15 +39,17 @@ export class MimiretoService {
       teamAScore: 0,
       teamBScore: 0,
       currentTurn: 'A',
-      speakerId: teamA[0]?.id || null,
-      judgeId: teamB[0]?.id || null,
+      speakerId: teamAPlayerIds[0] || null,
+      judgeId: teamBPlayerIds[0] || null,
       currentCard: initialCard,
       status: 'WAITING',
-      timeLeft: 60,
+      timeLeft: 3,
       teamASpeakerIndex: 0,
       teamBSpeakerIndex: 0,
       totalTurns,
       turnsPlayed: 0,
+      teamAPlayerIds,
+      teamBPlayerIds,
     };
 
     this.logger.log(
@@ -115,25 +120,56 @@ export class MimiretoService {
       return room;
     }
 
-    const teamA = room.players.filter((p: Player) => p.team === 'A');
-    const teamB = room.players.filter((p: Player) => p.team === 'B');
+    // Resolver los jugadores de cada equipo preservando estrictamente el orden establecido al inicio
+    const teamAPlayers = (state.teamAPlayerIds || [])
+      .map((id) => room.players.find((p) => p.id === id))
+      .filter((p): p is Player => !!p);
+    const resolvedTeamA =
+      teamAPlayers.length > 0
+        ? teamAPlayers
+        : room.players.filter((p: Player) => p.team === 'A');
 
+    const teamBPlayers = (state.teamBPlayerIds || [])
+      .map((id) => room.players.find((p) => p.id === id))
+      .filter((p): p is Player => !!p);
+    const resolvedTeamB =
+      teamBPlayers.length > 0
+        ? teamBPlayers
+        : room.players.filter((p: Player) => p.team === 'B');
+
+    // Alternar turno entre equipos: A -> B -> A -> B ...
     state.currentTurn = state.currentTurn === 'A' ? 'B' : 'A';
 
+    // Número de turnos completados por el equipo que va a jugar:
+    // Turno 0 del juego (A): floor(0/2) = 0
+    // Turno 1 del juego (B): floor(1/2) = 0
+    // Turno 2 del juego (A): floor(2/2) = 1
+    // Turno 3 del juego (B): floor(3/2) = 1
+    // Turno 4 del juego (A): floor(4/2) = 2
+    // Turno 5 del juego (B): floor(5/2) = 2
+    // Esto garantiza que cada integrante del equipo sea orador al menos una vez antes de repetir.
+    const teamTurnNumber = Math.floor(state.turnsPlayed / 2);
+
     if (state.currentTurn === 'A') {
-      state.teamASpeakerIndex = (state.teamASpeakerIndex + 1) % (teamA.length || 1);
-      state.speakerId = teamA[state.teamASpeakerIndex]?.id || null;
-      state.judgeId = teamB[state.teamBSpeakerIndex]?.id || null;
+      state.teamASpeakerIndex = teamTurnNumber % (resolvedTeamA.length || 1);
+      state.teamBSpeakerIndex = teamTurnNumber % (resolvedTeamB.length || 1);
+      state.speakerId = resolvedTeamA[state.teamASpeakerIndex]?.id || null;
+      state.judgeId = resolvedTeamB[state.teamBSpeakerIndex]?.id || null;
     } else {
-      state.teamBSpeakerIndex = (state.teamBSpeakerIndex + 1) % (teamB.length || 1);
-      state.speakerId = teamB[state.teamBSpeakerIndex]?.id || null;
-      state.judgeId = teamA[state.teamASpeakerIndex]?.id || null;
+      state.teamBSpeakerIndex = teamTurnNumber % (resolvedTeamB.length || 1);
+      state.teamASpeakerIndex = teamTurnNumber % (resolvedTeamA.length || 1);
+      state.speakerId = resolvedTeamB[state.teamBSpeakerIndex]?.id || null;
+      state.judgeId = resolvedTeamA[state.teamASpeakerIndex]?.id || null;
     }
 
     state.status = 'TIME_UP';
-    state.timeLeft = 60;
+    state.timeLeft = 3;
     state.currentCard = this.deckService.getNextCardExcept(
       state.currentCard?.word,
+    );
+
+    this.logger.log(
+      `🔄 Turno ${state.turnsPlayed}/${state.totalTurns} en sala ${room.roomCode}. Turno Equipo ${state.currentTurn}: Orador=${state.speakerId}, Juez=${state.judgeId}`,
     );
 
     return room;

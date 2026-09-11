@@ -51,13 +51,21 @@ export class RoomService {
       existingPlayer.id = player.id;
       existingPlayer.connected = true;
 
-      // Actualizar roles de Mimireto si corresponde
+      // Actualizar roles y orden de turnos en Mimireto si corresponde
       if (room.mimireto) {
         if (room.mimireto.speakerId === oldSocketId) {
           room.mimireto.speakerId = player.id;
         }
         if (room.mimireto.judgeId === oldSocketId) {
           room.mimireto.judgeId = player.id;
+        }
+        if (room.mimireto.teamAPlayerIds) {
+          const idx = room.mimireto.teamAPlayerIds.indexOf(oldSocketId);
+          if (idx !== -1) room.mimireto.teamAPlayerIds[idx] = player.id;
+        }
+        if (room.mimireto.teamBPlayerIds) {
+          const idx = room.mimireto.teamBPlayerIds.indexOf(oldSocketId);
+          if (idx !== -1) room.mimireto.teamBPlayerIds[idx] = player.id;
         }
       }
 

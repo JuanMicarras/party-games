@@ -48,6 +48,8 @@ export interface MimiretoState {
   teamBSpeakerIndex: number;
   totalTurns: number;
   turnsPlayed: number;
+  teamAPlayerIds?: string[];
+  teamBPlayerIds?: string[];
 }
 
 // ----------------------------------------------------
