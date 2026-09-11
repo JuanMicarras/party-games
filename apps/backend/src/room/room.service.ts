@@ -1,24 +1,36 @@
 import { Injectable } from '@nestjs/common';
-import { RoomState, Player } from '@party-games/shared';
-const MIMIRETO_DECK = [
-  { word: 'Guitarra Acústica', forbidden: ['Instrumento', 'Cuerdas', 'Tocar', 'Música', 'Madera'] },
-  { word: 'Pepperoni', forbidden: ['Pizza', 'Domino\'s', 'Queso', 'Comida', 'Masa'] },
-  { word: 'Pádel', forbidden: ['Deporte', 'Raqueta', 'Pelota', 'Cancha', 'Jaula'] },
-  { word: 'Cosmere', forbidden: ['Libros', 'Sanderson', 'Fantasía', 'Universo', 'Leer'] },
-  { word: 'Percy', forbidden: ['Perro', 'Mascota', 'Animal', 'Peludo', 'Pasear'] }
-];
+import { RoomState, Player, MimiretoCard } from '@party-games/shared';
+import * as fs from 'fs';
+import * as path from 'path';
 
 @Injectable()
 export class RoomService {
-  // Almacenamiento en memoria de las salas activas
   private rooms: Map<string, RoomState> = new Map();
+
+  private getDeck(): MimiretoCard[] {
+    try {
+      // process.cwd() apunta a apps/backend
+      const filePath = path.join(process.cwd(), 'cartas.json');
+      const fileData = fs.readFileSync(filePath, 'utf-8');
+      return JSON.parse(fileData);
+    } catch (error) {
+      console.error(
+        'Error leyendo cartas.json. Verifica que el archivo exista en apps/backend.',
+        error,
+      );
+      // Mazo de respaldo por si el archivo falla
+      return [{ word: 'Error', forbidden: ['Falta', 'Archivo', 'JSON'] }];
+    }
+  }
 
   createRoom(hostId: string): string {
     // Generar un código aleatorio de 4 letras (A-Z)
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let roomCode = '';
     for (let i = 0; i < 4; i++) {
-      roomCode += characters.charAt(Math.floor(Math.random() * characters.length));
+      roomCode += characters.charAt(
+        Math.floor(Math.random() * characters.length),
+      );
     }
 
     const newRoom: RoomState = {
@@ -32,7 +44,6 @@ export class RoomService {
     return roomCode;
   }
 
-  // 1. Actualiza la firma y el estado en startGame:
   startGame(roomCode: string, roundsMultiplier: number = 1): RoomState | null {
     const room = this.rooms.get(roomCode);
     if (!room || room.players.length < 2) return null;
@@ -53,11 +64,11 @@ export class RoomService {
       }
     });
 
-    // Cálculo dinámico de turnos
     const maxTeamSize = Math.max(teamA.length, teamB.length);
     const totalTurns = maxTeamSize * 2 * roundsMultiplier;
 
-    const randomCard = MIMIRETO_DECK[Math.floor(Math.random() * MIMIRETO_DECK.length)];
+    const deck = this.getDeck();
+    const randomCard = deck[Math.floor(Math.random() * deck.length)];
 
     room.mimireto = {
       teamAScore: 0,
@@ -70,62 +81,63 @@ export class RoomService {
       timeLeft: 60,
       teamASpeakerIndex: 0,
       teamBSpeakerIndex: 0,
-      totalTurns,     // <-- Nuevo
-      turnsPlayed: 0, // <-- Nuevo
+      totalTurns,
+      turnsPlayed: 0,
     };
 
     return room;
   }
 
-  handleCardAction(roomCode: string, action: 'SUCCESS' | 'PASS' | 'FOUL'): RoomState | null {
+  handleCardAction(
+    roomCode: string,
+    action: 'SUCCESS' | 'PASS' | 'FOUL',
+  ): RoomState | null {
     const room = this.rooms.get(roomCode);
     if (!room || room.mode !== 'MIMIRETO' || !room.mimireto) return null;
 
     const state = room.mimireto;
 
-    // 1. Aplicar la lógica de puntos
     if (action === 'SUCCESS') {
       if (state.currentTurn === 'A') state.teamAScore += 1;
       else state.teamBScore += 1;
     } else if (action === 'FOUL') {
-      // Las faltas restan 1 punto
       if (state.currentTurn === 'A') state.teamAScore -= 1;
       else state.teamBScore -= 1;
     }
-    // Si la acción es 'PASS', no sumamos ni restamos puntos por ahora
 
-    // 2. Robar una carta nueva que no sea la misma que la anterior
+    // ACTUALIZADO: Cargamos el mazo usando la función
+    const deck = this.getDeck();
     let nextCard;
     do {
-      nextCard = MIMIRETO_DECK[Math.floor(Math.random() * MIMIRETO_DECK.length)];
-    } while (state.currentCard && nextCard.word === state.currentCard.word);
-    
+      nextCard = deck[Math.floor(Math.random() * deck.length)];
+    } while (
+      state.currentCard &&
+      nextCard.word === state.currentCard.word &&
+      deck.length > 1
+    );
+
     state.currentCard = nextCard;
 
     return room;
   }
 
- rotateTurn(roomCode: string): RoomState | null {
+  rotateTurn(roomCode: string): RoomState | null {
     const room = this.rooms.get(roomCode);
     if (!room || !room.mimireto) return null;
 
     const state = room.mimireto;
-    
-    // Sumar el turno que acaba de terminar
     state.turnsPlayed += 1;
 
-    // Verificar si se alcanzó el límite de turnos
     if (state.turnsPlayed >= state.totalTurns) {
       state.status = 'FINISHED';
       return room;
     }
 
-    const teamA = room.players.filter(p => p.team === 'A');
-    const teamB = room.players.filter(p => p.team === 'B');
+    const teamA = room.players.filter((p) => p.team === 'A');
+    const teamB = room.players.filter((p) => p.team === 'B');
 
-    // Cambiar de equipo y rotar jugadores (código existente)
     state.currentTurn = state.currentTurn === 'A' ? 'B' : 'A';
-    
+
     if (state.currentTurn === 'A') {
       state.teamASpeakerIndex = (state.teamASpeakerIndex + 1) % teamA.length;
       state.speakerId = teamA[state.teamASpeakerIndex]?.id || null;
@@ -138,8 +150,10 @@ export class RoomService {
 
     state.status = 'TIME_UP';
     state.timeLeft = 60;
-    
-    const nextCard = MIMIRETO_DECK[Math.floor(Math.random() * MIMIRETO_DECK.length)];
+
+    // ACTUALIZADO: Cargamos el mazo usando la función
+    const deck = this.getDeck();
+    const nextCard = deck[Math.floor(Math.random() * deck.length)];
     state.currentCard = nextCard;
 
     return room;
@@ -154,7 +168,7 @@ export class RoomService {
     if (!exists) {
       room.players.push(player);
     }
-    
+
     return room;
   }
 
@@ -167,7 +181,7 @@ export class RoomService {
     for (const [roomCode, room] of this.rooms.entries()) {
       const initialLength = room.players.length;
       room.players = room.players.filter((p) => p.id !== socketId);
-      
+
       if (room.players.length < initialLength) {
         // Si la sala queda vacía, la eliminamos de la memoria
         if (room.players.length === 0) {
