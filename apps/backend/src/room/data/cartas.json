@@ -1,0 +1,252 @@
+[
+  {
+    "word": "MOISÉS",
+    "forbidden": ["EGIPTO", "MAR", "MANDAMIENTOS", "FARAÓN", "TABLAS"]
+  },
+  {
+    "word": "NOÉ",
+    "forbidden": ["ARCA", "DILUVIO", "ANIMALES", "LLUVIA", "PACTO"]
+  },
+  {
+    "word": "DAVID",
+    "forbidden": ["GOLIAT", "REY", "HONDA", "PIEDRA", "SALMOS"]
+  },
+  {
+    "word": "PEDRO",
+    "forbidden": ["DISCÍPULO", "NEGAR", "AGUA", "ROCA", "GALLO"]
+  },
+  {
+    "word": "PABLO",
+    "forbidden": ["SAULO", "APÓSTOL", "CARTAS", "CIEGO", "DAMASCO"]
+  },
+  {
+    "word": "JONÁS",
+    "forbidden": ["PEZ", "BALLENA", "NÍNIVE", "DESOBEDECER", "BARCO"]
+  },
+  {
+    "word": "SANSÓN",
+    "forbidden": ["FUERZA", "CABELLO", "DALILA", "LEONES", "FILISTEOS"]
+  },
+  {
+    "word": "ABRAHAM",
+    "forbidden": ["PADRE", "ISAAC", "PROMESA", "FE", "SARA"]
+  },
+  {
+    "word": "ZACQUEO",
+    "forbidden": ["ÁRBOL", "BAJITO", "COBRADOR", "IMPUESTOS", "CASA"]
+  },
+  {
+    "word": "LAZARO",
+    "forbidden": ["MUERTO", "RESUCITAR", "TUMBA", "CUEVA", "HERMANAS"]
+  },
+  {
+    "word": "BAUTISMO",
+    "forbidden": ["AGUA", "SUMERGIR", "ESPÍRITU", "RÍO", "JUAN"]
+  },
+  {
+    "word": "SANTA CENA",
+    "forbidden": ["PAN", "VINO", "CUERPO", "SANGRE", "COMPARTIR"]
+  },
+  {
+    "word": "ALABANZA",
+    "forbidden": ["CANTAR", "MÚSICA", "ADORACIÓN", "CANCIÓN", "MANOS"]
+  },
+  {
+    "word": "PASTOR",
+    "forbidden": ["IGLESIA", "PREDICAR", "OVEJAS", "LÍDER", "ALTAR"]
+  },
+  {
+    "word": "BIBLIA",
+    "forbidden": ["LIBRO", "LEER", "VERSÍCULO", "PALABRA", "TESTAMENTO"]
+  },
+  {
+    "word": "ORACIÓN",
+    "forbidden": ["HABLAR", "DIOS", "OJOS", "RODILLAS", "AMÉN"]
+  },
+  {
+    "word": "AYUNO",
+    "forbidden": ["COMIDA", "HAMBRE", "ORAR", "SACRIFICIO", "TIEMPO"]
+  },
+  {
+    "word": "MILAGRO",
+    "forbidden": ["SANIDAD", "SOBRENATURAL", "JESÚS", "IMPOSIBLE", "CREER"]
+  },
+  {
+    "word": "CRUZ",
+    "forbidden": ["MADERA", "MORIR", "SANGRE", "CALVARIO", "ROMANOS"]
+  },
+  {
+    "word": "CÉLULA",
+    "forbidden": ["GRUPO", "JÓVENES", "REUNIÓN", "CASA", "VIERNES"]
+  },
+  {
+    "word": "DIEZMO",
+    "forbidden": ["DINERO", "PORCENTAJE", "OFRENDA", "IGLESIA", "DAR"]
+  },
+  {
+    "word": "ESPÍRITU SANTO",
+    "forbidden": ["TRINIDAD", "FUEGO", "PALOMA", "CONSOLADOR", "LENGUAS"]
+  },
+  {
+    "word": "APOCALIPSIS",
+    "forbidden": ["FIN", "MUNDO", "JUAN", "REVELACIÓN", "BESTIA"]
+  },
+  {
+    "word": "JESÚS",
+    "forbidden": ["CRISTO", "SALVADOR", "NAZARENO", "CRUZ", "RESUCITADO"]
+  },
+  {
+    "word": "PENTECOSTÉS",
+    "forbidden": ["ESPÍRITU SANTO", "APÓSTOLES", "FUEGO", "LENGUAS", "ORACIÓN"]
+  },
+  {
+    "word": "RESURRECCIÓN",
+    "forbidden": ["JESÚS", "TUMBA", "CRUZ", "VICTORIA", "VIDA"]
+  },
+  {
+    "word": "MISIONES",
+    "forbidden": ["EVANGELIZAR", "PAÍSES", "IGLESIA", "DIOS", "TRABAJO"]
+  },
+  {
+    "word": "CONFESIÓN",
+    "forbidden": ["PECADO", "ORACIÓN", "DIOS", "PERDÓN", "RECONCILIACIÓN"]
+  },
+  {
+    "word": "BENDICIÓN",
+    "forbidden": ["DIOS", "FAMILIA", "SALUD", "PROSPERIDAD", "ORACIÓN"]
+  },
+  {
+    "word": "EVANGELIO",
+    "forbidden": ["BUENA NOTICIA", "JESÚS", "SALVACIÓN", "DIOS", "CRISTO"]
+  },
+  {
+    "word": "IGLESIA",
+    "forbidden": ["COMUNIDAD", "CRISTIANOS", "ADORACIÓN", "PASTOR", "REUNIÓN"]
+  },
+  {
+    "word": "ADORACIÓN",
+    "forbidden": ["CANTAR", "DIOS", "ALABANZA", "MANOS", "ESPÍRITU SANTO"]
+  },
+  
+  {
+    "word": "ADÁN",
+    "forbidden": ["EVA", "PRIMERO", "EDÉN", "MANZANA", "BARRO"]
+  },
+  {
+    "word": "ELÍAS",
+    "forbidden": ["PROFETA", "FUEGO", "CARRO", "BAAL", "CIELO"]
+  },
+  {
+    "word": "DANIEL",
+    "forbidden": ["FOSO", "LEONES", "BABILONIA", "ORAR", "SUEÑOS"]
+  },
+  {
+    "word": "JOSÉ",
+    "forbidden": ["TÚNICA", "COLORES", "HERMANOS", "EGIPTO", "SUEÑOS"]
+  },
+  {
+    "word": "JUDAS",
+    "forbidden": ["TRAICIÓN", "MONEDAS", "BESO", "DISCÍPULO", "PLATA"]
+  },
+  {
+    "word": "ESTER",
+    "forbidden": ["REINA", "PUEBLO", "REY", "VALIENTE", "AYUNO"]
+  },
+  {
+    "word": "JUAN EL BAUTISTA",
+    "forbidden": ["DESIERTO", "LANGOSTAS", "MIEL", "VOZ", "CAMELLO"]
+  },
+  {
+    "word": "MARÍA",
+    "forbidden": ["MADRE", "JESÚS", "VIRGEN", "BELÉN", "ÁNGEL"]
+  },
+  {
+    "word": "SALOMÓN",
+    "forbidden": ["SABIDURÍA", "REY", "TEMPLO", "RIQUEZA", "JUICIO"]
+  },
+  {
+    "word": "BUEN SAMARITANO",
+    "forbidden": ["AYUDA", "CAMINO", "HERIDO", "PRÓJIMO", "ACEITE"]
+  },
+  {
+    "word": "HIJO PRÓDIGO",
+    "forbidden": ["HERMANO", "CERDOS", "PADRE", "HERENCIA", "FIESTA"]
+  },
+  {
+    "word": "TORRE DE BABEL",
+    "forbidden": ["IDIOMAS", "LENGUAS", "CIELO", "CONSTRUIR", "CONFUSIÓN"]
+  },
+  {
+    "word": "MANÁ",
+    "forbidden": ["PAN", "DESIERTO", "CIELO", "COMIDA", "MAÑANA"]
+  },
+  {
+    "word": "ARCA DE LA ALIANZA",
+    "forbidden": ["ORO", "TABERNÁCULO", "PRESENCIA", "QUERUBINES", "TABLAS"]
+  },
+  {
+    "word": "JERICÓ",
+    "forbidden": ["MURALLAS", "VUELTAS", "TROMPETAS", "CAER", "JOSUÉ"]
+  },
+  {
+    "word": "BELÉN",
+    "forbidden": ["NACER", "ESTRELLA", "CIUDAD", "PESEBRE", "PASTORES"]
+  },
+  {
+    "word": "DISCÍPULO",
+    "forbidden": ["SEGUIDOR", "DOCE", "APRENDER", "MAESTRO", "PESCADOR"]
+  },
+  {
+    "word": "TESTIMONIO",
+    "forbidden": ["HISTORIA", "EXPERIENCIA", "CONTAR", "CAMBIO", "MICRÓFONO"]
+  },
+  {
+    "word": "EVANGELIZAR",
+    "forbidden": ["CALLE", "HABLAR", "FOLLETO", "COMPARTIR", "BUENAS NUEVAS"]
+  },
+  {
+    "word": "CAMPAMENTO",
+    "forbidden": ["CARPAS", "RETIRO", "JUEGOS", "FOGATA", "FIN DE SEMANA"]
+  },
+  {
+    "word": "OFRENDA",
+    "forbidden": ["DINERO", "SOBRE", "CANASTA", "DAR", "MONEDAS"]
+  },
+  {
+    "word": "CORO",
+    "forbidden": ["VOCES", "CANTAR", "MICRÓFONO", "EQUIPO", "DOMINGO"]
+  },
+  {
+    "word": "GOLIAT",
+    "forbidden": ["GIGANTE", "FILISTEO", "ESPADA", "ARCADAS", "ENORME"]
+  },
+  {
+    "word": "MAR ROJO",
+    "forbidden": ["ABRIR", "AGUA", "SECO", "MOISÉS", "CRUZAR"]
+  },
+  {
+    "word": "SODOMA",
+    "forbidden": ["GOMORRA", "FUEGO", "AZUFRE", "ESTATUA", "SAL"]
+  },
+  {
+    "word": "PENTECOSTÉS",
+    "forbidden": ["ESPÍRITU", "FUEGO", "LENGUAS", "VIENTO", "APÓSTOLES"]
+  },
+  {
+    "word": "GETSEMANÍ",
+    "forbidden": ["HUERTO", "ORAR", "SUDOR", "SANGRE", "DORMIR"]
+  },
+  {
+    "word": "RESURRECCIÓN",
+    "forbidden": ["VIDA", "DOMINGO", "VIVO", "TUMBA", "TERCER DÍA"]
+  },
+  {
+    "word": "DIEZ PLAGAS",
+    "forbidden": ["EGIPTO", "RANAS", "SANGRE", "LANGOSTAS", "MOSCAS"]
+  },
+  {
+    "word": "VIGILIA",
+    "forbidden": ["NOCHE", "DESVELO", "SUEÑO", "ORACIÓN", "MADRUGADA"]
+  }
+  
+]
