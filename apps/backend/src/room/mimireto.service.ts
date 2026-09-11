@@ -43,7 +43,7 @@ export class MimiretoService {
       judgeId: teamBPlayerIds[0] || null,
       currentCard: initialCard,
       status: 'WAITING',
-      timeLeft: 3,
+      timeLeft: 60,
       teamASpeakerIndex: 0,
       teamBSpeakerIndex: 0,
       totalTurns,
@@ -163,7 +163,7 @@ export class MimiretoService {
     }
 
     state.status = 'TIME_UP';
-    state.timeLeft = 3;
+    state.timeLeft = 60;
     state.currentCard = this.deckService.getNextCardExcept(
       state.currentCard?.word,
     );

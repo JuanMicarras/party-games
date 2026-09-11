@@ -36,7 +36,7 @@
     "forbidden": ["ÁRBOL", "BAJITO", "COBRADOR", "IMPUESTOS", "CASA"]
   },
   {
-    "word": "LAZARO",
+    "word": "LÁZARO",
     "forbidden": ["MUERTO", "RESUCITAR", "TUMBA", "CUEVA", "HERMANAS"]
   },
   {
@@ -97,15 +97,15 @@
   },
   {
     "word": "PENTECOSTÉS",
-    "forbidden": ["ESPÍRITU SANTO", "APÓSTOLES", "FUEGO", "LENGUAS", "ORACIÓN"]
+    "forbidden": ["ESPÍRITU SANTO", "APÓSTOLES", "FUEGO", "LENGUAS", "VIENTO"]
   },
   {
     "word": "RESURRECCIÓN",
-    "forbidden": ["JESÚS", "TUMBA", "CRUZ", "VICTORIA", "VIDA"]
+    "forbidden": ["VIDA", "DOMINGO", "VIVO", "TUMBA", "TERCER DÍA"]
   },
   {
     "word": "MISIONES",
-    "forbidden": ["EVANGELIZAR", "PAÍSES", "IGLESIA", "DIOS", "TRABAJO"]
+    "forbidden": ["EVANGELIZAR", "PAÍSES", "IGLESIA", "DIOS", "VIAJE"]
   },
   {
     "word": "CONFESIÓN",
@@ -125,9 +125,8 @@
   },
   {
     "word": "ADORACIÓN",
-    "forbidden": ["CANTAR", "DIOS", "ALABANZA", "MANOS", "ESPÍRITU SANTO"]
+    "forbidden": ["CANTAR", "DIOS", "ALABANZA", "MANOS", "POSTRARSE"]
   },
-  
   {
     "word": "ADÁN",
     "forbidden": ["EVA", "PRIMERO", "EDÉN", "MANZANA", "BARRO"]
@@ -150,7 +149,7 @@
   },
   {
     "word": "ESTER",
-    "forbidden": ["REINA", "PUEBLO", "REY", "VALIENTE", "AYUNO"]
+    "forbidden": ["REINA", "PUEBLO", "REY", "VALIENTE", "ASUERO"]
   },
   {
     "word": "JUAN EL BAUTISTA",
@@ -229,16 +228,8 @@
     "forbidden": ["GOMORRA", "FUEGO", "AZUFRE", "ESTATUA", "SAL"]
   },
   {
-    "word": "PENTECOSTÉS",
-    "forbidden": ["ESPÍRITU", "FUEGO", "LENGUAS", "VIENTO", "APÓSTOLES"]
-  },
-  {
     "word": "GETSEMANÍ",
     "forbidden": ["HUERTO", "ORAR", "SUDOR", "SANGRE", "DORMIR"]
-  },
-  {
-    "word": "RESURRECCIÓN",
-    "forbidden": ["VIDA", "DOMINGO", "VIVO", "TUMBA", "TERCER DÍA"]
   },
   {
     "word": "DIEZ PLAGAS",
@@ -247,6 +238,245 @@
   {
     "word": "VIGILIA",
     "forbidden": ["NOCHE", "DESVELO", "SUEÑO", "ORACIÓN", "MADRUGADA"]
+  },
+  {
+    "word": "JOSUÉ",
+    "forbidden": ["SOL", "LUNA", "VALIENTE", "JERICÓ", "TIERRA"]
+  },
+  {
+    "word": "JACOB",
+    "forbidden": ["ESAÚ", "ESCALERA", "ENGAÑO", "GUISO", "LUCHA"]
+  },
+  {
+    "word": "ESAÚ",
+    "forbidden": ["PRIMOGENITURA", "LENTEJAS", "CAZADOR", "VELLUDO", "HERMANO"]
+  },
+  {
+    "word": "JOB",
+    "forbidden": ["PACIENCIA", "LLAGAS", "SUFRIMIENTO", "PERDER", "AMIGOS"]
+  },
+  {
+    "word": "RUT",
+    "forbidden": ["NOEMÍ", "BOOZ", "ESPIGAR", "SUEGRA", "MOABITA"]
+  },
+  {
+    "word": "GEDEÓN",
+    "forbidden": ["VELLÓN", "TRESCIENTOS", "CÁNTAROS", "TROMPETAS", "MADIANITAS"]
+  },
+  {
+    "word": "NEHEMÍAS",
+    "forbidden": ["MURALLA", "COPAS", "JERUSALÉN", "CONSTRUIR", "PUERTAS"]
+  },
+  {
+    "word": "CAÍN",
+    "forbidden": ["ABEL", "PRIMERO", "MATAR", "HERMANO", "AGRICULTOR"]
+  },
+  {
+    "word": "ABEL",
+    "forbidden": ["OFRENDA", "PASTOR", "OVEJAS", "CAÍN", "SANGRE"]
+  },
+  {
+    "word": "SARA",
+    "forbidden": ["RISA", "ABRAHAM", "ANCIANA", "HIJO", "PROMESA"]
+  },
+  {
+    "word": "ISAAC",
+    "forbidden": ["SACRIFICIO", "LEÑA", "MONTE", "REBECA", "HIJO"]
+  },
+  {
+    "word": "REBECA",
+    "forbidden": ["CAMELLOS", "POZO", "AGUA", "CÁNTARO", "GEMELOS"]
+  },
+  {
+    "word": "RAQUEL",
+    "forbidden": ["HERMOSA", "JACOB", "PASTORA", "SIETE AÑOS", "HIJOS"]
+  },
+  {
+    "word": "LEA",
+    "forbidden": ["PRIMOGÉNITA", "OJOS", "HERMANA", "JACOB", "ENGAÑO"]
+  },
+  {
+    "word": "DÉBORA",
+    "forbidden": ["JUEZA", "PALMERA", "GUERRA", "BARAC", "PROFETA"]
+  },
+  {
+    "word": "ENOC",
+    "forbidden": ["CAMINAR", "DIOS", "DESAPARECER", "VIVIR", "CIELO"]
+  },
+  {
+    "word": "MATUSALÉN",
+    "forbidden": ["AÑOS", "VIEJO", "EDAD", "VIVIR", "NÚMERO"]
+  },
+  {
+    "word": "BALAAM",
+    "forbidden": ["BURRA", "HABLAR", "CAMINO", "MALDECIR", "ÁNGEL"]
+  },
+  {
+    "word": "SAÚL",
+    "forbidden": ["PRIMER", "REY", "ALTO", "CELOS", "LANZA"]
+  },
+  {
+    "word": "JONATÁN",
+    "forbidden": ["AMIGO", "DAVID", "ARCO", "FLECHA", "PACTO"]
+  },
+  {
+    "word": "ABSALÓN",
+    "forbidden": ["CABELLO", "REBELDE", "ÁRBOL", "MULA", "HIJO"]
+  },
+  {
+    "word": "NABUCODONOSOR",
+    "forbidden": ["BABILONIA", "SUEÑO", "ESTATUA", "HIERBA", "LOCO"]
+  },
+  {
+    "word": "HORNO DE FUEGO",
+    "forbidden": ["TRES", "LLAMAS", "DANIEL", "AMIGOS", "BABILONIA"]
+  },
+  {
+    "word": "ESTEBAN",
+    "forbidden": ["PIEDRAS", "MÁRTIR", "ROSTRO", "ÁNGEL", "PERDONAR"]
+  },
+  {
+    "word": "FELIPE",
+    "forbidden": ["ETÍOPE", "CARRO", "EVANGELISTA", "BAUTIZAR", "LEER"]
+  },
+  {
+    "word": "TIMOTEO",
+    "forbidden": ["JOVEN", "CARTAS", "PABLO", "MADRE", "FE"]
+  },
+  {
+    "word": "BERNABÉ",
+    "forbidden": ["CONSUELO", "VIAJES", "GENEROSO", "PABLO", "CAMPO"]
+  },
+  {
+    "word": "TOMÁS",
+    "forbidden": ["DUDAR", "VER", "TOCAR", "HERIDAS", "CREER"]
+  },
+  {
+    "word": "LUCAS",
+    "forbidden": ["MÉDICO", "HECHOS", "EVANGELIO", "ESCRIBIR", "HISTORIA"]
+  },
+  {
+    "word": "MATEO",
+    "forbidden": ["COBRADOR", "IMPUESTOS", "LEVÍ", "APÓSTOL", "SEGUIR"]
+  },
+  {
+    "word": "SILAS",
+    "forbidden": ["CÁRCEL", "CANTAR", "TERREMOTO", "PABLO", "MEDIANOCHE"]
+  },
+  {
+    "word": "NICODEMO",
+    "forbidden": ["NOCHE", "MAESTRO", "NACER", "DE NUEVO", "FARISEO"]
+  },
+  {
+    "word": "PONCIO PILATO",
+    "forbidden": ["MANOS", "LAVAR", "CONDENAR", "GOBERNADOR", "ROMANO"]
+  },
+  {
+    "word": "BARRABÁS",
+    "forbidden": ["PRESO", "LADRÓN", "SOLTAR", "PUEBLO", "LIBRE"]
+  },
+  {
+    "word": "SIMÓN DE CIRENE",
+    "forbidden": ["CRUZ", "CARGAR", "OBLIGADO", "AYUDAR", "CAMINO"]
+  },
+  {
+    "word": "JOSÉ DE ARIMATEA",
+    "forbidden": ["TUMBA", "RICO", "PEDIR", "CUERPO", "SEPULCRO"]
+  },
+  {
+    "word": "ANANÍAS Y SAFIRA",
+    "forbidden": ["MENTIRA", "CAMPO", "DINERO", "CAER", "MUERTO"]
+  },
+  {
+    "word": "JUAN MARCOS",
+    "forbidden": ["EVANGELIO", "JOVEN", "PABLO", "VIAJE", "DESERTOR"]
+  },
+  {
+    "word": "BODA DE CANÁ",
+    "forbidden": ["AGUA", "VINO", "TINAJAS", "PRIMER", "FIESTA"]
+  },
+  {
+    "word": "MULTIPLICACIÓN",
+    "forbidden": ["PANES", "PECES", "CINCO", "DOS", "CANASTAS"]
+  },
+  {
+    "word": "CAMINAR EN EL AGUA",
+    "forbidden": ["HUNDIRSE", "VIENTO", "PEDRO", "OLAS", "BARCA"]
+  },
+  {
+    "word": "CIEGO BARTIMEO",
+    "forbidden": ["CAPA", "GRITAR", "JESÚS", "VER", "CAMINO"]
+  },
+  {
+    "word": "DIEZ LEPROSOS",
+    "forbidden": ["UNO", "AGRADECIDO", "VOLVER", "PIEL", "GRACIAS"]
+  },
+  {
+    "word": "ARCOÍRIS",
+    "forbidden": ["PACTO", "COLORES", "CIELO", "NOÉ", "LLUVIA"]
+  },
+  {
+    "word": "MONTE SINAÍ",
+    "forbidden": ["TABLAS", "FUEGO", "HUMO", "NUBE", "MOISÉS"]
+  },
+  {
+    "word": "RÍO JORDÁN",
+    "forbidden": ["BAUTISMO", "SUMERGIR", "NAAMÁN", "AGUA", "ENTRAR"]
+  },
+  {
+    "word": "CORONA DE ESPINAS",
+    "forbidden": ["CABEZA", "SOLDADOS", "BURLA", "SANGRE", "REY"]
+  },
+  {
+    "word": "LAVATORIO DE PIES",
+    "forbidden": ["TOALLA", "AGUA", "CENA", "HUMILDAD", "PEDRO"]
+  },
+  {
+    "word": "FRUTO DEL ESPÍRITU",
+    "forbidden": ["AMOR", "GOZO", "PAZ", "PACIENCIA", "GÁLATAS"]
+  },
+  {
+    "word": "ARMADURA DE DIOS",
+    "forbidden": ["CASCO", "ESCUDO", "ESPADA", "FE", "EFESIOS"]
+  },
+  {
+    "word": "PÚLPITO",
+    "forbidden": ["MADERA", "PASTOR", "PREDICAR", "ENFRENTE", "PARARSE"]
+  },
+  {
+    "word": "MICRÓFONO",
+    "forbidden": ["CABLE", "SONIDO", "VOLUMEN", "HABLAR", "CANTAR"]
+  },
+  {
+    "word": "GUITARRA",
+    "forbidden": ["CUERDAS", "ACORDES", "ALABANZA", "TOCAR", "MÚSICA"]
+  },
+  {
+    "word": "BATERÍA",
+    "forbidden": ["TAMBORES", "PLATILLOS", "RITMO", "BAQUETAS", "FUERTE"]
+  },
+  {
+    "word": "GRUPO DE WHATSAPP",
+    "forbidden": ["PETICIONES", "MENSAJES", "CADENA", "AVISOS", "AUDIO"]
+  },
+  {
+    "word": "DESAYUNO DE ORACIÓN",
+    "forbidden": ["TAMALES", "CAFÉ", "MAÑANA", "PAN", "HERMANOS"]
+  },
+  {
+    "word": "CONVIVIO",
+    "forbidden": ["COMIDA", "PLATOS", "COMPARTIR", "GASEOSA", "FIESTA"]
+  },
+  {
+    "word": "DEVOCIONAL",
+    "forbidden": ["DIARIO", "MAÑANA", "CUADERNO", "LEER", "ORAR"]
+  },
+  {
+    "word": "ESCUELA DOMINICAL",
+    "forbidden": ["NIÑOS", "DIBUJOS", "MAESTRA", "CLASE", "HISTORIAS"]
+  },
+  {
+    "word": "BAUTISTERIO",
+    "forbidden": ["PISCINA", "AGUA", "BLANCO", "SUMERGIR", "IGLESIA"]
   }
-  
 ]
