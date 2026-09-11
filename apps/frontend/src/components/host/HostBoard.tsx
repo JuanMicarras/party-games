@@ -13,7 +13,17 @@ export function HostBoard({ room }: HostBoardProps) {
   const judge = room.players.find((p) => p.id === room.mimireto?.judgeId)?.name;
 
   return (
-    <div className="text-center w-full max-w-4xl space-y-8">
+    <div className="text-center w-full max-w-4xl space-y-8 relative">
+      {/* Nuevo: Código de sala flotante */}
+      <div className="absolute -top-4 right-0 bg-slate-950 border-2 border-slate-700 px-6 py-2 rounded-2xl shadow-lg">
+        <span className="text-xs text-slate-400 font-bold uppercase tracking-widest block mb-1">
+          Sala
+        </span>
+        <span className="text-3xl font-mono font-black text-emerald-400">
+          {room.roomCode}
+        </span>
+      </div>
+
       <h1 className="text-5xl font-black text-amber-400 mb-8 tracking-wider">
         MIMIRETO
       </h1>

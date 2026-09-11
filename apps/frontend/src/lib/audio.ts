@@ -10,8 +10,9 @@ export const playSoundEffect = (soundType: string) => {
         "https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg";
       break;
     case "TICK":
-      audioUrl = "https://actions.google.com/sounds/v1/ui/button_click.ogg";
+      audioUrl = "/sounds/beep_short.ogg";
       break;
+
     case "TIME_UP":
       audioUrl = "https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg";
       break;

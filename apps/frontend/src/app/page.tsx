@@ -21,11 +21,19 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
       <div className="w-full max-w-md p-6 bg-slate-800 rounded-2xl shadow-xl border border-slate-700">
         
-        {/* Cabecera persistente (Título + Punto de conexión) */}
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-xl font-bold tracking-tight">Mimireto Mobile</h1>
+        {/* Cabecera persistente (Título + Nombre + Punto de conexión) */}
+        <div className="flex items-start justify-between mb-6">
+          <div>
+            <h1 className="text-xl font-bold tracking-tight">Mimireto Mobile</h1>
+            {/* Si el jugador ya está en la sala, mostramos su nombre */}
+            {currentPlayer && (
+              <p className="text-sm text-slate-400 font-medium mt-1">
+                Jugador: <span className="text-blue-400 font-bold">{currentPlayer.name}</span>
+              </p>
+            )}
+          </div>
           <span
-            className={`h-3 w-3 rounded-full transition-all ${
+            className={`h-3 w-3 rounded-full transition-all mt-1.5 ${
               isConnected
                 ? "bg-emerald-500 shadow-[0_0_8px_#10b981]"
                 : "bg-red-500"
