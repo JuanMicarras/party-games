@@ -1,12 +1,11 @@
-﻿// packages/shared/src/index.ts
-
-export const SocketEvents = {
+﻿export const SocketEvents = {
   CREATE_ROOM: "create_room",
   JOIN_ROOM: "join_room",
   ROOM_UPDATED: "room_updated",
   LEAVE_ROOM: "leave_room",
   START_GAME: 'start_game',
   CARD_ACTION: 'card_action',
+  START_TURN: 'start_turn',
   ERROR: "error",
 } as const;
 
@@ -34,7 +33,10 @@ export interface MimiretoState {
   speakerId: string | null; // Quien tiene que hacer adivinar
   judgeId: string | null;   // El rival que vigila las prohibidas
   currentCard: MimiretoCard | null;
-  status: 'WAITING' | 'PLAYING' | 'FINISHED';
+  status: 'WAITING' | 'PLAYING' | 'TIME_UP';
+  timeLeft: number; // <-- El reloj
+  teamASpeakerIndex: number; // <-- Para saber quién sigue
+  teamBSpeakerIndex: number;
 }
 
 export interface RoomState {

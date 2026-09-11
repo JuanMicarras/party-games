@@ -63,6 +63,9 @@ export class RoomService {
       judgeId: teamB[0]?.id || null,
       currentCard: randomCard, // Asignamos la carta al estado
       status: 'WAITING',
+      timeLeft: 60,
+      teamASpeakerIndex: 0,
+      teamBSpeakerIndex: 0,
     };
 
     return room;
@@ -91,6 +94,42 @@ export class RoomService {
       nextCard = MIMIRETO_DECK[Math.floor(Math.random() * MIMIRETO_DECK.length)];
     } while (state.currentCard && nextCard.word === state.currentCard.word);
     
+    state.currentCard = nextCard;
+
+    return room;
+  }
+
+  // 2. Agrega este NUEVO método debajo de 'handleCardAction':
+  rotateTurn(roomCode: string): RoomState | null {
+    const room = this.rooms.get(roomCode);
+    if (!room || !room.mimireto) return null;
+
+    const state = room.mimireto;
+    const teamA = room.players.filter(p => p.team === 'A');
+    const teamB = room.players.filter(p => p.team === 'B');
+
+    // Cambiar de equipo
+    state.currentTurn = state.currentTurn === 'A' ? 'B' : 'A';
+    
+    // Avanzar al siguiente jugador del equipo que va a hablar
+    if (state.currentTurn === 'A') {
+      state.teamASpeakerIndex = (state.teamASpeakerIndex + 1) % teamA.length;
+      state.speakerId = teamA[state.teamASpeakerIndex]?.id || null;
+      // El juez es el que acaba de hablar del equipo B (o el actual)
+      state.judgeId = teamB[state.teamBSpeakerIndex]?.id || null;
+    } else {
+      state.teamBSpeakerIndex = (state.teamBSpeakerIndex + 1) % teamB.length;
+      state.speakerId = teamB[state.teamBSpeakerIndex]?.id || null;
+      // El juez es el que acaba de hablar del equipo A
+      state.judgeId = teamA[state.teamASpeakerIndex]?.id || null;
+    }
+
+    // Reiniciar para el siguiente turno
+    state.status = 'TIME_UP';
+    state.timeLeft = 60;
+    
+    // Robar carta nueva para el siguiente
+    const nextCard = MIMIRETO_DECK[Math.floor(Math.random() * MIMIRETO_DECK.length)];
     state.currentCard = nextCard;
 
     return room;

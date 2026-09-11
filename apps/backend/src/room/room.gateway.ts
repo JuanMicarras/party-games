@@ -27,6 +27,8 @@ import { RoomService } from './room.service.js';
 export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server: Server;
+  private activeTimers: Map<string, NodeJS.Timeout> = new Map();
+
 
   // Inyectar el RoomService
   constructor(private readonly roomService: RoomService) {}
@@ -134,4 +136,53 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
       this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, response);
     }
   }
+
+  @SubscribeMessage(SocketEvents.START_TURN)
+  handleStartTurn(
+    @MessageBody() data: { roomCode: string },
+    @ConnectedSocket() client: Socket,
+  ) {
+    const room = this.roomService.getRoom(data.roomCode);
+    if (!room || !room.mimireto) return;
+
+    // Cambiamos el estado y avisamos que arrancó
+    room.mimireto.status = 'PLAYING';
+    this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
+      message: '¡El tiempo corre!',
+      room,
+    });
+
+    // Asegurarnos de no duplicar cronómetros
+    if (this.activeTimers.has(data.roomCode)) {
+      clearInterval(this.activeTimers.get(data.roomCode));
+    }
+
+    // Crear el cronómetro de 1 segundo
+    const timer = setInterval(() => {
+      if (room.mimireto && room.mimireto.timeLeft > 0) {
+        room.mimireto.timeLeft -= 1;
+        
+        // Emitimos el tick a todos
+        this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
+          message: 'Tick',
+          room,
+        });
+
+        // Si llegó a cero, paramos el reloj y rotamos
+        if (room.mimireto.timeLeft === 0) {
+          clearInterval(this.activeTimers.get(data.roomCode));
+          const updatedRoom = this.roomService.rotateTurn(data.roomCode);
+          if (updatedRoom) {
+            this.server.to(data.roomCode).emit(SocketEvents.ROOM_UPDATED, {
+              message: '¡Tiempo agotado! Cambio de turno.',
+              room: updatedRoom,
+            });
+          }
+        }
+      }
+    }, 1000);
+
+    this.activeTimers.set(data.roomCode, timer);
+  }
+  
 }

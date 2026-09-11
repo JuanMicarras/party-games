@@ -58,6 +58,12 @@ export default function Home() {
     }
   };
 
+  const startTurn = () => {
+    if (room) {
+      socket.emit(SocketEvents.START_TURN, { roomCode: room.roomCode });
+    }
+  };
+
   const currentPlayer = room?.players.find((p) => p.id === socket?.id);
 
   return (
@@ -174,46 +180,63 @@ export default function Home() {
                       <p className="text-emerald-400 font-bold mb-1">
                         ¡ES TU TURNO!
                       </p>
-                      <p className="text-sm text-slate-300 mb-4">
-                        Haz que tu equipo adivine:
-                      </p>
-                      <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-wider">
-                        {room.mimireto.currentCard.word}
-                      </h2>
 
-                      <div className="bg-red-950/50 border border-red-900 p-4 rounded-lg">
-                        <p className="text-red-400 font-bold text-sm mb-3">
-                          PALABRAS PROHIBIDAS:
-                        </p>
-                        <ul className="space-y-2">
-                          {room.mimireto.currentCard.forbidden.map(
-                            (word, idx) => (
-                              <li
-                                key={idx}
-                                className="text-lg font-semibold text-red-200 line-through decoration-red-500 decoration-2"
-                              >
-                                {word}
-                              </li>
-                            ),
-                          )}
-                        </ul>
-                      </div>
+                      {room.mimireto.status === "WAITING" ||
+                      room.mimireto.status === "TIME_UP" ? (
+                        <div className="mt-8 space-y-4">
+                          <p className="text-slate-300">
+                            Asegúrate de que todos estén listos.
+                          </p>
+                          <button
+                            onClick={startTurn}
+                            className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-2xl rounded-xl shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 transition-all"
+                          >
+                            ¡Iniciar Reloj!
+                          </button>
+                        </div>
+                      ) : (
+                        <>
+                          <p className="text-sm text-slate-300 mb-4">
+                            Haz que tu equipo adivine:
+                          </p>
+                          <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-wider">
+                            {room.mimireto.currentCard.word}
+                          </h2>
 
-                      {/* NUEVOS BOTONES DEL ORADOR */}
-                      <div className="flex gap-4 mt-6">
-                        <button
-                          onClick={() => emitCardAction("PASS")}
-                          className="flex-1 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition"
-                        >
-                          Pasar
-                        </button>
-                        <button
-                          onClick={() => emitCardAction("SUCCESS")}
-                          className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 active:shadow-none transition"
-                        >
-                          +1 Acierto
-                        </button>
-                      </div>
+                          <div className="bg-red-950/50 border border-red-900 p-4 rounded-lg">
+                            <p className="text-red-400 font-bold text-sm mb-3">
+                              PALABRAS PROHIBIDAS:
+                            </p>
+                            <ul className="space-y-2">
+                              {room.mimireto.currentCard.forbidden.map(
+                                (word, idx) => (
+                                  <li
+                                    key={idx}
+                                    className="text-lg font-semibold text-red-200 line-through decoration-red-500 decoration-2"
+                                  >
+                                    {word}
+                                  </li>
+                                ),
+                              )}
+                            </ul>
+                          </div>
+
+                          <div className="flex gap-4 mt-6">
+                            <button
+                              onClick={() => emitCardAction("PASS")}
+                              className="flex-1 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition"
+                            >
+                              Pasar
+                            </button>
+                            <button
+                              onClick={() => emitCardAction("SUCCESS")}
+                              className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow-[0_4px_0_rgb(4,120,87)] active:translate-y-1 active:shadow-none transition"
+                            >
+                              +1 Acierto
+                            </button>
+                          </div>
+                        </>
+                      )}
                     </div>
                   )}
 
