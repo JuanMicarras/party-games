@@ -18,7 +18,9 @@ export default function Home() {
   const [room, setRoom] = useState<RoomState | null>(null);
 
   useEffect(() => {
-    socket = io("http://localhost:4000");
+    
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:4000';
+    socket = io(backendUrl);
 
     socket.on("connect", () => {
       setIsConnected(true);
