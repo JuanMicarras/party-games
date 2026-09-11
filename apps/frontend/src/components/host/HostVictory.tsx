@@ -2,9 +2,10 @@ import { RoomState } from "@party-games/shared";
 
 interface HostVictoryProps {
   mimireto: NonNullable<RoomState["mimireto"]>;
+  onResetToLobby?: () => void;
 }
 
-export function HostVictory({ mimireto }: HostVictoryProps) {
+export function HostVictory({ mimireto, onResetToLobby }: HostVictoryProps) {
   return (
     <div className="text-center space-y-8 animate-in fade-in zoom-in duration-500">
       <span className="text-7xl animate-bounce inline-block">🏆</span>
@@ -27,6 +28,17 @@ export function HostVictory({ mimireto }: HostVictoryProps) {
           <span className="text-slate-500">-</span>
           <span className="text-rose-400">{mimireto.teamBScore} pts</span>
         </div>
+
+        {onResetToLobby && (
+          <div className="mt-12">
+            <button
+              onClick={onResetToLobby}
+              className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xl rounded-2xl shadow-xl transition transform hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              🎮 Volver al Lobby / Jugar de Nuevo
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

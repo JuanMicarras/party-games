@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
 import { socket } from "@/lib/socket";
 import { playSoundEffect } from "@/lib/audio";
-import { RoomState, SocketEvents } from "@party-games/shared";
+import { RoomState, SocketEvents, GameMode } from "@party-games/shared";
 
 export function useHostRoom() {
   const [room, setRoom] = useState<RoomState | null>(null);
 
   useEffect(() => {
-    // 1. Si el socket ya estaba conectado al momento de cargar la página del host,
-    // pedimos crear la sala inmediatamente.
     if (socket.connected) {
       socket.emit(SocketEvents.CREATE_ROOM);
     }
 
-    // 2. Definimos los manejadores de eventos
     const onConnect = () => {
       socket.emit(SocketEvents.CREATE_ROOM);
     };
@@ -26,12 +23,10 @@ export function useHostRoom() {
       playSoundEffect(data.sound);
     };
 
-    // 3. Nos suscribimos a los eventos del socket
     socket.on("connect", onConnect);
     socket.on(SocketEvents.ROOM_UPDATED, onRoomUpdated);
     socket.on(SocketEvents.PLAY_SOUND, onPlaySound);
 
-    // 4. Limpiamos los eventos al desmontar para evitar duplicados
     return () => {
       socket.off("connect", onConnect);
       socket.off(SocketEvents.ROOM_UPDATED, onRoomUpdated);
@@ -39,14 +34,33 @@ export function useHostRoom() {
     };
   }, []);
 
-  const startGame = (multiplier: number) => {
+  const startGame = (
+    gameMode: GameMode = "MIMIRETO",
+    options?: { roundsMultiplier?: number; totalQuestions?: number },
+  ) => {
     if (room && room.players.length >= 2) {
       socket.emit(SocketEvents.START_GAME, {
         roomCode: room.roomCode,
-        roundsMultiplier: multiplier,
+        gameMode,
+        roundsMultiplier: options?.roundsMultiplier ?? 1,
+        totalQuestions: options?.totalQuestions ?? 3,
       });
     }
   };
 
-  return { room, startGame };
+  const nextQuestion = () => {
+    if (room) {
+      socket.emit(SocketEvents.NEXT_QUESTION, { roomCode: room.roomCode });
+    }
+  };
+
+  const resetToLobby = () => {
+    if (room) {
+      socket.emit(SocketEvents.RESET_TO_LOBBY, {
+        roomCode: room.roomCode,
+      });
+    }
+  };
+
+  return { room, startGame, resetToLobby, nextQuestion };
 }
