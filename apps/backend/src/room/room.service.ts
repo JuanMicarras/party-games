@@ -132,8 +132,8 @@ export class RoomService {
       return room;
     }
 
-    const teamA = room.players.filter((p) => p.team === 'A');
-    const teamB = room.players.filter((p) => p.team === 'B');
+    const teamA = room.players.filter((p: Player) => p.team === 'A');
+    const teamB = room.players.filter((p: Player) => p.team === 'B');
 
     state.currentTurn = state.currentTurn === 'A' ? 'B' : 'A';
 
@@ -163,7 +163,7 @@ export class RoomService {
     if (!room) return null;
 
     const existingPlayer = room.players.find(
-      (p) => p.name.toLowerCase() === player.name.toLowerCase()
+      (p: Player) => p.name.toLowerCase() === player.name.toLowerCase()
     );
 
     if (existingPlayer) {
@@ -199,7 +199,7 @@ export class RoomService {
     let affectedRoomCode = null;
 
     for (const [roomCode, room] of this.rooms.entries()) {
-      const player = room.players.find((p) => p.id === socketId);
+      const player = room.players.find((p: Player) => p.id === socketId);
 
       if (player) {
         player.connected = false;
