@@ -75,7 +75,6 @@ export function HostBoard({ room, onResetToLobby }: HostBoardProps) {
                 : "text-emerald-400"
               }`}
           >
-            {/* {dayjs(room.mimireto.timeLeft).format('mm:ss')} */}
             {dayjs.duration(parseInt(room.mimireto.timeLeft.toString()), 'seconds').format('mm:ss')}
           </div>
 
