@@ -55,7 +55,7 @@ export function SpeakerView({ room, onAction, onStartTurn }: SpeakerViewProps) {
             <p className="text-red-400 font-bold text-xs mb-3 tracking-wider uppercase text-center">
               Palabras Prohibidas
             </p>
-            <div className="flex flex-col gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {mimireto.currentCard.forbidden.map((word, idx) => (
                 <div
                   key={idx}
