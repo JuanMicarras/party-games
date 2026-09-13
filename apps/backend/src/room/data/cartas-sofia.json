@@ -1,0 +1,415 @@
+[
+  {
+    "word": "CATAN",
+    "forbidden": ["MESA", "DADOS", "RECURSOS", "LUISOLO", "MOHAMED"]
+  },
+  {
+    "word": "UNIVERSIDAD DEL NORTE",
+    "forbidden": ["ESTUDIAR", "CAMPUS", "BECA", "FÚTBOL", "MOHAMED"]
+  },
+  {
+    "word": "HUAWEI",
+    "forbidden": ["CELULAR", "TELÉFONO", "MÓVIL", "PRIMER", "MARCA"]
+  },
+  {
+    "word": "MAX",
+    "forbidden": ["PERRO", "BEAGLE", "TRAVIESO", "REGALAR", "PRIMERO"]
+  },
+  {
+    "word": "PERCY",
+    "forbidden": ["PERRO", "GOLDEN", "RETRIEVER", "CACHORRO", "MASCOTA"]
+  },
+  {
+    "word": "GUANÁBANA",
+    "forbidden": ["FRUTA", "VERDE", "PULPA", "ASCO", "VOMITAR"]
+  },
+  {
+    "word": "PAPAYA",
+    "forbidden": ["FRUTA", "NARANJA", "DESAYUNO", "ASCO", "VOMITAR"]
+  },
+  {
+    "word": "CONTINENTAL",
+    "forbidden": ["CARTAS", "BARAJA", "PÓKER", "FAMILIA", "JUEGO"]
+  },
+  {
+    "word": "REGINA",
+    "forbidden": ["CANADÁ", "CIUDAD", "VISA", "MONTREAL", "INTERCAMBIO"]
+  },
+  {
+    "word": "TÍA MÓNICA",
+    "forbidden": ["FLORIDA", "FORT LAUDERDALE", "INGLÉS", "TOOD", "DANIEL"]
+  },
+  {
+    "word": "FORT LAUDERDALE",
+    "forbidden": ["FLORIDA", "ESTADOS UNIDOS", "INGLÉS", "VIVIR", "MÓNICA"]
+  },
+  {
+    "word": "TOOD",
+    "forbidden": ["TÍO", "ESPOSO", "MÓNICA", "FORT LAUDERDALE", "ESTADOS UNIDOS"]
+  },
+  {
+    "word": "DANIEL",
+    "forbidden": ["PRIMO", "HIJO", "MÓNICA", "TOOD", "FORT LAUDERDALE"]
+  },
+  {
+    "word": "SANTIAGO",
+    "forbidden": ["AMIGO", "DJ", "BOGOTÁ", "MIAMI", "VILLA DE LEYVA"]
+  },
+  {
+    "word": "LUISOLO",
+    "forbidden": ["PAPÁ", "CATAN", "PADRE", "APODO", "FRICASE"]
+  },
+  {
+    "word": "CARMEN",
+    "forbidden": ["ABUELA", "ABUELIS", "TITA", "NOVELAS", "801"]
+  },
+  {
+    "word": "ABUELIS",
+    "forbidden": ["ABUELA", "CARMEN", "TITA", "LLAMAR", "801"]
+  },
+  {
+    "word": "TITA",
+    "forbidden": ["ABUELA", "CARMEN", "BEBÉ", "APODO", "LLAMAR"]
+  },
+  {
+    "word": "LA HIJA DEL MARIACHI",
+    "forbidden": ["NOVELA", "TELEVISIÓN", "FAVORITA", "MARICHI", "SERIE"]
+  },
+  {
+    "word": "CAFÉ CON AROMA DE MUJER",
+    "forbidden": ["NOVELA", "TELEVISIÓN", "CARMEN", "ABUELA", "FAVORITA"]
+  },
+  {
+    "word": "LA PILOTO",
+    "forbidden": ["NOVELA", "TELEVISIÓN", "PANDEMIA", "CUARENTENA", "VER"]
+  },
+  {
+    "word": "ARROZ CON LECHE",
+    "forbidden": ["POSTRE", "DULCE", "CARMEN", "PASAS", "LECHE"]
+  },
+  {
+    "word": "PASAS",
+    "forbidden": ["FRUTA", "ARROZ CON LECHE", "POSTRE", "QUITAR", "DULCE"]
+  },
+  {
+    "word": "SUDADO",
+    "forbidden": ["COMIDA", "CARMEN", "ABUELA", "POLLO", "HORRIBLE"]
+  },
+  {
+    "word": "LASAÑA",
+    "forbidden": ["PASTA", "MAMÁ", "HORNO", "QUESO", "COMIDA"]
+  },
+  {
+    "word": "ARROZ A LA FRICASE",
+    "forbidden": ["PAPÁ", "LUISOLO", "COCINAR", "PLATO", "ARROZ"]
+  },
+  {
+    "word": "TERIYAKI",
+    "forbidden": ["RESTAURANTE", "SUSHI", "JAPONÉS", "FAVORITO", "COMIDA"]
+  },
+  {
+    "word": "SUSHI",
+    "forbidden": ["ROLLO", "PESCADO", "AGUACATE", "TERIYAKI", "JAPONÉS"]
+  },
+  {
+    "word": "STRACCIATELLA",
+    "forbidden": ["HELADO", "SABOR", "GELATERIA", "CHOCOLATE", "FAVORITO"]
+  },
+  {
+    "word": "GNOCCHI",
+    "forbidden": ["PASTA", "PAPA", "CÉSAR", "COCINAR", "ITALIANA"]
+  },
+  {
+    "word": "VERDURAS",
+    "forbidden": ["VEGETALES", "ENSALADA", "VERDE", "ODIA", "COMIDA"]
+  },
+  {
+    "word": "CELULAR",
+    "forbidden": ["TELÉFONO", "PANTALLA", "CAER", "BAÑO", "ROTO"]
+  },
+  {
+    "word": "LLAVES",
+    "forbidden": ["PUERTA", "PERDER", "MAMÁ", "REGAÑO", "CERRADURA"]
+  },
+  {
+    "word": "CÉDULA",
+    "forbidden": ["DOCUMENTO", "ICFES", "PERDER", "IDENTIFICACIÓN", "TARJETA"]
+  },
+  {
+    "word": "ICFES",
+    "forbidden": ["EXAMEN", "PRUEBA", "CÉDULA", "BECA", "COLEGIO"]
+  },
+  {
+    "word": "CEPILLO DE DIENTES",
+    "forbidden": ["BOCA", "PASTA", "VIAJE", "OLVIDAR", "LAVAR"]
+  },
+  {
+    "word": "MAZDA",
+    "forbidden": ["CAMIONETA", "CARRO", "PAPÁ", "ACCIDENTE", "CHOQUE"]
+  },
+  {
+    "word": "ACCIDENTE",
+    "forbidden": ["CHOQUE", "CARRO", "MAZDA", "FONSECA", "MANEJAR"]
+  },
+  {
+    "word": "VUELO PERDIDO",
+    "forbidden": ["AVIÓN", "AEROPUERTO", "DORMIR", "ESTADOS UNIDOS", "BARRANQUILLA"]
+  },
+  {
+    "word": "FONSECA",
+    "forbidden": ["CANTANTE", "CONCIERTO", "MÚSICA", "ACCIDENTE", "COLOMBIANO"]
+  },
+  {
+    "word": "FÚTBOL",
+    "forbidden": ["BALÓN", "GOL", "BRAZUCA", "GOLEADORA", "CANCHA"]
+  },
+  {
+    "word": "GOLEADORA",
+    "forbidden": ["FÚTBOL", "GOL", "TORNEO", "DELANTERA", "CAMPEONATO"]
+  },
+  {
+    "word": "TORNEO",
+    "forbidden": ["CAMPEONATO", "GANAR", "FÚTBOL", "UNIVERSIDAD", "COPA"]
+  },
+  {
+    "word": "BRAZUCA",
+    "forbidden": ["CANCHA", "FÚTBOL", "CASA", "FRENTE", "JUGAR"]
+  },
+  {
+    "word": "ZURDA",
+    "forbidden": ["IZQUIERDA", "MANO", "PIE", "DERECHA", "ESCRIBIR"]
+  },
+  {
+    "word": "FALCAO",
+    "forbidden": ["TIGRE", "DELANTERO", "INSTAGRAM", "FÚTBOL", "COLOMBIA"]
+  },
+  {
+    "word": "MESSI",
+    "forbidden": ["ARGENTINA", "BARCELONA", "FÚTBOL", "DIEZ", "JUGADOR"]
+  },
+  {
+    "word": "BARÇA",
+    "forbidden": ["CLUB", "EQUIPO", "ESPAÑA", "FÚTBOL", "MESSI"]
+  },
+  {
+    "word": "ARGENTINA",
+    "forbidden": ["PAÍS", "BUENOS AIRES", "FÚTBOL", "MESSI", "SURAMÉRICA"]
+  },
+  {
+    "word": "ESPAÑA",
+    "forbidden": ["PAÍS", "EUROPA", "NACIONALIDAD", "MUNDIAL", "MADRID"]
+  },
+  {
+    "word": "ADIDAS",
+    "forbidden": ["MARCA", "ROPA", "DEPORTIVA", "TRES RAYAS", "TENIS"]
+  },
+  {
+    "word": "TENIS",
+    "forbidden": ["RAQUETA", "PELOTA", "CANCHA", "PROFESOR", "CLASE"]
+  },
+  {
+    "word": "BUCEO",
+    "forbidden": ["MAR", "AGUA", "OXÍGENO", "TAGANGA", "SAN ANDRÉS"]
+  },
+  {
+    "word": "TAGANGA",
+    "forbidden": ["SANTA MARTA", "BUCEO", "MAR", "CERTIFICACIÓN", "CÉSAR"]
+  },
+  {
+    "word": "SAN ANDRÉS",
+    "forbidden": ["ISLA", "MAR", "VIAJE", "BUCEO", "CARIBE"]
+  },
+  {
+    "word": "VIAJAR",
+    "forbidden": ["AVIÓN", "MALETA", "TURISMO", "VACACIONES", "CONOCER"]
+  },
+  {
+    "word": "EUROPA",
+    "forbidden": ["CONTINENTE", "VIAJE", "QUINCE", "AÑOS", "REGALO"]
+  },
+  {
+    "word": "15 AÑOS",
+    "forbidden": ["CUMPLEAÑOS", "FIESTA", "REGALO", "VIAJE", "EUROPA"]
+  },
+  {
+    "word": "CANADÁ",
+    "forbidden": ["PAÍS", "FRÍO", "INTERCAMBIO", "MONTREAL", "REGINA"]
+  },
+  {
+    "word": "MONTREAL",
+    "forbidden": ["CIUDAD", "CANADÁ", "CONCORDIA", "INTERCAMBIO", "NINA"]
+  },
+  {
+    "word": "CONCORDIA",
+    "forbidden": ["UNIVERSIDAD", "MONTREAL", "CANADÁ", "ESTUDIAR", "INTERCAMBIO"]
+  },
+  {
+    "word": "NINA",
+    "forbidden": ["AMIGA", "MEXICANA", "APPLE", "MICROSOFT", "CANADÁ"]
+  },
+  {
+    "word": "MICROSOFT",
+    "forbidden": ["EMPRESA", "WINDOWS", "NINA", "SOFTWARE", "TECNOLOGÍA"]
+  },
+  {
+    "word": "APPLE",
+    "forbidden": ["EMPRESA", "IPHONE", "NINA", "MANZANA", "TECNOLOGÍA"]
+  },
+  {
+    "word": "MOHAMED",
+    "forbidden": ["AMIGO", "UNIVERSIDAD", "CATAN", "ÁRABE", "CARRO"]
+  },
+  {
+    "word": "PAULA",
+    "forbidden": ["AMIGA", "MÉDICA", "DOCTORA", "CHIVOLO", "COLEGIO"]
+  },
+  {
+    "word": "MARÍA CARO",
+    "forbidden": ["AMIGA", "COLEGIO", "SAGRADO CORAZÓN", "MEJOR", "PANAMÁ"]
+  },
+  {
+    "word": "MELANY",
+    "forbidden": ["AMIGA", "ABOGADA", "ESTADOS UNIDOS", "MEJOR", "DERECHO"]
+  },
+  {
+    "word": "FIORELLA",
+    "forbidden": ["AMIGA", "COLEGIO", "CARNAVAL", "COMPARSA", "SAN ANDRÉS"]
+  },
+  {
+    "word": "CARNAVAL",
+    "forbidden": ["BARRANQUILLA", "FIESTA", "COMPARSA", "FIORELLA", "DISFRAZ"]
+  },
+  {
+    "word": "COMPARSA",
+    "forbidden": ["CARNAVAL", "BAILE", "FIORELLA", "TÍA", "GRUPO"]
+  },
+  {
+    "word": "SAGRADO CORAZÓN",
+    "forbidden": ["COLEGIO", "ESCUELA", "UNIFORME", "HERMANO OMAR", "ESTUDIAR"]
+  },
+  {
+    "word": "HERMANO OMAR",
+    "forbidden": ["RECTOR", "COLEGIO", "SAGRADO CORAZÓN", "DIRECTOR", "CURA"]
+  },
+  {
+    "word": "PANAMÁ",
+    "forbidden": ["PAÍS", "VIAJE", "CANAL", "AMIGOS", "GRADO"]
+  },
+  {
+    "word": "LEAN",
+    "forbidden": ["EMPRESA", "TRABAJO", "MOVICH", "ANGIE", "OFICINA"]
+  },
+  {
+    "word": "MOVICH",
+    "forbidden": ["HOTEL", "LEAN", "OFICINA", "TRABAJO", "ANGIE"]
+  },
+  {
+    "word": "ANGIE",
+    "forbidden": ["JEFA", "AMIGA", "LEAN", "MOVICH", "TRABAJO"]
+  },
+  {
+    "word": "HUBSPOT",
+    "forbidden": ["TRABAJO", "EMPRESA", "LINA", "SOFTWARE", "VENTAS"]
+  },
+  {
+    "word": "LINA",
+    "forbidden": ["JEFA", "HUBSPOT", "TRABAJO", "LÍDER", "EMPRESA"]
+  },
+  {
+    "word": "HOW I MET YOUR MOTHER",
+    "forbidden": ["SERIE", "TED", "BARNEY", "FAVORITA", "COMEDIA"]
+  },
+  {
+    "word": "SHAKIRA",
+    "forbidden": ["CANTANTE", "BARRANQUILLA", "MÚSICA", "WAKA WAKA", "FAVORITA"]
+  },
+  {
+    "word": "SOFIOLA",
+    "forbidden": ["APODO", "SOFÍA", "LLAMAR", "NOMBRE", "FAMILIA"]
+  },
+  {
+    "word": "BAILE DE LA AMISTAD",
+    "forbidden": ["BAILE", "BALANCEARSE", "EMOCIÓN", "MOVERSE", "AMIGOS"]
+  },
+  {
+    "word": "CÉSAR",
+    "forbidden": ["NOVIO", "PAREJA", "GNOCCHI", "BUCEO", "TAGANGA"]
+  },
+  {
+    "word": "ADRI",
+    "forbidden": ["HERMANA", "CÉSAR", "CUÑADA", "ARGENTINA", "VIVIR"]
+  },
+  {
+    "word": "BÉISBOL",
+    "forbidden": ["CITA", "PARTIDO", "CÉSAR", "PRIMERA", "ESTADIO"]
+  },
+  {
+    "word": "CLÍNICA IBEROAMÉRICA",
+    "forbidden": ["MAMÁ", "TRABAJO", "HOSPITAL", "MÉDICO", "VIVA"]
+  },
+  {
+    "word": "CENTRO COMERCIAL VIVA",
+    "forbidden": ["CLÍNICA", "IBEROAMÉRICA", "MAMÁ", "CERCA", "COMPRAS"]
+  },
+  {
+    "word": "APARTAMENTO 801",
+    "forbidden": ["ABUELA", "CARMEN", "VECINA", "AL LADO", "EDIFICIO"]
+  },
+  {
+    "word": "LA GELATERIA",
+    "forbidden": ["HELADO", "STRACCIATELLA", "POSTRE", "SABOR", "LOCAL"]
+  },
+  {
+    "word": "AGUACATE",
+    "forbidden": ["SUSHI", "QUITAR", "VERDE", "PEDIR", "COMIDA"]
+  },
+  {
+    "word": "LEVAR UN PIE",
+    "forbidden": ["COMER", "COSTUMBRE", "MANÍA", "PIERNA", "MESA"]
+  },
+  {
+    "word": "CHIVOLO",
+    "forbidden": ["PAULA", "PUEBLO", "ORIGEN", "DOCTORA", "MAGDALENA"]
+  },
+  {
+    "word": "LA ROTURA",
+    "forbidden": ["CELULAR", "BAÑO", "CAER", "PANTALLA", "PISO"]
+  },
+  {
+    "word": "SASKATCHEWAN",
+    "forbidden": ["REGINA", "CANADÁ", "PROVINCIA", "INTERCAMBIO", "FRÍO"]
+  },
+  {
+    "word": "VILLA DE LEYVA",
+    "forbidden": ["SANTIAGO", "CASA", "VIAJE", "BOYACÁ", "DJ"]
+  },
+  {
+    "word": "ROBAR EL VEHÍCULO",
+    "forbidden": ["CARRO", "CAMIONETA", "PAPÁ", "PRESTAR", "MANEJAR"]
+  },
+  {
+    "word": "DORMILONA",
+    "forbidden": ["VUELO", "PERDER", "AEROPUERTO", "SUEÑO", "DESPERTADOR"]
+  },
+  {
+    "word": "PROFESOR DE TENIS",
+    "forbidden": ["CLASES", "RAQUETA", "CAER MAL", "APRENDER", "DEPORTE"]
+  },
+  {
+    "word": "ADMINISTRACIÓN DE EMPRESAS",
+    "forbidden": ["CARRERA", "NEGOCIOS", "UNINORTE", "ESTUDIAR", "PROFESIÓN"]
+  },
+  {
+    "word": "MÉXICO",
+    "forbidden": ["NINA", "PAÍS", "NACIONALIDAD", "AMIGA", "EXTRANJERO"]
+  },
+  {
+    "word": "CONCIERTO",
+    "forbidden": ["FONSECA", "MÚSICA", "ACCIDENTE", "BOLETA", "CANTAR"]
+  },
+  {
+    "word": "BUZO",
+    "forbidden": ["CERTIFICADO", "AGUA", "MAR", "TAGANGA", "SUMERGIRSE"]
+  }
+
+]

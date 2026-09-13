@@ -17,9 +17,9 @@ export class DeckService implements OnModuleInit {
     try {
       const currentDir = path.dirname(fileURLToPath(import.meta.url));
       const candidates = [
-        path.join(currentDir, 'data', 'cartas.json'),
-        path.join(process.cwd(), 'src', 'room', 'data', 'cartas.json'),
-        path.join(process.cwd(), 'dist', 'room', 'data', 'cartas.json'),
+        path.join(currentDir, 'data', 'cartas-sofia.json'),
+        path.join(process.cwd(), 'src', 'room', 'data', 'cartas-sofia.json'),
+        path.join(process.cwd(), 'dist', 'room', 'data', 'cartas-sofia.json'),
       ];
 
       const foundPath = candidates.find((p) => fs.existsSync(p));

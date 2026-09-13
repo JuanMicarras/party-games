@@ -17,9 +17,9 @@ export class CuentoChinoDeckService implements OnModuleInit {
     try {
       const currentDir = path.dirname(fileURLToPath(import.meta.url));
       const candidates = [
-        path.join(currentDir, 'data', 'cuento-chino.json'),
-        path.join(process.cwd(), 'src', 'room', 'data', 'cuento-chino.json'),
-        path.join(process.cwd(), 'dist', 'room', 'data', 'cuento-chino.json'),
+        path.join(currentDir, 'data', 'cuento-chino-sofia.json'),
+        path.join(process.cwd(), 'src', 'room', 'data', 'cuento-chino-sofia.json'),
+        path.join(process.cwd(), 'dist', 'room', 'data', 'cuento-chino-sofia.json'),
       ];
 
       const foundPath = candidates.find((p) => fs.existsSync(p));
