@@ -2,7 +2,7 @@
   {
     "id": "cc-1",
     "question": "Cuando viaja, Sofía tiene la mala costumbre de siempre olvidar su _____.",
-    "reference": "Objetos y pequeñas tragedias[cite: 1]",
+    "reference": "Objetos y pequeñas tragedias",
     "correctAnswer": "cepillo de dientes",
     "acceptedAnswers": ["cepillo de dientes", "cepillo", "cepillo dental"],
     "defaultLies": ["pasaporte", "cargador", "pijama", "maquillaje"]
@@ -10,7 +10,7 @@
   {
     "id": "cc-2",
     "question": "El día que Sofía presentó el examen del ICFES, tuvo la mala suerte de perder su _____.",
-    "reference": "Objetos y pequeñas tragedias[cite: 1]",
+    "reference": "Objetos y pequeñas tragedias",
     "correctAnswer": "cédula",
     "acceptedAnswers": ["cédula", "documento de identidad", "identificación", "tarjeta de identidad"],
     "defaultLies": ["lápiz", "billetera", "celular", "calculadora"]
@@ -18,15 +18,15 @@
   {
     "id": "cc-3",
     "question": "El celular actual de Sofía está roto porque accidentalmente lo dejó caer en _____.",
-    "reference": "Objetos y pequeñas tragedias[cite: 1]",
+    "reference": "Objetos y pequeñas tragedias",
     "correctAnswer": "el baño",
-    "acceptedAnswers": ["el baño", "baño", "el inodoro", "inodoro"],
+    "acceptedAnswers": ["el baño", "baño"],
     "defaultLies": ["la piscina", "la sopa", "la calle", "el mar"]
   },
   {
     "id": "cc-4",
     "question": "En una ocasión, Sofía perdió un vuelo de regreso a Barranquilla desde Estados Unidos porque se quedó _____.",
-    "reference": "Objetos y pequeñas tragedias[cite: 1]",
+    "reference": "Objetos y pequeñas tragedias",
     "correctAnswer": "dormida",
     "acceptedAnswers": ["dormida", "durmiendo", "profundamente dormida"],
     "defaultLies": ["comprando", "comiendo", "charlando", "bebiendo"]
@@ -34,7 +34,7 @@
   {
     "id": "cc-5",
     "question": "El día que Sofía tuvo uno de sus peores accidentes en la camioneta Mazda de su papá, curiosamente ese mismo día tenía un concierto de _____.",
-    "reference": "Carros y accidentes[cite: 1]",
+    "reference": "Carros y accidentes",
     "correctAnswer": "Fonseca",
     "acceptedAnswers": ["Fonseca", "fonseca"],
     "defaultLies": ["Shakira", "Juanes", "Carlos Vives", "Morat"]
@@ -42,7 +42,7 @@
   {
     "id": "cc-6",
     "question": "A Sofía le encanta el arroz con leche que prepara su abuela Carmen, pero con una condición estricta: no puede llevar _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "pasas",
     "acceptedAnswers": ["pasas", "uvas pasas"],
     "defaultLies": ["canela", "queso", "leche condensada", "coco"]
@@ -50,23 +50,23 @@
   {
     "id": "cc-7",
     "question": "Una de las mañas más raras de Sofía es que, cuando está comiendo, tiene la costumbre de levantar un _____.",
-    "reference": "Comida y gustos[cite: 1]",
+    "reference": "Comida y gustos",
     "correctAnswer": "pie",
-    "acceptedAnswers": ["pie", "zapato", "talón"],
+    "acceptedAnswers": ["pie"],
     "defaultLies": ["dedo", "brazo", "plato", "vaso"]
   },
   {
     "id": "cc-8",
     "question": "Sofía terminó haciendo su intercambio en Montreal, Canadá, pero originalmente su plan era irse a la ciudad de _____.",
-    "reference": "Canadá e intercambio[cite: 1]",
+    "reference": "Canadá e intercambio",
     "correctAnswer": "Regina",
-    "acceptedAnswers": ["Regina", "Saskatchewan", "Regina Saskatchewan"],
+    "acceptedAnswers": ["Regina", "Regina Saskatchewan"],
     "defaultLies": ["Toronto", "Vancouver", "Ottawa", "Calgary"]
   },
   {
     "id": "cc-9",
     "question": "El restaurante favorito de Sofía es Teriyaki, donde suele pedir sushi pero con una condición innegociable: sin _____.",
-    "reference": "Comida y gustos[cite: 1]",
+    "reference": "Comida y gustos",
     "correctAnswer": "aguacate",
     "acceptedAnswers": ["aguacate", "palta"],
     "defaultLies": ["queso crema", "salmón", "soya", "pepino"]
@@ -74,7 +74,7 @@
   {
     "id": "cc-10",
     "question": "A la abuela Carmen le encanta preparar _____, pero Sofía piensa que es horrible y una muestra de mal gusto culinario.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "sudado",
     "acceptedAnswers": ["sudado", "sudado de carne", "sudado de pollo"],
     "defaultLies": ["sancocho", "mondongo", "ajiaco", "hígado"]
@@ -82,7 +82,7 @@
   {
     "id": "cc-11",
     "question": "Cuando Sofía está muy emocionada con personas cercanas, empieza a moverse rápidamente haciendo algo que ella llama 'El baile de la _____'.",
-    "reference": "Baile de la amistad[cite: 1]",
+    "reference": "Anécdotas random",
     "correctAnswer": "amistad",
     "acceptedAnswers": ["amistad", "la amistad"],
     "defaultLies": ["felicidad", "victoria", "emoción", "alegría"]
@@ -90,7 +90,7 @@
   {
     "id": "cc-12",
     "question": "Sofía odia las verduras, pero hay dos frutas que no tolera en absoluto y le dan ganas de vomitar: la papaya y la _____.",
-    "reference": "Comida y gustos[cite: 1]",
+    "reference": "Comida y gustos",
     "correctAnswer": "guanábana",
     "acceptedAnswers": ["guanábana", "guanabana"],
     "defaultLies": ["piña", "manzana", "pera", "guayaba"]
@@ -98,7 +98,7 @@
   {
     "id": "cc-13",
     "question": "El primer perro de Sofía fue un Beagle llamado Max, pero se portaba tan mal que sus papás terminaron _____.",
-    "reference": "Mascotas[cite: 1]",
+    "reference": "Mascotas",
     "correctAnswer": "regalándolo",
     "acceptedAnswers": ["regalándolo", "regalandolo", "dándolo", "dandolo", "dándolo en adopción"],
     "defaultLies": ["vendiendo", "castigando", "echándolo", "devolviéndolo"]
@@ -106,7 +106,7 @@
   {
     "id": "cc-14",
     "question": "La primera cita entre Sofía y su novio César fue ir a ver un partido de _____.",
-    "reference": "César y viajes[cite: 1]",
+    "reference": "César y viajes",
     "correctAnswer": "béisbol",
     "acceptedAnswers": ["béisbol", "beisbol", "pelota"],
     "defaultLies": ["fútbol", "tenis", "baloncesto", "cine"]
@@ -114,7 +114,7 @@
   {
     "id": "cc-15",
     "question": "A Sofía le encanta cocinar con César, y uno de sus planes favoritos es preparar desde cero _____.",
-    "reference": "César y viajes[cite: 1]",
+    "reference": "César y viajes",
     "correctAnswer": "gnocchi",
     "acceptedAnswers": ["gnocchi", "ñoquis", "noquis", "gnocchis"],
     "defaultLies": ["pizza", "hamburguesas", "lasaña", "tacos"]
@@ -122,7 +122,7 @@
   {
     "id": "cc-16",
     "question": "Sofía es tan fanática del futbolista Radamel Falcao García que en su momento llegó a abrir una cuenta de _____ dedicada a él.",
-    "reference": "Fútbol y deportes[cite: 1]",
+    "reference": "Fútbol y deportes",
     "correctAnswer": "Instagram",
     "acceptedAnswers": ["Instagram", "instagram", "ig"],
     "defaultLies": ["Twitter", "Facebook", "TikTok", "YouTube"]
@@ -130,7 +130,7 @@
   {
     "id": "cc-17",
     "question": "La comida favorita de Sofía entre todas las que prepara su papá Luisolo es el arroz a la _____.",
-    "reference": "Familia y juegos[cite: 1]",
+    "reference": "Familia y juegos",
     "correctAnswer": "fricase",
     "acceptedAnswers": ["fricase", "fricasé", "fricasse"],
     "defaultLies": ["valenciana", "marinera", "cubana", "criolla"]
@@ -138,7 +138,7 @@
   {
     "id": "cc-18",
     "question": "La mamá de Sofía solía regañarla constantemente porque siempre terminaba perdiendo las _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "llaves",
     "acceptedAnswers": ["llaves", "las llaves"],
     "defaultLies": ["gafas", "tarjetas", "medias", "plata"]
@@ -146,7 +146,7 @@
   {
     "id": "cc-19",
     "question": "Cuando Sofía apenas era una bebé, en lugar de llamarla 'Abuelis', le decía cariñosamente a su abuela Carmen: _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "Tita",
     "acceptedAnswers": ["Tita", "tita"],
     "defaultLies": ["Mimi", "Nonina", "Bita", "Tata"]
@@ -154,7 +154,7 @@
   {
     "id": "cc-20",
     "question": "Sofía, César y su mejor amiga Nina viajaron al pueblo de Taganga con el objetivo de certificarse oficialmente como _____.",
-    "reference": "César y viajes[cite: 1]",
+    "reference": "César y viajes",
     "correctAnswer": "buzos",
     "acceptedAnswers": ["buzos", "buzo", "buceadores"],
     "defaultLies": ["chefs", "capitanes", "rescatistas", "guías"]
@@ -162,7 +162,7 @@
   {
     "id": "cc-21",
     "question": "Sofía practicaba y jugaba muchísimo fútbol en unas canchas llamadas Brazuca, las cuales quedaban exactamente _____.",
-    "reference": "Fútbol y deportes[cite: 1]",
+    "reference": "Fútbol y deportes",
     "correctAnswer": "frente a su casa",
     "acceptedAnswers": ["frente a su casa", "al frente de su casa", "en frente de su casa", "cerca de su casa"],
     "defaultLies": ["en la universidad", "detrás del colegio", "en el parque", "junto a la clínica"]
@@ -170,7 +170,7 @@
   {
     "id": "cc-22",
     "question": "Si a Sofía le dieran a elegir cualquier otra nacionalidad del mundo para tener, escogería sin dudar la _____.",
-    "reference": "Fútbol y deportes[cite: 1]",
+    "reference": "Personalidad y gustos",
     "correctAnswer": "española",
     "acceptedAnswers": ["española", "espanola", "de España"],
     "defaultLies": ["argentina", "canadiense", "italiana", "mexicana"]
@@ -178,7 +178,7 @@
   {
     "id": "cc-23",
     "question": "El primer teléfono celular que tuvo Sofía en su vida fue de la marca _____.",
-    "reference": "Objetos y pequeñas tragedias[cite: 1]",
+    "reference": "Objetos y pequeñas tragedias",
     "correctAnswer": "Huawei",
     "acceptedAnswers": ["Huawei", "huawei"],
     "defaultLies": ["Nokia", "Motorola", "Samsung", "BlackBerry"]
@@ -186,7 +186,7 @@
   {
     "id": "cc-24",
     "question": "Sofía ha tomado clases de tenis para practicar deporte, aunque admite que no le cae bien su _____.",
-    "reference": "Fútbol y deportes[cite: 1]",
+    "reference": "Fútbol y deportes",
     "correctAnswer": "profesor",
     "acceptedAnswers": ["profesor", "profe", "entrenador", "instructor"],
     "defaultLies": ["raqueta", "cancha", "compañera", "horario"]
@@ -194,7 +194,7 @@
   {
     "id": "cc-25",
     "question": "Durante la época de pandemia y cuarentena, Sofía y su abuela Carmen se engancharon viendo juntas una novela llamada La _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "Piloto",
     "acceptedAnswers": ["Piloto", "piloto", "La Piloto"],
     "defaultLies": ["Reina", "Patrona", "Costurera", "Vecina"]
@@ -202,15 +202,15 @@
   {
     "id": "cc-26",
     "question": "El rector del colegio Sagrado Corazón durante la época en que estudió Sofía era conocido como el Hermano _____.",
-    "reference": "Infancia y colegio[cite: 1]",
+    "reference": "Infancia y colegio",
     "correctAnswer": "Omar",
     "acceptedAnswers": ["Omar", "omar"],
     "defaultLies": ["Gabriel", "Luis", "Carlos", "Pedro"]
   },
   {
     "id": "cc-27",
-    "question": "Su amiga Nina, a quien conoció durante su intercambio en Canadá, trabaja como desarrolladora de software en la empresa _____.",
-    "reference": "Canadá e intercambio[cite: 1]",
+    "question": "Su amiga Nina, a quien conoció durante su intercambio en Canadá, trabaja actualmente como desarrolladora de software en la empresa _____.",
+    "reference": "Canadá e intercambio",
     "correctAnswer": "Apple",
     "acceptedAnswers": ["Apple", "apple"],
     "defaultLies": ["Google", "Amazon", "Meta", "Netflix"]
@@ -218,7 +218,7 @@
   {
     "id": "cc-28",
     "question": "La abuela de Sofía, Carmen, es su vecina inmediata y vive exactamente en el apartamento número _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "801",
     "acceptedAnswers": ["801", "ochocientos uno"],
     "defaultLies": ["702", "501", "802", "401"]
@@ -226,7 +226,7 @@
   {
     "id": "cc-29",
     "question": "El sabor de helado predilecto de Sofía cuando visita la heladería La Gelateria es _____.",
-    "reference": "Comida y gustos[cite: 1]",
+    "reference": "Comida y gustos",
     "correctAnswer": "stracciatella",
     "acceptedAnswers": ["stracciatella", "estrachatela", "straciatella"],
     "defaultLies": ["pistacho", "avellana", "arequipe", "chocolate belga"]
@@ -234,7 +234,7 @@
   {
     "id": "cc-30",
     "question": "Inmediatamente después de terminar su grado en la universidad, Sofía organizó un viaje de celebración junto a sus amigos del colegio rumbo a _____.",
-    "reference": "Infancia y colegio[cite: 1]",
+    "reference": "Infancia y colegio",
     "correctAnswer": "Panamá",
     "acceptedAnswers": ["Panamá", "panama"],
     "defaultLies": ["Cancún", "Punta Cana", "Cartagena", "Miami"]
@@ -242,7 +242,7 @@
   {
     "id": "cc-31",
     "question": "A los 15 años, el regalo que los papás le dieron a Sofía para celebrar su cumpleaños fue un viaje a _____.",
-    "reference": "Viajes y buceo[cite: 1]",
+    "reference": "Viajes y buceo",
     "correctAnswer": "Europa",
     "acceptedAnswers": ["Europa", "europa"],
     "defaultLies": ["Disney", "Nueva York", "Crucero", "San Andrés"]
@@ -250,7 +250,7 @@
   {
     "id": "cc-32",
     "question": "El esposo de la tía Mónica, con quien Sofía vivió un tiempo en Fort Lauderdale, se llama _____.",
-    "reference": "Infancia y colegio[cite: 1]",
+    "reference": "Tía Mónica y familia",
     "correctAnswer": "Tood",
     "acceptedAnswers": ["Tood", "tood", "Todd", "todd"],
     "defaultLies": ["John", "Michael", "David", "Robert"]
@@ -258,7 +258,7 @@
   {
     "id": "cc-33",
     "question": "Además de Catan, el juego tradicional de cartas que la familia de Sofía juega con baraja de póker se llama _____.",
-    "reference": "Familia y juegos[cite: 1]",
+    "reference": "Familia y juegos",
     "correctAnswer": "Continental",
     "acceptedAnswers": ["Continental", "continental"],
     "defaultLies": ["Rummy", "Póker", "Canasta", "Tute"]
@@ -266,7 +266,7 @@
   {
     "id": "cc-34",
     "question": "Paula, una de las amigas más cercanas de Sofía desde la época del colegio, ejerce la profesión de _____.",
-    "reference": "Amigos y personas importantes[cite: 1]",
+    "reference": "Amigos y personas importantes",
     "correctAnswer": "doctora",
     "acceptedAnswers": ["doctora", "médica", "medica", "medico"],
     "defaultLies": ["abogada", "ingeniera", "arquitecta", "diseñadora"]
@@ -274,7 +274,7 @@
   {
     "id": "cc-35",
     "question": "Paula, una de las mejores amigas de colegio de Sofía, es originaria del municipio de _____.",
-    "reference": "Amigos y personas importantes[cite: 1]",
+    "reference": "Amigos y personas importantes",
     "correctAnswer": "Chivolo",
     "acceptedAnswers": ["Chivolo", "chivolo"],
     "defaultLies": ["Plato", "Ciénaga", "Fundación", "Aracataca"]
@@ -282,7 +282,7 @@
   {
     "id": "cc-36",
     "question": "Melany, la mejor amiga actual de Sofía que vive en Estados Unidos, tiene por profesión _____.",
-    "reference": "Amigos y personas importantes[cite: 1]",
+    "reference": "Amigos y personas importantes",
     "correctAnswer": "abogada",
     "acceptedAnswers": ["abogada", "abogado"],
     "defaultLies": ["economista", "psicóloga", "periodista", "docente"]
@@ -290,7 +290,7 @@
   {
     "id": "cc-37",
     "question": "A Fiorella, amiga de colegio de Sofía, le apasiona el Carnaval de Barranquilla gracias a que su tía es dueña de una _____.",
-    "reference": "Amigos y personas importantes[cite: 1]",
+    "reference": "Amigos y personas importantes",
     "correctAnswer": "comparsa",
     "acceptedAnswers": ["comparsa", "danza", "cumbiamba"],
     "defaultLies": ["carroza", "disfraz", "orquesta", "caseta"]
@@ -298,7 +298,7 @@
   {
     "id": "cc-38",
     "question": "La mamá de Sofía trabaja en un centro de salud ubicado cerca del centro comercial Viva: la Clínica _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "Iberoamérica",
     "acceptedAnswers": ["Iberoamérica", "Iberoamerica", "iberoamerica"],
     "defaultLies": ["Portoazul", "del Caribe", "La Asunción", "Reina Sofía"]
@@ -306,7 +306,7 @@
   {
     "id": "cc-39",
     "question": "La comida casera que prepara la mamá de Sofía y que ella considera como una de sus favoritas absolutas es la _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "lasaña",
     "acceptedAnswers": ["lasaña", "lasagna"],
     "defaultLies": ["sopa", "arepa de huevo", "milanesa", "cazuela"]
@@ -314,7 +314,7 @@
   {
     "id": "cc-40",
     "question": "La telenovela favorita de toda la vida de la abuela Carmen es Café con _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "aroma de mujer",
     "acceptedAnswers": ["aroma de mujer", "aroma de mujer novela"],
     "defaultLies": ["leche", "sabor a ti", "olor a campo", "canela"]
@@ -322,7 +322,7 @@
   {
     "id": "cc-41",
     "question": "La telenovela predilecta de Sofía, la cual ha repetido y visto muchísimas veces, se titula La hija del _____.",
-    "reference": "Mamá y abuela[cite: 1]",
+    "reference": "Mamá y abuela",
     "correctAnswer": "mariachi",
     "acceptedAnswers": ["mariachi", "mariachi novela"],
     "defaultLies": ["patrón", "capataz", "general", "cantante"]
@@ -330,7 +330,7 @@
   {
     "id": "cc-42",
     "question": "Antes de trabajar en HubSpot, Sofía trabajó en la empresa Lean, cuyas oficinas se encontraban dentro del hotel _____.",
-    "reference": "Amigos y personas importantes[cite: 1]",
+    "reference": "Trabajo",
     "correctAnswer": "Movich",
     "acceptedAnswers": ["Movich", "movich", "Hotel Movich"],
     "defaultLies": ["Dann Carlton", "GHL", "Hilton", "Prado"]
@@ -338,7 +338,7 @@
   {
     "id": "cc-43",
     "question": "En su trabajo en la compañía HubSpot, la jefa inmediata y actual de Sofía se llama _____.",
-    "reference": "Amigos y personas importantes[cite: 1]",
+    "reference": "Trabajo",
     "correctAnswer": "Lina",
     "acceptedAnswers": ["Lina", "lina"],
     "defaultLies": ["Carolina", "Valeria", "Mariana", "Andrea"]
@@ -346,7 +346,7 @@
   {
     "id": "cc-44",
     "question": "Santiago, el amigo de Sofía de la época de Canadá que es DJ, tiene una casa a la que Sofía fue este año en el pueblo de Villa de _____.",
-    "reference": "Santiago[cite: 1]",
+    "reference": "Amigos y personas importantes",
     "correctAnswer": "Leyva",
     "acceptedAnswers": ["Leyva", "leyva"],
     "defaultLies": ["Mompox", "Rosario", "Garzón", "Sutatausa"]
@@ -354,7 +354,7 @@
   {
     "id": "cc-45",
     "question": "Durante su época universitaria, Sofía jugó en el torneo de fútbol oficial de la Uninorte y terminó consagrándose como la _____.",
-    "reference": "Fútbol y deportes[cite: 1]",
+    "reference": "Fútbol y deportes",
     "correctAnswer": "goleadora",
     "acceptedAnswers": ["goleadora", "máxima goleadora", "pichichi"],
     "defaultLies": ["capitana", "arquera", "mejor defensa", "árbitra"]
@@ -362,7 +362,7 @@
   {
     "id": "cc-46",
     "question": "Adri, quien viajó a Argentina con Sofía y César, tiene un vínculo familiar directo con César: es su _____.",
-    "reference": "César y viajes[cite: 1]",
+    "reference": "César y viajes",
     "correctAnswer": "hermana",
     "acceptedAnswers": ["hermana", "la hermana"],
     "defaultLies": ["prima", "tía", "sobrina", "hermana menor"]
@@ -370,7 +370,7 @@
   {
     "id": "cc-47",
     "question": "El nombre de la universidad en la que Sofía cursó su intercambio estudiantil en Montreal fue _____ University.",
-    "reference": "Canadá e intercambio[cite: 1]",
+    "reference": "Canadá e intercambio",
     "correctAnswer": "Concordia",
     "acceptedAnswers": ["Concordia", "concordia"],
     "defaultLies": ["McGill", "Montreal", "Laval", "York"]
@@ -378,10 +378,225 @@
   {
     "id": "cc-48",
     "question": "El apodo cariñoso y familiar con el que Sofía suele llamar a su papá es _____.",
-    "reference": "Familia y juegos[cite: 1]",
+    "reference": "Familia y juegos",
     "correctAnswer": "Luisolo",
     "acceptedAnswers": ["Luisolo", "luisolo"],
     "defaultLies": ["Luchito", "Papi Luis", "Luigi", "Lucho"]
+  },
+  {
+    "id": "cc-49",
+    "question": "Aunque Sofía practica varios deportes acuáticos, el que considera su verdadero favorito es el _____.",
+    "reference": "Fútbol y deportes",
+    "correctAnswer": "wakeboard",
+    "acceptedAnswers": ["wakeboard", "wakeboarding"],
+    "defaultLies": ["surf", "kayak", "buceo", "natación"]
+  },
+  {
+    "id": "cc-50",
+    "question": "Las raquetas de tenis y de pádel de Sofía son de la misma marca: _____.",
+    "reference": "Fútbol y deportes",
+    "correctAnswer": "Head",
+    "acceptedAnswers": ["Head", "head"],
+    "defaultLies": ["Wilson", "Babolat", "Dunlop", "Yonex"]
+  },
+  {
+    "id": "cc-51",
+    "question": "Sofía empezó a usar gafas por primera vez en el año _____.",
+    "reference": "Objetos y pequeñas tragedias",
+    "correctAnswer": "2023",
+    "acceptedAnswers": ["2023"],
+    "defaultLies": ["2020", "2021", "2022", "2024"]
+  },
+  {
+    "id": "cc-52",
+    "question": "Sofía odia prácticamente todas las verduras, pero hay una que sí come sin problema: el _____.",
+    "reference": "Comida y gustos",
+    "correctAnswer": "brócoli",
+    "acceptedAnswers": ["brócoli", "brocoli", "broccoli"],
+    "defaultLies": ["zanahoria", "espinaca", "pepino", "lechuga"]
+  },
+  {
+    "id": "cc-53",
+    "question": "¿Cómo se llamaba el jardín infantil al que asistió Sofía cuando era pequeña?",
+    "reference": "Infancia",
+    "correctAnswer": "La Magia de Crear",
+    "acceptedAnswers": ["La Magia de Crear", "Magia de Crear"],
+    "defaultLies": ["El Jardín Mágico", "Pequeños Creadores", "El Arcoíris", "Semillas del Saber"]
+  },
+  {
+    "id": "cc-54",
+    "question": "En uno de los momentos más alocados de su vida laboral, Sofía llegó a tener _____ trabajos al mismo tiempo.",
+    "reference": "Trabajo",
+    "correctAnswer": "7",
+    "acceptedAnswers": ["7", "siete", "7 trabajos", "siete trabajos"],
+    "defaultLies": ["3", "5", "10", "4"]
+  },
+  {
+    "id": "cc-55",
+    "question": "De todos los trabajos que Sofía tuvo de manera simultánea, su favorito era el que tenía con un _____ llamado Mike.",
+    "reference": "Trabajo",
+    "correctAnswer": "hipnotizador",
+    "acceptedAnswers": ["hipnotizador"],
+    "defaultLies": ["chef", "fotógrafo", "mago", "periodista"]
+  },
+  {
+    "id": "cc-56",
+    "question": "¿Cómo se llama la empresa que tiene actualmente el papá de Sofía, Luis Fernando?",
+    "reference": "Papá",
+    "correctAnswer": "Grupo KeSoluciones",
+    "acceptedAnswers": ["Grupo KeSoluciones", "KeSoluciones"],
+    "defaultLies": ["Cummins", "KSoluciones", "Grupo Ingenio", "TecnoSoluciones"]
+  },
+  {
+    "id": "cc-57",
+    "question": "El primer trabajo que tuvo Sofía en su vida fue como _____.",
+    "reference": "Trabajo",
+    "correctAnswer": "Community Manager",
+    "acceptedAnswers": ["Community Manager", "community manager", "CM", "gestora de comunidad"],
+    "defaultLies": ["diseñadora", "recepcionista", "asistente de ventas", "relacionista pública"]
+  },
+  {
+    "id": "cc-58",
+    "question": "¿Cuál es el color favorito de Sofía?",
+    "reference": "Personalidad y gustos",
+    "correctAnswer": "amarillo",
+    "acceptedAnswers": ["amarillo"],
+    "defaultLies": ["rojo", "azul", "verde", "naranja"]
+  },
+  {
+    "id": "cc-59",
+    "question": "Sofía tiene una ciudad favorita dentro de Europa. ¿Cuál es?",
+    "reference": "Personalidad y gustos",
+    "correctAnswer": "Roma",
+    "acceptedAnswers": ["Roma", "Roma, Italia"],
+    "defaultLies": ["París", "Barcelona", "Ámsterdam", "Bruselas"]
+  },
+  {
+    "id": "cc-60",
+    "question": "Cuando Sofía se enteró de que había ganado la beca para estudiar Negocios Internacionales, estaba en medio de un _____ familiar.",
+    "reference": "Crucero, beca y Europa",
+    "correctAnswer": "crucero",
+    "acceptedAnswers": ["crucero", "crucero familiar", "barco"],
+    "defaultLies": ["vuelo", "viaje en bus", "hotel", "restaurante"]
+  },
+  {
+    "id": "cc-61",
+    "question": "¿Cómo se llama el hermano de Sofía?",
+    "reference": "Hermano",
+    "correctAnswer": "Juan Miguel",
+    "acceptedAnswers": ["Juan Miguel", "Juano"],
+    "defaultLies": ["Luis Miguel", "Carlos Andrés", "Santiago", "Sebastián"]
+  },
+  {
+    "id": "cc-62",
+    "question": "¿Qué deporte juega Sofía junto a su hermano Juano dentro de la casa?",
+    "reference": "Hermano",
+    "correctAnswer": "squash",
+    "acceptedAnswers": ["squash"],
+    "defaultLies": ["ping pong", "billar", "tenis de mesa", "ajedrez"]
+  },
+  {
+    "id": "cc-63",
+    "question": "Antes de vivir en Barranquilla, la familia de Sofía vivía en la ciudad colombiana de _____.",
+    "reference": "Papá",
+    "correctAnswer": "Pereira",
+    "acceptedAnswers": ["Pereira", "pereira"],
+    "defaultLies": ["Bogotá", "Medellín", "Cali", "Bucaramanga"]
+  },
+  {
+    "id": "cc-64",
+    "question": "¿Cómo se llama la mamá de Sofía?",
+    "reference": "Mamá",
+    "correctAnswer": "Beatra",
+    "acceptedAnswers": ["Beatra", "beatra"],
+    "defaultLies": ["Beatriz", "Adriana", "Patricia", "Sandra"]
+  },
+  {
+    "id": "cc-65",
+    "question": "Sofía casi nunca toma alcohol, pero si lo hace, pide _____.",
+    "reference": "Estilo y alcohol",
+    "correctAnswer": "margarita",
+    "acceptedAnswers": ["margarita", "margaritas"],
+    "defaultLies": ["mojito", "piña colada", "vino tinto", "cerveza"]
+  },
+  {
+    "id": "cc-66",
+    "question": "Antes de que se llamara Percy, Sofía tenía planeado llamar a su futuro Golden Retriever _____.",
+    "reference": "Mascotas",
+    "correctAnswer": "Thor",
+    "acceptedAnswers": ["Thor", "thor"],
+    "defaultLies": ["Zeus", "Leo", "Max", "Duke"]
+  },
+  {
+    "id": "cc-67",
+    "question": "Hay un juego de mesa que Sofía odia y no puede soportar que la gente proponga jugar. ¿Cuál es?",
+    "reference": "Juegos",
+    "correctAnswer": "UNO",
+    "acceptedAnswers": ["UNO", "uno", "Uno"],
+    "defaultLies": ["Parqués", "Monopolio", "Jenga", "Ludo"]
+  },
+  {
+    "id": "cc-68",
+    "question": "¿Cuál fue la materia favorita de Sofía durante su carrera universitaria?",
+    "reference": "Colegio y universidad",
+    "correctAnswer": "Costos y Presupuestos",
+    "acceptedAnswers": ["Costos y Presupuestos", "Costos", "costos y presupuestos"],
+    "defaultLies": ["Marketing", "Estadística", "Finanzas Corporativas", "Contabilidad"]
+  },
+  {
+    "id": "cc-69",
+    "question": "El segundo vuelo que Sofía perdió en su vida salía de Bogotá con destino a _____.",
+    "reference": "Objetos y pequeñas tragedias",
+    "correctAnswer": "Cancún",
+    "acceptedAnswers": ["Cancún", "Cancun"],
+    "defaultLies": ["Miami", "Ciudad de México", "San Andrés", "Lima"]
+  },
+  {
+    "id": "cc-70",
+    "question": "En el año 2024, Sofía tomó clases de un deporte acuático que no era buceo ni wakeboard. ¿Cuál fue?",
+    "reference": "Fútbol y deportes",
+    "correctAnswer": "surf",
+    "acceptedAnswers": ["surf"],
+    "defaultLies": ["kitesurf", "kayak", "paddleboard", "windsurf"]
+  },
+  {
+    "id": "cc-71",
+    "question": "¿Cuál es la prima de Sofía que participó en el concurso Miss Universe Colombia?",
+    "reference": "Abuelos y familia paterna",
+    "correctAnswer": "Alejandra",
+    "acceptedAnswers": ["Alejandra"],
+    "defaultLies": ["Sara", "Manuela", "Valentina", "Daniela"]
+  },
+  {
+    "id": "cc-72",
+    "question": "La tía Claudia de Sofía vivía en Europa junto a su esposo Rodrigo, quien era embajador de Colombia en _____.",
+    "reference": "Abuelos y familia paterna",
+    "correctAnswer": "Bélgica",
+    "acceptedAnswers": ["Bélgica", "Belgica"],
+    "defaultLies": ["Francia", "Países Bajos", "Alemania", "Suiza"]
+  },
+  {
+    "id": "cc-73",
+    "question": "El viaje familiar de Sofía correspondiente al año 2025 fue al pueblo antioqueño de _____.",
+    "reference": "Lore de viajes familiares",
+    "correctAnswer": "Guatapé",
+    "acceptedAnswers": ["Guatapé", "Guatape"],
+    "defaultLies": ["Salento", "Mompox", "San Gil", "Jardín"]
+  },
+  {
+    "id": "cc-74",
+    "question": "¿Cuál es el apodo cariñoso con el que se conoce al hermano de Sofía, Juan Miguel?",
+    "reference": "Hermano",
+    "correctAnswer": "Juano",
+    "acceptedAnswers": ["Juano", "juano"],
+    "defaultLies": ["Juancho", "Miguelito", "Juanmi", "Jota"]
+  },
+  {
+    "id": "cc-75",
+    "question": "Cuando Sofía pide un chuzo, siempre tiene una condición específica: lo quiere _____.",
+    "reference": "Comida y gustos",
+    "correctAnswer": "desgranado sin verduras",
+    "acceptedAnswers": ["desgranado sin verduras", "sin verduras", "desgranado"],
+    "defaultLies": ["con todo", "extra picante", "con papas", "doble carne"]
   }
 ]
-

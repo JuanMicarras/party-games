@@ -1,4 +1,8 @@
 import { RoomState } from "@party-games/shared";
+import dayjs from "dayjs";
+import duration from 'dayjs/plugin/duration';
+
+dayjs.extend(duration)
 
 interface HostBoardProps {
   room: RoomState;
@@ -64,15 +68,14 @@ export function HostBoard({ room, onResetToLobby }: HostBoardProps) {
           )}
 
           <div
-            className={`text-8xl font-black font-mono tabular-nums transition-colors duration-300 ${
-              room.mimireto.status === "PAUSED"
-                ? "text-amber-500 opacity-60"
-                : (room.mimireto.timeLeft ?? 0) <= 10
-                  ? "text-red-500 animate-pulse"
-                  : "text-emerald-400"
-            }`}
+            className={`text-8xl font-black font-mono tabular-nums transition-colors duration-300 ${room.mimireto.status === "PAUSED"
+              ? "text-amber-500 opacity-60"
+              : (room.mimireto.timeLeft ?? 0) <= 10
+                ? "text-red-500 animate-pulse"
+                : "text-emerald-400"
+              }`}
           >
-            00:{(room.mimireto.timeLeft ?? 0).toString().padStart(2, "0")}
+            {dayjs.duration(parseInt(room.mimireto.timeLeft.toString()), 'seconds').format('mm:ss')}
           </div>
 
           <div className="mt-4">

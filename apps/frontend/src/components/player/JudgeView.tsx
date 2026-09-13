@@ -19,7 +19,7 @@ export function JudgeView({ room, onAction }: JudgeViewProps) {
       <p className="text-sm text-slate-300 mb-4">Vigila que no diga:</p>
       <h2 className="text-2xl font-bold text-slate-400 mb-4">{card.word}</h2>
 
-      <div className="flex flex-col gap-2 mb-6 text-left">
+      <div className="grid grid-cols-2 gap-2 mb-6 text-left">
         {card.forbidden.map((word, idx) => (
           <div
             key={idx}
