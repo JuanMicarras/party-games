@@ -1,11 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common';
 import {
   RoomState,
-  Player,
   CuentoChinoQuestion,
   CuentoChinoOption,
-  CuentoChinoState,
   RoundEvent,
+  CategoryInfo,
+  validateCuentoChinoDeck,
 } from '@party-games/shared';
 import { CuentoChinoDeckService } from './cuento-chino-deck.service.js';
 
@@ -26,12 +26,59 @@ export class CuentoChinoService {
 
   constructor(private readonly deckService: CuentoChinoDeckService) {}
 
-  initGame(room: RoomState, totalQuestions: number = 3): RoomState | null {
+  getCategories(): CategoryInfo[] {
+    return this.deckService.getCategories();
+  }
+
+  initGame(
+    room: RoomState,
+    totalQuestions: number = 3,
+    options?: {
+      category?: string;
+      customCategoryName?: string;
+      customDeck?: CuentoChinoQuestion[];
+    },
+  ): RoomState | null {
     if (room.players.length < 2) return null;
 
     room.mode = 'CUENTO_CHINO';
 
-    const questions = this.deckService.getRandomQuestions(totalQuestions);
+    let questions: CuentoChinoQuestion[];
+    let categoryId = options?.category || 'biblico';
+    let categoryName = '📖 Bíblico / Célula';
+
+    if (options?.customDeck && options.customDeck.length > 0) {
+      const validation = validateCuentoChinoDeck(options.customDeck);
+      if (validation.valid && validation.questions.length > 0) {
+        const shuffled = [...validation.questions].sort(
+          () => Math.random() - 0.5,
+        );
+        questions = shuffled.slice(
+          0,
+          Math.min(totalQuestions, shuffled.length),
+        );
+        categoryId = 'custom';
+        categoryName = options.customCategoryName?.trim()
+          ? `⚡ ${options.customCategoryName.trim()}`
+          : '⚡ Mazo Personalizado';
+      } else {
+        questions = this.deckService.getRandomQuestions(
+          totalQuestions,
+          categoryId,
+        );
+      }
+    } else {
+      questions = this.deckService.getRandomQuestions(
+        totalQuestions,
+        categoryId,
+      );
+      const info = this.deckService.getCategoryInfo(categoryId);
+      if (info) {
+        categoryId = info.id;
+        categoryName = `${info.icon} ${info.name}`;
+      }
+    }
+
     this.gameQuestions.set(room.roomCode, questions);
 
     const initialScores: Record<string, number> = {};
@@ -53,10 +100,12 @@ export class CuentoChinoService {
       votes: {},
       scores: initialScores,
       roundEvents: [],
+      categoryId,
+      categoryName,
     };
 
     this.logger.log(
-      `🤥 Partida de Cuento Chino iniciada en sala ${room.roomCode} con ${questions.length} preguntas.`,
+      `🤥 Partida de Cuento Chino [${categoryName}] iniciada en sala ${room.roomCode} con ${questions.length} preguntas.`,
     );
 
     return room;
@@ -100,14 +149,14 @@ export class CuentoChinoService {
       normalizedInput === normalizedCorrect ||
       normalizedAccepted.includes(normalizedInput);
 
-    // CASO SABIO: El jugador acertó la respuesta bíblica real
+    // CASO SABIO: El jugador acertó la respuesta verdadera en la fase de engaño
     if (isMatchWithCorrect) {
       const alreadySabio = state.sabioPlayerIds.includes(playerId);
       if (!alreadySabio) {
         state.sabioPlayerIds.push(playerId);
         state.scores[playerId] = (state.scores[playerId] || 0) + 2;
         this.logger.log(
-          `🌟 ¡Jugador ${playerId} es Sabio Bíblico en sala ${room.roomCode}! (+2 pts bonus)`,
+          `🌟 ¡Jugador ${playerId} es Sabio en sala ${room.roomCode}! (+2 pts bonus)`,
         );
       }
 
@@ -115,7 +164,7 @@ export class CuentoChinoService {
         status: 'SABIO',
         isSabio: true,
         message:
-          '¡Increíble! ¡Esa es la respuesta real de la Biblia! Ganaste +2 puntos. Ahora escribe una mentira creíble para engañar a tus amigos.',
+          '¡Increíble! ¡Esa es la respuesta verdadera! Ganaste +2 puntos. Ahora escribe una mentira creíble para engañar a tus amigos.',
       };
     }
 

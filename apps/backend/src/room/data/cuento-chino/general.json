@@ -1,0 +1,162 @@
+[
+  {
+    "id": "gen-1",
+    "question": "En Suiza es ilegal tener solamente un _____ como mascota, ya que se considera maltrato animal porque se deprimen en soledad.",
+    "reference": "Leyes Insólitas",
+    "correctAnswer": "cuy",
+    "acceptedAnswers": ["cuy", "cobaya", "conejillo de indias", "curí"],
+    "defaultLies": ["gato", "canario", "conejo", "pez dorado"]
+  },
+  {
+    "id": "gen-2",
+    "question": "Antes de que se inventaran los borradores de goma, la gente utilizaba migas de _____ para borrar los trazos de lápiz en el papel.",
+    "reference": "Historia Cotidiana",
+    "correctAnswer": "pan",
+    "acceptedAnswers": ["pan", "miga de pan"],
+    "defaultLies": ["queso", "cera de vela", "papa cruda", "manzana"]
+  },
+  {
+    "id": "gen-3",
+    "question": "Las nutrias marinas tienen la tierna costumbre de dormir tomadas de las manos y además tienen un bolsillo de piel donde guardan su _____ favorita.",
+    "reference": "Reino Animal",
+    "correctAnswer": "piedra",
+    "acceptedAnswers": ["piedra", "roca", "piedrita"],
+    "defaultLies": ["concha", "alga", "estrella de mar", "perla"]
+  },
+  {
+    "id": "gen-4",
+    "question": "En el año 1932, el ejército de Australia declaró oficialmente una guerra militar con ametralladoras contra una plaga de _____... y los animales ganaron.",
+    "reference": "Historia Absurda",
+    "correctAnswer": "emues",
+    "acceptedAnswers": ["emues", "emu", "avestruces"],
+    "defaultLies": ["canguros", "conejos", "camellos", "koalas"]
+  },
+  {
+    "id": "gen-5",
+    "question": "El inventor de la máquina de algodón de azúcar era curiosamente de profesión _____.",
+    "reference": "Inventos Curiosos",
+    "correctAnswer": "dentista",
+    "acceptedAnswers": ["dentista", "odontologo"],
+    "defaultLies": ["bombero", "relojero", "peluquero", "zapatero"]
+  },
+  {
+    "id": "gen-6",
+    "question": "Los pulpos son animales tan extraordinarios que tienen exactamente tres corazones y su sangre es de color _____.",
+    "reference": "Biología Marina",
+    "correctAnswer": "azul",
+    "acceptedAnswers": ["azul", "celeste"],
+    "defaultLies": ["verde", "morado", "transparente", "negro"]
+  },
+  {
+    "id": "gen-7",
+    "question": "Durante el siglo XIX en Estados Unidos, la salsa de tomate (kétchup) se vendía en las farmacias como medicina para curar la _____.",
+    "reference": "Medicina Antigua",
+    "correctAnswer": "diarrea",
+    "acceptedAnswers": ["diarrea", "indigestion", "dolor de estomago"],
+    "defaultLies": ["calvicie", "tos", "fiebre", "miopia"]
+  },
+  {
+    "id": "gen-8",
+    "question": "El corazón de una ballena azul es tan gigantesco que tiene aproximadamente el tamaño de un _____.",
+    "reference": "Gigantes del Océano",
+    "correctAnswer": "carro",
+    "acceptedAnswers": ["carro", "auto", "automovil", "coche"],
+    "defaultLies": ["sofa", "refrigerador", "caballo", "piano"]
+  },
+  {
+    "id": "gen-9",
+    "question": "En los Juegos Olímpicos de París 1900, en la prueba de tiro con armas de fuego se utilizaron _____ reales en movimiento en lugar de platos de arcilla.",
+    "reference": "Deportes Históricos",
+    "correctAnswer": "palomas",
+    "acceptedAnswers": ["palomas", "aves", "pajaros"],
+    "defaultLies": ["globos", "sombreros", "manzanas", "botellas"]
+  },
+  {
+    "id": "gen-10",
+    "question": "El plástico de burbujas que usamos hoy para envolver cosas frágiles fue inventado originalmente en 1957 para usarse como _____ en las paredes.",
+    "reference": "Inventos por Accidente",
+    "correctAnswer": "papel tapiz",
+    "acceptedAnswers": ["papel tapiz", "empapelado", "decoracion de pared", "tapiz"],
+    "defaultLies": ["cortina de bano", "aislante de frio", "alfombra", "colchon"]
+  },
+  {
+    "id": "gen-11",
+    "question": "Las vacas producen significativamente más leche cuando los granjeros les ponen música _____ y tienen un mejor amigo dentro del rebaño.",
+    "reference": "Ciencia Curiosa",
+    "correctAnswer": "relajante",
+    "acceptedAnswers": ["relajante", "lenta", "clasica", "suave"],
+    "defaultLies": ["rock", "tropical", "electronica", "ranchera"]
+  },
+  {
+    "id": "gen-12",
+    "question": "En Japón existe una isla llamada Okunoshima que es famosa mundialmente porque está habitada por miles de _____ salvajes muy amigables.",
+    "reference": "Geografía Insólita",
+    "correctAnswer": "conejos",
+    "acceptedAnswers": ["conejos", "conejitos"],
+    "defaultLies": ["mapaches", "pinguinos", "patos", "erizos"]
+  },
+  {
+    "id": "gen-13",
+    "question": "El primer producto en la historia que fue escaneado con un código de barras en un supermercado en 1974 fue un paquete de _____.",
+    "reference": "Tecnología y Comercio",
+    "correctAnswer": "chicles",
+    "acceptedAnswers": ["chicles", "chicle", "goma de mascar"],
+    "defaultLies": ["leche", "cereal", "pilas", "jabon"]
+  },
+  {
+    "id": "gen-14",
+    "question": "Los flamencos nacen con plumas de color gris o blanco, y solo se vuelven rosados debido a que comen grandes cantidades de _____.",
+    "reference": "Curiosidades Naturales",
+    "correctAnswer": "camarones",
+    "acceptedAnswers": ["camarones", "crustaceos", "algas"],
+    "defaultLies": ["corales", "flores", "peces rojos", "caracoles"]
+  },
+  {
+    "id": "gen-15",
+    "question": "Antes de que existieran los relojes despertadores modernos en Inglaterra, existía el oficio de 'despertador humano', quien golpeaba las ventanas de sus clientes lanzando _____ con una cerbatana.",
+    "reference": "Oficios Olvidados",
+    "correctAnswer": "arvejas",
+    "acceptedAnswers": ["arvejas", "guisantes", "chicharos", "semillas"],
+    "defaultLies": ["piedritas", "monedas", "bolas de papel", "bellotas"]
+  },
+  {
+    "id": "gen-16",
+    "question": "El miedo irracional y persistente a que en algún lugar del mundo un pato te esté observando fijamente se llama _____.",
+    "reference": "Fobias Extrañas",
+    "correctAnswer": "anatidaefobia",
+    "acceptedAnswers": ["anatidaefobia"],
+    "defaultLies": ["patofobia", "cuacfobia", "ornitofobia", "palmifobia"]
+  },
+  {
+    "id": "gen-17",
+    "question": "Las huellas digitales de los _____ son tan idénticas a las de los seres humanos que en ocasiones han confundido a los investigadores en escenas del crimen.",
+    "reference": "Datos Increíbles",
+    "correctAnswer": "koalas",
+    "acceptedAnswers": ["koalas", "koala"],
+    "defaultLies": ["mapaches", "perezosos", "nutrias", "canguros"]
+  },
+  {
+    "id": "gen-18",
+    "question": "En el espacio exterior, los astronautas no pueden _____ porque sin gravedad los líquidos no se separan del gas en el estómago.",
+    "reference": "Vida en el Espacio",
+    "correctAnswer": "eructar",
+    "acceptedAnswers": ["eructar", "repetir"],
+    "defaultLies": ["estornudar", "bostezar", "silbar", "toser"]
+  },
+  {
+    "id": "gen-19",
+    "question": "Los tacones altos fueron diseñados y utilizados originalmente en el siglo X por soldados _____ para sujetar mejor sus pies en los estribos al montar a caballo.",
+    "reference": "Historia de la Moda",
+    "correctAnswer": "persas",
+    "acceptedAnswers": ["persas", "hombres", "jinetes persas"],
+    "defaultLies": ["franceses", "romanos", "egipcios", "vikingos"]
+  },
+  {
+    "id": "gen-20",
+    "question": "La miel es uno de los pocos alimentos que nunca se pudre: los arqueólogos han encontrado vasijas de miel de hace 3000 años en tumbas _____ que aún son totalmente comestibles.",
+    "reference": "Gastronomía e Historia",
+    "correctAnswer": "egipcias",
+    "acceptedAnswers": ["egipcias", "de egipto", "faraonicas"],
+    "defaultLies": ["mayas", "vikingas", "griegas", "chinas"]
+  }
+]

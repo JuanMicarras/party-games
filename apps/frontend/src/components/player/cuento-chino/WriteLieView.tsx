@@ -26,18 +26,18 @@ export function WriteLieView({
 
   return (
     <div className="space-y-4 text-center mt-4">
-      {/* Alerta del Sabio Bíblico si acertó la verdad */}
+      {/* Alerta del Sabio si acertó la verdad */}
       {isSabio && (
         <div className="bg-amber-950/90 border-2 border-amber-400 p-4 rounded-2xl shadow-[0_0_20px_rgba(251,191,36,0.3)] text-left animate-in fade-in zoom-in duration-300">
           <div className="flex items-center gap-2 mb-1">
             <span className="text-2xl">🌟</span>
             <span className="text-sm font-black text-amber-300 uppercase tracking-wide">
-              ¡Eres el Sabio Bíblico! (+2 pts)
+              ¡Eres el Sabio! (+2 pts)
             </span>
           </div>
           <p className="text-xs text-amber-200 leading-relaxed">
             {feedbackMessage ||
-              "¡Acertaste la respuesta real de la Biblia! Ya ganaste 2 puntos de bonificación. Ahora escribe una mentira creíble para engañar a tus amigos (si alguien cae en tu trampa, ¡le restarás 1 punto!)."}
+              "¡Acertaste la respuesta verdadera! Ya ganaste 2 puntos de bonificación. Ahora escribe una mentira creíble para engañar a tus amigos (si alguien cae en tu trampa, ¡le restarás 1 punto!)."}
           </p>
         </div>
       )}
@@ -45,7 +45,7 @@ export function WriteLieView({
       {/* Tarjeta de la pregunta */}
       <div className="bg-slate-950 p-5 rounded-2xl border border-slate-700 text-left">
         <span className="text-[10px] font-bold uppercase tracking-wider bg-slate-800 text-amber-400 px-2 py-0.5 rounded border border-slate-700">
-          Cita: {question.reference}
+          Tema: {question.reference}
         </span>
         <p className="text-lg font-bold text-white mt-2 leading-snug">
           {question.question}

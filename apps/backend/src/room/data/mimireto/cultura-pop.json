@@ -1,0 +1,162 @@
+[
+  {
+    "word": "SHAKIRA",
+    "forbidden": ["COLOMBIA", "BARRANQUILLA", "CADERAS", "PIQUÉ", "LOBA", "CANTANTE"]
+  },
+  {
+    "word": "HARRY POTTER",
+    "forbidden": ["MAGIA", "HOGWARTS", "CICATRIZ", "VARITA", "VOLDEMORT", "GAFAS"]
+  },
+  {
+    "word": "TITANIC",
+    "forbidden": ["BARCO", "ICEBERG", "JACK", "ROSE", "HUNDIRSE", "OCÉANO"]
+  },
+  {
+    "word": "SPIDER-MAN",
+    "forbidden": ["ARAÑA", "TELARAÑA", "PETER PARKER", "MARVEL", "TREPAR", "SUPERHÉROE"]
+  },
+  {
+    "word": "STRANGER THINGS",
+    "forbidden": ["NETFLIX", "ONCE", "ELEVEN", "DEMOGORGON", "OCHENTA", "HAWKINS"]
+  },
+  {
+    "word": "MICHAEL JACKSON",
+    "forbidden": ["POP", "THRILLER", "MOONWALK", "GUANTE", "BAILAR", "REY"]
+  },
+  {
+    "word": "EL REY LEÓN",
+    "forbidden": ["SIMBA", "MUFASA", "SCAR", "HAKUNA MATATA", "DISNEY", "SELVA"]
+  },
+  {
+    "word": "BAD BUNNY",
+    "forbidden": ["CONEJO", "PUERTO RICO", "REGGAETÓN", "CANTANTE", "VERANO", "TRAP"]
+  },
+  {
+    "word": "STAR WARS",
+    "forbidden": ["DARTH VADER", "SABLE", "LUKE", "FUERZA", "YODA", "ESPACIO"]
+  },
+  {
+    "word": "SHREK",
+    "forbidden": ["OGRO", "PANTANO", "BURRO", "FIONA", "VERDE", "CEBOLLA"]
+  },
+  {
+    "word": "TAYLOR SWIFT",
+    "forbidden": ["CANTANTE", "ERAS", "SWIFTIES", "POP", "EXNOVIOS", "GUITARRA"]
+  },
+  {
+    "word": "BATMAN",
+    "forbidden": ["MURCIÉLAGO", "GOTHAM", "JOKER", "BRUCE WAYNE", "ROBIN", "NOCHE"]
+  },
+  {
+    "word": "TOY STORY",
+    "forbidden": ["JUGUETES", "WOODY", "BUZZ LIGHTYEAR", "ANDY", "PIXAR", "VAQUERO"]
+  },
+  {
+    "word": "EL JUEGO DEL CALAMAR",
+    "forbidden": ["COREA", "NETFLIX", "MUÑECA", "DINERO", "VERDE", "ELIMINAR"]
+  },
+  {
+    "word": "KAROL G",
+    "forbidden": ["BICHOTA", "MEDELLÍN", "TUSA", "MAÑANA SERÁ BONITO", "REGGAETÓN", "COLOMBIA"]
+  },
+  {
+    "word": "AVENGERS",
+    "forbidden": ["VENGADORES", "MARVEL", "THANOS", "IRON MAN", "CAPITÁN AMÉRICA", "THOR"]
+  },
+  {
+    "word": "ENCANTO",
+    "forbidden": ["MADRIGAL", "BRUNO", "MIRABEL", "COLOMBIA", "DISNEY", "CASITA"]
+  },
+  {
+    "word": "BOB ESPONJA",
+    "forbidden": ["PIÑA", "MAR", "PATRICIO", "CALAMARDO", "CANGREBURGUER", "AMARILLO"]
+  },
+  {
+    "word": "LA CASA DE PAPEL",
+    "forbidden": ["PROFESOR", "ATRACO", "MÁSCARA", "DALÍ", "BELLA CIAO", "ROJO"]
+  },
+  {
+    "word": "COCO",
+    "forbidden": ["MÉXICO", "MUERTOS", "GUITARRA", "RECUÉRDAME", "ABUELA", "MIGUEL"]
+  },
+  {
+    "word": "JURASSIC PARK",
+    "forbidden": ["DINOSAURIOS", "ISLA", "T-REX", "FÓSIL", "PARQUE", "STEVEN SPIELBERG"]
+  },
+  {
+    "word": "MESSI",
+    "forbidden": ["FÚTBOL", "ARGENTINA", "BARCELONA", "MUNDIAL", "PULGA", "DIEZ"]
+  },
+  {
+    "word": "BREAKING BAD",
+    "forbidden": ["QUÍMICA", "WALTER WHITE", "HEISENBERG", "PROFESOR", "SERIE", "DESIERTO"]
+  },
+  {
+    "word": "FROZEN",
+    "forbidden": ["HIELO", "ELSA", "ANNA", "OLAF", "LIBRE SOY", "NIEVE"]
+  },
+  {
+    "word": "MARIO BROS",
+    "forbidden": ["NINTENDO", "FONTANERO", "LUIGI", "BOWSER", "PRINCESA PEACH", "HONGO"]
+  },
+  {
+    "word": "LOS SIMPSON",
+    "forbidden": ["HOMERO", "BART", "AMARILLO", "SPRINGFIELD", "DONAS", "LISA"]
+  },
+  {
+    "word": "QUEEN",
+    "forbidden": ["FREDDIE MERCURY", "BOHEMIAN RHAPSODY", "ROCK", "BANDA", "CAMPEONES", "BIGOTE"]
+  },
+  {
+    "word": "MATRIX",
+    "forbidden": ["NEO", "PASTILLA", "ROJA", "AZUL", "BALAS", "SIMULACIÓN"]
+  },
+  {
+    "word": "PIKACHU",
+    "forbidden": ["POKÉMON", "AMARILLO", "ELÉCTRICO", "ASH", "POKEBOLA", "RAYO"]
+  },
+  {
+    "word": "BETTY LA FEA",
+    "forbidden": ["ARMANDO", "ECOMODA", "GAFAS", "CAPUL", "TELENOVELA", "PATRICIA"]
+  },
+  {
+    "word": "GOKU",
+    "forbidden": ["DRAGON BALL", "SAIYAJIN", "ESFERAS", "KAMEHAMEHA", "VEGETA", "ANIME"]
+  },
+  {
+    "word": "BARBIE",
+    "forbidden": ["MUÑECA", "ROSA", "KEN", "MATTEL", "PLÁSTICO", "RUBIA"]
+  },
+  {
+    "word": "PIRATAS DEL CARIBE",
+    "forbidden": ["JACK SPARROW", "PERLA NEGRA", "BARCO", "TESORO", "JOHNNY DEPP", "MAR"]
+  },
+  {
+    "word": "CHAVO DEL OCHO",
+    "forbidden": ["BARRIL", "VECINDAD", "QUICO", "DON RAMÓN", "TORTA DE JAMÓN", "CHESPIRITO"]
+  },
+  {
+    "word": "NETFLIX",
+    "forbidden": ["STREAMING", "PELÍCULAS", "SERIES", "PANTALLA", "SUSCRIPCIÓN", "ROJO"]
+  },
+  {
+    "word": "INDIANA JONES",
+    "forbidden": ["ARQUEÓLOGO", "LÁTIGO", "SOMBRERO", "TESORO", "ROCA", "AVENTURA"]
+  },
+  {
+    "word": "MONSTERS INC",
+    "forbidden": ["SULLIVAN", "MIKE WAZOWSKI", "BOO", "PUERTAS", "ASUSTAR", "GRITOS"]
+  },
+  {
+    "word": "AVATAR",
+    "forbidden": ["AZUL", "PANDORA", "JAMES CAMERON", "ALIENÍGENAS", "ÁRBOL", "TRENZAS"]
+  },
+  {
+    "word": "COLDPLAY",
+    "forbidden": ["BANDA", "YELLOW", "PULSERAS", "LUCES", "CHRIS MARTIN", "CONCIERTO"]
+  },
+  {
+    "word": "RÁPIDOS Y FURIOSOS",
+    "forbidden": ["CARROS", "TORETTO", "FAMILIA", "CARRERAS", "VIN DIESEL", "VELOCIDAD"]
+  }
+]

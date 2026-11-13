@@ -1,17 +1,62 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { RoomState, Player, MimiretoState } from '@party-games/shared';
+import {
+  RoomState,
+  Player,
+  MimiretoCard,
+  CategoryInfo,
+  validateMimiretoDeck,
+} from '@party-games/shared';
 import { DeckService } from './deck.service.js';
 
 @Injectable()
 export class MimiretoService {
   private readonly logger = new Logger(MimiretoService.name);
+  private roomDecks: Map<string, MimiretoCard[]> = new Map();
 
   constructor(private readonly deckService: DeckService) {}
 
-  initGame(room: RoomState, roundsMultiplier: number = 1): RoomState | null {
+  getCategories(): CategoryInfo[] {
+    return this.deckService.getCategories();
+  }
+
+  initGame(
+    room: RoomState,
+    roundsMultiplier: number = 1,
+    options?: {
+      category?: string;
+      customCategoryName?: string;
+      customDeck?: MimiretoCard[];
+    },
+  ): RoomState | null {
     if (room.players.length < 2) return null;
 
     room.mode = 'MIMIRETO';
+
+    let deck: MimiretoCard[];
+    let categoryId = options?.category || 'biblico';
+    let categoryName = '📖 Bíblico / Célula';
+
+    if (options?.customDeck && options.customDeck.length > 0) {
+      const validation = validateMimiretoDeck(options.customDeck);
+      if (validation.valid && validation.cards.length > 0) {
+        deck = validation.cards;
+        categoryId = 'custom';
+        categoryName = options.customCategoryName?.trim()
+          ? `⚡ ${options.customCategoryName.trim()}`
+          : '⚡ Mazo Personalizado';
+      } else {
+        deck = this.deckService.getDeckByCategory(categoryId);
+      }
+    } else {
+      deck = this.deckService.getDeckByCategory(categoryId);
+      const info = this.deckService.getCategoryInfo(categoryId);
+      if (info) {
+        categoryId = info.id;
+        categoryName = `${info.icon} ${info.name}`;
+      }
+    }
+
+    this.roomDecks.set(room.roomCode, deck);
 
     // Mezclar jugadores aleatoriamente
     const shuffledPlayers = [...room.players].sort(() => Math.random() - 0.5);
@@ -33,7 +78,7 @@ export class MimiretoService {
 
     const maxTeamSize = Math.max(teamA.length, teamB.length);
     const totalTurns = maxTeamSize * 2 * roundsMultiplier;
-    const initialCard = this.deckService.getRandomCard();
+    const initialCard = this.deckService.getRandomCardFromDeck(deck);
 
     room.mimireto = {
       teamAScore: 0,
@@ -50,10 +95,12 @@ export class MimiretoService {
       turnsPlayed: 0,
       teamAPlayerIds,
       teamBPlayerIds,
+      categoryId,
+      categoryName,
     };
 
     this.logger.log(
-      `🎲 Juego Mimireto iniciado en sala ${room.roomCode}: ${teamA.length} en A vs ${teamB.length} en B. Turnos totales: ${totalTurns}`,
+      `🎲 Juego Mimireto [${categoryName}] iniciado en sala ${room.roomCode}: ${teamA.length} en A vs ${teamB.length} en B. Turnos totales: ${totalTurns}`,
     );
 
     return room;
@@ -101,8 +148,12 @@ export class MimiretoService {
       else state.teamBScore -= 1;
     }
 
-    // Siguiente carta sin repetir la actual
-    state.currentCard = this.deckService.getNextCardExcept(
+    // Siguiente carta sin repetir la actual del mazo de la sala
+    const activeDeck =
+      this.roomDecks.get(room.roomCode) ||
+      this.deckService.getDeckByCategory(state.categoryId);
+    state.currentCard = this.deckService.getNextCardExceptFromDeck(
+      activeDeck,
       state.currentCard?.word,
     );
 
@@ -163,8 +214,17 @@ export class MimiretoService {
     }
 
     state.status = 'TIME_UP';
+<<<<<<< Updated upstream
     state.timeLeft = 60;
     state.currentCard = this.deckService.getNextCardExcept(
+=======
+    state.timeLeft = 120;
+    const activeDeck =
+      this.roomDecks.get(room.roomCode) ||
+      this.deckService.getDeckByCategory(state.categoryId);
+    state.currentCard = this.deckService.getNextCardExceptFromDeck(
+      activeDeck,
+>>>>>>> Stashed changes
       state.currentCard?.word,
     );
 

@@ -86,6 +86,10 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     const updatedRoom = this.roomService.startGame(data.roomCode, gameMode, {
       roundsMultiplier: data.roundsMultiplier ?? 1,
       totalQuestions: data.totalQuestions ?? 3,
+      category: data.category,
+      customCategoryName: data.customCategoryName,
+      customMimiretoDeck: data.customMimiretoDeck,
+      customCuentoChinoDeck: data.customCuentoChinoDeck,
     });
 
     if (updatedRoom) {

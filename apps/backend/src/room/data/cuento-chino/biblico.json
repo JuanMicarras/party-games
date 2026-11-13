@@ -1,0 +1,643 @@
+[
+  {
+    "id": "cc-1",
+    "question": "En Jueces 3:17, la Biblia dice que el rey Eglón de Moab era un hombre extremadamente _____.",
+    "reference": "Jueces 3:17",
+    "correctAnswer": "gordo",
+    "acceptedAnswers": ["gordo", "obeso", "gordisimo", "gordito"],
+    "defaultLies": ["alto", "dormilon", "peludo", "feo"]
+  },
+  {
+    "id": "cc-2",
+    "question": "En 2 Reyes 2:23-24, unos muchachos se burlaron del profeta Eliseo gritándole: '¡Sube, _____!'",
+    "reference": "2 Reyes 2:23",
+    "correctAnswer": "calvo",
+    "acceptedAnswers": ["calvo", "pelon", "calvito"],
+    "defaultLies": ["viejo", "barbon", "cojo", "feo"]
+  },
+  {
+    "id": "cc-3",
+    "question": "En Números 22:28, el Señor abrió la boca de una _____ para que le hablara y reprochara al profeta Balaam.",
+    "reference": "Números 22:28",
+    "correctAnswer": "burra",
+    "acceptedAnswers": ["burra", "asna", "burra de balaam", "asna de balaam"],
+    "defaultLies": ["oveja", "camella", "serpiente", "paloma"]
+  },
+  {
+    "id": "cc-4",
+    "question": "En 1 Samuel 17:40, David eligió exactamente _____ piedras lisas del arroyo antes de enfrentarse a Goliat.",
+    "reference": "1 Samuel 17:40",
+    "correctAnswer": "cinco",
+    "acceptedAnswers": ["cinco", "5"],
+    "defaultLies": ["tres", "siete", "doce", "una"]
+  },
+  {
+    "id": "cc-5",
+    "question": "En Hechos 20:9, un joven llamado Eutico se quedó dormido durante una larga predicación de Pablo y cayó desde un _____ piso.",
+    "reference": "Hechos 20:9",
+    "correctAnswer": "tercer",
+    "acceptedAnswers": ["tercer", "tercero", "tercer piso", "3er", "3"],
+    "defaultLies": ["segundo", "cuarto", "quinto", "primer"]
+  },
+  {
+    "id": "cc-6",
+    "question": "En Éxodo 4:3, cuando Moisés arrojó su vara al suelo por orden de Dios, esta se convirtió milagrosamente en una _____.",
+    "reference": "Éxodo 4:3",
+    "correctAnswer": "serpiente",
+    "acceptedAnswers": ["serpiente", "culebra", "vibora"],
+    "defaultLies": ["espada", "paloma", "antorcha", "piedra"]
+  },
+  {
+    "id": "cc-7",
+    "question": "En Jueces 15:4, Sansón cazó trescientas _____ y les ató antorchas encendidas en las colas para quemar los campos filisteos.",
+    "reference": "Jueces 15:4",
+    "correctAnswer": "zorras",
+    "acceptedAnswers": ["zorras", "zorros", "zorritas"],
+    "defaultLies": ["cabras", "hienas", "ratas", "ovejas"]
+  },
+  {
+    "id": "cc-8",
+    "question": "En 1 Samuel 24:3, el rey Saúl entró solo a una cueva precisamente para _____, sin saber que David estaba escondido allí.",
+    "reference": "1 Samuel 24:3",
+    "correctAnswer": "hacer sus necesidades",
+    "acceptedAnswers": ["hacer sus necesidades", "defecar", "hacer del bano", "evacuar", "orinar", "cubrir sus pies"],
+    "defaultLies": ["tomar una siesta", "afilar su espada", "esconder su corona", "rezar"]
+  },
+  {
+    "id": "cc-9",
+    "question": "En Génesis 25:30, Esaú vendió sus derechos de primogénito a su hermano Jacob a cambio de un plato de guiso de _____.",
+    "reference": "Génesis 25:30",
+    "correctAnswer": "lentejas",
+    "acceptedAnswers": ["lentejas", "guisado de lentejas", "lenteja"],
+    "defaultLies": ["cordero", "garbanzos", "trigo", "frijoles"]
+  },
+  {
+    "id": "cc-10",
+    "question": "En Jueces 4:21, la mujer Jael acabó con el general enemigo Sísara atravesándole la sien con una _____ de la tienda.",
+    "reference": "Jueces 4:21",
+    "correctAnswer": "estaca",
+    "acceptedAnswers": ["estaca", "clavo", "clavija"],
+    "defaultLies": ["lanza", "espada", "flecha", "piedra"]
+  },
+  {
+    "id": "cc-11",
+    "question": "En Jonás 4:7, Dios preparó un _____ que mordió la planta calabacera de Jonás hasta secarla, provocando su enojo.",
+    "reference": "Jonás 4:7",
+    "correctAnswer": "gusano",
+    "acceptedAnswers": ["gusano", "oruga"],
+    "defaultLies": ["viento", "saltamontes", "langosta", "escarabajo"]
+  },
+  {
+    "id": "cc-12",
+    "question": "En Mateo 17:27, Jesús le dijo a Pedro que en la boca del primer pez que pescara encontraría una _____.",
+    "reference": "Mateo 17:27",
+    "correctAnswer": "moneda",
+    "acceptedAnswers": ["moneda", "moneda de plata", "estatero"],
+    "defaultLies": ["perla", "llave", "sortija", "red"]
+  },
+  {
+    "id": "cc-13",
+    "question": "En 1 Reyes 18:27, Elías se burlaba de los sacerdotes de Baal diciendo que tal vez su dios no respondía porque estaba _____.",
+    "reference": "1 Reyes 18:27",
+    "correctAnswer": "durmiendo",
+    "acceptedAnswers": ["durmiendo", "dormido", "haciendo del bano", "de viaje"],
+    "defaultLies": ["comiendo", "sordo", "enojado", "cantando"]
+  },
+  {
+    "id": "cc-14",
+    "question": "En Proverbios 26:11, se compara al necio que vuelve a cometer su necedad con un perro que vuelve a su _____.",
+    "reference": "Proverbios 26:11",
+    "correctAnswer": "vomito",
+    "acceptedAnswers": ["vomito", "su vomito"],
+    "defaultLies": ["dueno", "cueva", "hueso", "correa"]
+  },
+  {
+    "id": "cc-15",
+    "question": "En Daniel 4:33, el soberbio rey Nabucodonosor perdió el juicio y fue apartado para comer _____ como los bueyes.",
+    "reference": "Daniel 4:33",
+    "correctAnswer": "hierba",
+    "acceptedAnswers": ["hierba", "pasto", "zacate", "yerba"],
+    "defaultLies": ["tierra", "raices", "hojas", "paja"]
+  },
+  {
+    "id": "cc-16",
+    "question": "En 2 Samuel 18:9, el vanidoso Absalón quedó atrapado en las ramas de un gran roble por su larga _____ mientras huía en su mulo.",
+    "reference": "2 Samuel 18:9",
+    "correctAnswer": "cabellera",
+    "acceptedAnswers": ["cabellera", "pelo", "cabello"],
+    "defaultLies": ["lanza", "capa", "armadura", "espada"]
+  },
+  {
+    "id": "cc-17",
+    "question": "En Génesis 3:1, la serpiente es descrita como el más _____ de todos los animales del campo que el Señor había hecho.",
+    "reference": "Génesis 3:1",
+    "correctAnswer": "astuto",
+    "acceptedAnswers": ["astuto", "sagaz", "prudente"],
+    "defaultLies": ["venenoso", "peligroso", "rapido", "hermoso"]
+  },
+  {
+    "id": "cc-18",
+    "question": "En Jueces 14:8, Sansón fue a mirar el cuerpo del león que había matado y halló adentro un enjambre de abejas con _____.",
+    "reference": "Jueces 14:8",
+    "correctAnswer": "miel",
+    "acceptedAnswers": ["miel", "panal", "panal de miel"],
+    "defaultLies": ["flores", "oro", "frutas", "trigo"]
+  },
+  {
+    "id": "cc-19",
+    "question": "En Mateo 3:4, Juan el Bautista vestía pelo de camello y se alimentaba únicamente de miel silvestre y _____.",
+    "reference": "Mateo 3:4",
+    "correctAnswer": "langostas",
+    "acceptedAnswers": ["langostas", "saltamontes", "langosta"],
+    "defaultLies": ["pan", "pescado", "higos", "uvas"]
+  },
+  {
+    "id": "cc-20",
+    "question": "En Hechos 12:13-14, una muchacha llamada _____ reconoció la voz de Pedro en la puerta pero de la alegría no le abrió.",
+    "reference": "Hechos 12:13",
+    "correctAnswer": "rode",
+    "acceptedAnswers": ["rode", "rhoda", "roda"],
+    "defaultLies": ["marta", "maria", "salome", "tabita"]
+  },
+  {
+    "id": "cc-21",
+    "question": "En Levítico 11:22, Dios le permite al pueblo de Israel comer un insecto alado específico: la _____.",
+    "reference": "Levítico 11:22",
+    "correctAnswer": "langosta",
+    "acceptedAnswers": ["langosta", "saltamontes", "grillo"],
+    "defaultLies": ["cucaracha", "avispa", "hormiga", "mariposa"]
+  },
+  {
+    "id": "cc-22",
+    "question": "En Génesis 19:26, la mujer de Lot desobedeció mirando hacia atrás y se convirtió en una estatua de _____.",
+    "reference": "Génesis 19:26",
+    "correctAnswer": "sal",
+    "acceptedAnswers": ["sal", "estatua de sal"],
+    "defaultLies": ["piedra", "arena", "azufre", "ceniza"]
+  },
+  {
+    "id": "cc-23",
+    "question": "En Éxodo 8:2, la segunda plaga que invadió las camas, amasaderos y hornos de todo Egipto fue de _____.",
+    "reference": "Éxodo 8:2",
+    "correctAnswer": "ranas",
+    "acceptedAnswers": ["ranas", "sapos"],
+    "defaultLies": ["piojos", "moscas", "ratones", "cucarachas"]
+  },
+  {
+    "id": "cc-24",
+    "question": "En 1 Samuel 5:4, la estatua del dios filisteo Dagón cayó rota ante el arca y se le desprendieron la cabeza y las dos _____.",
+    "reference": "1 Samuel 5:4",
+    "correctAnswer": "manos",
+    "acceptedAnswers": ["manos", "palmas", "palmas de las manos"],
+    "defaultLies": ["piernas", "orejas", "alas", "rodillas"]
+  },
+  {
+    "id": "cc-25",
+    "question": "En 2 Reyes 6:6, el profeta Eliseo arrojó un leño a las aguas del Jordán e hizo flotar milagrosamente un _____ de hierro.",
+    "reference": "2 Reyes 6:6",
+    "correctAnswer": "hacha",
+    "acceptedAnswers": ["hacha", "hierro del hacha"],
+    "defaultLies": ["martillo", "escudo", "yunque", "clavo"]
+  },
+  {
+    "id": "cc-26",
+    "question": "En Génesis 8:11, la paloma enviada por Noé regresó al atardecer llevando en su pico una hoja de _____.",
+    "reference": "Génesis 8:11",
+    "correctAnswer": "olivo",
+    "acceptedAnswers": ["olivo", "oliva", "arbol de olivo"],
+    "defaultLies": ["higuera", "palmera", "vid", "laurel"]
+  },
+  {
+    "id": "cc-27",
+    "question": "En Hechos 28:3, en la isla de Malta, mientras Pablo juntaba leña para el fuego, una _____ prendió de su mano sin dañarlo.",
+    "reference": "Hechos 28:3",
+    "correctAnswer": "vibora",
+    "acceptedAnswers": ["vibora", "serpiente", "culebra"],
+    "defaultLies": ["arana", "escorpion", "rata", "abeja"]
+  },
+  {
+    "id": "cc-28",
+    "question": "En Lucas 19:4, el recaudador Zaqueo se trepó a un árbol _____ para ver pasar a Jesús entre la multitud.",
+    "reference": "Lucas 19:4",
+    "correctAnswer": "sicomoro",
+    "acceptedAnswers": ["sicomoro", "arbol sicomoro"],
+    "defaultLies": ["olivo", "higuera", "roble", "cedro"]
+  },
+  {
+    "id": "cc-29",
+    "question": "En Cantar de los Cantares 2:15, se aconseja atrapar a las _____ pequeñas porque destruyen las viñas florecidas.",
+    "reference": "Cantares 2:15",
+    "correctAnswer": "zorras",
+    "acceptedAnswers": ["zorras", "zorros", "zorritas"],
+    "defaultLies": ["liebres", "aves", "orugas", "cabras"]
+  },
+  {
+    "id": "cc-30",
+    "question": "En 1 Reyes 10:22, los barcos del rey Salomón traían cada tres años oro, plata, marfil, monos y _____.",
+    "reference": "1 Reyes 10:22",
+    "correctAnswer": "pavos reales",
+    "acceptedAnswers": ["pavos reales", "pavos", "pavoreal", "pavo real"],
+    "defaultLies": ["leones", "loros", "camellos", "caballos"]
+  },
+  {
+    "id": "cc-31",
+    "question": "En Jueces 16:19, Dalila logró que le raparan a Sansón las _____ trenzas de su cabeza para arrebatarle su fuerza.",
+    "reference": "Jueces 16:19",
+    "correctAnswer": "siete",
+    "acceptedAnswers": ["siete", "7"],
+    "defaultLies": ["tres", "doce", "cinco", "diez"]
+  },
+  {
+    "id": "cc-32",
+    "question": "En Juan 2:6, en las bodas de Caná de Galilea había exactamente _____ tinajas de piedra para la purificación judía.",
+    "reference": "Juan 2:6",
+    "correctAnswer": "seis",
+    "acceptedAnswers": ["seis", "6"],
+    "defaultLies": ["siete", "doce", "tres", "diez"]
+  },
+  {
+    "id": "cc-33",
+    "question": "En Números 11:31, Dios hizo soplar un viento que trajo del mar una inmensa nube de _____ para alimentar al pueblo.",
+    "reference": "Números 11:31",
+    "correctAnswer": "codornices",
+    "acceptedAnswers": ["codornices", "codorniz"],
+    "defaultLies": ["patos", "palomas", "perdices", "peces"]
+  },
+  {
+    "id": "cc-34",
+    "question": "En 2 Samuel 12:3, en la historia que el profeta Natán contó a David, el hombre pobre criaba con cariño una sola _____.",
+    "reference": "2 Samuel 12:3",
+    "correctAnswer": "cordera",
+    "acceptedAnswers": ["cordera", "ovejita", "oveja", "cordero"],
+    "defaultLies": ["vaca", "paloma", "cabra", "gallina"]
+  },
+  {
+    "id": "cc-35",
+    "question": "En Hechos 9:25, para escapar de los que querían matarlo en Damasco, Saulo fue descolgado por la muralla en un _____.",
+    "reference": "Hechos 9:25",
+    "correctAnswer": "canasto",
+    "acceptedAnswers": ["canasto", "cesta", "canasta"],
+    "defaultLies": ["saco", "barril", "baul", "manto"]
+  },
+  {
+    "id": "cc-36",
+    "question": "En 1 Reyes 17:6, durante la gran sequía, los _____ le traían a Elías pan y carne cada mañana y cada tarde.",
+    "reference": "1 Reyes 17:6",
+    "correctAnswer": "cuervos",
+    "acceptedAnswers": ["cuervos", "pajaros", "cuervo"],
+    "defaultLies": ["angeles", "pastores", "aguilas", "palomas"]
+  },
+  {
+    "id": "cc-37",
+    "question": "En Mateo 26:34, Jesús le advirtió a Pedro: 'Antes de que el _____ cante esta noche, me negarás tres veces'.",
+    "reference": "Mateo 26:34",
+    "correctAnswer": "gallo",
+    "acceptedAnswers": ["gallo", "el gallo"],
+    "defaultLies": ["sol", "pastor", "centurion", "viento"]
+  },
+  {
+    "id": "cc-38",
+    "question": "En Apocalipsis 3:16, a los creyentes tibios de Laodicea se les advierte: 'Por cuanto no eres frío ni caliente, te vomitaré de mi _____'.",
+    "reference": "Apocalipsis 3:16",
+    "correctAnswer": "boca",
+    "acceptedAnswers": ["boca", "la boca"],
+    "defaultLies": ["reino", "presencia", "templo", "mesa"]
+  },
+  {
+    "id": "cc-39",
+    "question": "En 2 Reyes 9:36, se cumplió la profecía de Elías cuando los _____ devoraron los restos de la malvada reina Jezabel.",
+    "reference": "2 Reyes 9:36",
+    "correctAnswer": "perros",
+    "acceptedAnswers": ["perros", "canes"],
+    "defaultLies": ["buitres", "leones", "gusanos", "lobos"]
+  },
+  {
+    "id": "cc-40",
+    "question": "En Génesis 37:3, el patriarca Jacob le regaló a su hijo consentido José una hermosa túnica de muchos _____.",
+    "reference": "Génesis 37:3",
+    "correctAnswer": "colores",
+    "acceptedAnswers": ["colores", "diversos colores"],
+    "defaultLies": ["bordados", "botones", "hilos de oro", "bolsillos"]
+  },
+  {
+    "id": "cc-41",
+    "question": "En Éxodo 16:31, los israelitas describieron el maná del desierto como blanco parecido a semilla de cilantro y con sabor a _____.",
+    "reference": "Éxodo 16:31",
+    "correctAnswer": "miel",
+    "acceptedAnswers": ["miel", "hojuelas con miel", "pan con miel"],
+    "defaultLies": ["leche", "aceite", "manzana", "sal"]
+  },
+  {
+    "id": "cc-42",
+    "question": "En Lucas 15:16, el hijo pródigo en su miseria anhelaba saciarse con las _____ que comían los cerdos que cuidaba.",
+    "reference": "Lucas 15:16",
+    "correctAnswer": "algarrobas",
+    "acceptedAnswers": ["algarrobas", "cascaras", "bellotas"],
+    "defaultLies": ["sobras", "raices", "mazorcas", "pajas"]
+  },
+  {
+    "id": "cc-43",
+    "question": "En Josué 6:20, las murallas de la ciudad de Jericó cayeron cuando el pueblo gritó y los sacerdotes tocaron las _____.",
+    "reference": "Josué 6:20",
+    "correctAnswer": "trompetas",
+    "acceptedAnswers": ["trompetas", "bocinas", "shofar"],
+    "defaultLies": ["campanas", "arpas", "flautas", "panderetas"]
+  },
+  {
+    "id": "cc-44",
+    "question": "En 1 Samuel 16:23, cuando el rey Saúl caía en angustia, el joven David tomaba su _____ y tocaba para devolverle la paz.",
+    "reference": "1 Samuel 16:23",
+    "correctAnswer": "arpa",
+    "acceptedAnswers": ["arpa", "lira"],
+    "defaultLies": ["flauta", "tamboril", "trompeta", "salterio"]
+  },
+  {
+    "id": "cc-45",
+    "question": "En Rut 2:3, la moabita Rut fue a recoger espigas huérfanas al campo que pertenecía a un rico pariente llamado _____.",
+    "reference": "Rut 2:3",
+    "correctAnswer": "booz",
+    "acceptedAnswers": ["booz", "boaz"],
+    "defaultLies": ["elimelec", "obed", "isai", "quilion"]
+  },
+  {
+    "id": "cc-46",
+    "question": "En Hechos 16:14, una mujer piadosa llamada Lidia, que comerciaba telas finas de color _____, acogió el evangelio de Pablo.",
+    "reference": "Hechos 16:14",
+    "correctAnswer": "purpura",
+    "acceptedAnswers": ["purpura", "morado"],
+    "defaultLies": ["rojo", "azul", "dorado", "blanco"]
+  },
+  {
+    "id": "cc-47",
+    "question": "En Génesis 40:16, el panadero del faraón soñó que llevaba sobre su cabeza tres canastos llenos de pan _____.",
+    "reference": "Génesis 40:16",
+    "correctAnswer": "blanco",
+    "acceptedAnswers": ["blanco", "trigo", "reposteria"],
+    "defaultLies": ["dulce", "integral", "caliente", "cebada"]
+  },
+  {
+    "id": "cc-48",
+    "question": "En 2 Reyes 20:7, para curar una llaga mortal del rey Ezequías, el profeta Isaías ordenó aplicarle una cataplasma de _____.",
+    "reference": "2 Reyes 20:7",
+    "correctAnswer": "higos",
+    "acceptedAnswers": ["higos", "higo"],
+    "defaultLies": ["barro", "aceite", "hierbas", "uvas"]
+  },
+  {
+    "id": "cc-49",
+    "question": "En Jueces 7:16, Gedeón armó a sus 300 guerreros con trompetas, cántaros vacíos y una _____ escondida dentro de cada cántaro.",
+    "reference": "Jueces 7:16",
+    "correctAnswer": "antorcha",
+    "acceptedAnswers": ["antorcha", "tea", "vela"],
+    "defaultLies": ["espada", "lanza", "piedra", "cuerda"]
+  },
+  {
+    "id": "cc-50",
+    "question": "En Mateo 14:17, antes del milagro para la multitud hambrienta, los discípulos solo contaban con dos peces y _____ panes.",
+    "reference": "Mateo 14:17",
+    "correctAnswer": "cinco",
+    "acceptedAnswers": ["cinco", "5"],
+    "defaultLies": ["siete", "tres", "doce", "diez"]
+  },
+  {
+    "id": "cc-51",
+    "question": "En Juan 3:16, 'Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida _____'.",
+    "reference": "Juan 3:16",
+    "correctAnswer": "eterna",
+    "acceptedAnswers": ["eterna", "vida eterna"],
+    "defaultLies": ["abundante", "verdadera", "santa", "celestial"]
+  },
+  {
+    "id": "cc-52",
+    "question": "En Salmos 23:1, el famoso cántico de David comienza declarando: 'El Señor es mi pastor; nada me _____'.",
+    "reference": "Salmos 23:1",
+    "correctAnswer": "faltara",
+    "acceptedAnswers": ["faltara", "faltará", "nada me faltara"],
+    "defaultLies": ["temere", "danara", "pasara", "turbara"]
+  },
+  {
+    "id": "cc-53",
+    "question": "En Filipenses 4:13, el apóstol Pablo escribe la célebre frase: 'Todo lo puedo en Cristo que me _____'.",
+    "reference": "Filipenses 4:13",
+    "correctAnswer": "fortalece",
+    "acceptedAnswers": ["fortalece", "da fuerzas"],
+    "defaultLies": ["guia", "ama", "sostiene", "salva"]
+  },
+  {
+    "id": "cc-54",
+    "question": "En Jeremías 29:11, Dios declara: 'Porque yo sé los pensamientos que tengo acerca de vosotros... pensamientos de paz, y no de _____'.",
+    "reference": "Jeremías 29:11",
+    "correctAnswer": "mal",
+    "acceptedAnswers": ["mal", "de mal", "calamidad"],
+    "defaultLies": ["destruccion", "dolor", "tristeza", "juicio"]
+  },
+  {
+    "id": "cc-55",
+    "question": "En Josué 1:9, Dios alienta a Josué diciendo: 'Mira que te mando que te esfuerces y seas valiente; no temas ni te _____'.",
+    "reference": "Josué 1:9",
+    "correctAnswer": "desmayes",
+    "acceptedAnswers": ["desmayes", "te desanimes", "amedrentes", "acobardes"],
+    "defaultLies": ["rindas", "caigas", "preocupes", "asustes"]
+  },
+  {
+    "id": "cc-56",
+    "question": "En Proverbios 3:5, el sabio Salomón aconseja: 'Fíate del Señor de todo tu corazón, y no te apoyes en tu propia _____'.",
+    "reference": "Proverbios 3:5",
+    "correctAnswer": "prudencia",
+    "acceptedAnswers": ["prudencia", "propia prudencia", "sabiduria"],
+    "defaultLies": ["fuerza", "mente", "razon", "opinion"]
+  },
+  {
+    "id": "cc-57",
+    "question": "En Romanos 8:28, se promete: 'Y sabemos que a los que aman a Dios, todas las cosas les ayudan a _____'.",
+    "reference": "Romanos 8:28",
+    "correctAnswer": "bien",
+    "acceptedAnswers": ["bien", "a bien", "para bien"],
+    "defaultLies": ["prosperar", "vencer", "crecer", "triunfar"]
+  },
+  {
+    "id": "cc-58",
+    "question": "En Isaías 40:31, 'Los que esperan en el Señor tendrán nuevas fuerzas; levantarán alas como las _____'.",
+    "reference": "Isaías 40:31",
+    "correctAnswer": "aguilas",
+    "acceptedAnswers": ["aguilas", "águilas", "las aguilas"],
+    "defaultLies": ["palomas", "estrellas", "nubes", "aves"]
+  },
+  {
+    "id": "cc-59",
+    "question": "En Salmos 119:105, 'Lámpara es a mis pies tu palabra, y _____ a mi camino'.",
+    "reference": "Salmos 119:105",
+    "correctAnswer": "lumbrera",
+    "acceptedAnswers": ["lumbrera", "luz"],
+    "defaultLies": ["guia", "antorcha", "sendero", "faro"]
+  },
+  {
+    "id": "cc-60",
+    "question": "En Mateo 6:33, Jesús instruye: 'Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán _____'.",
+    "reference": "Mateo 6:33",
+    "correctAnswer": "anadidas",
+    "acceptedAnswers": ["anadidas", "añadidas", "dadas"],
+    "defaultLies": ["multiplicadas", "concedidas", "reveladas", "aseguradas"]
+  },
+  {
+    "id": "cc-61",
+    "question": "En Génesis 1:1, el primer versículo de la Biblia abre con: 'En el principio creó Dios los cielos y la _____'.",
+    "reference": "Génesis 1:1",
+    "correctAnswer": "tierra",
+    "acceptedAnswers": ["tierra", "la tierra"],
+    "defaultLies": ["luz", "creacion", "vida", "mar"]
+  },
+  {
+    "id": "cc-62",
+    "question": "En 2 Timoteo 1:7, 'Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio _____'.",
+    "reference": "2 Timoteo 1:7",
+    "correctAnswer": "propio",
+    "acceptedAnswers": ["propio", "dominio propio"],
+    "defaultLies": ["santo", "pleno", "espiritual", "total"]
+  },
+  {
+    "id": "cc-63",
+    "question": "En Salmos 46:1, 'Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las _____'.",
+    "reference": "Salmos 46:1",
+    "correctAnswer": "tribulaciones",
+    "acceptedAnswers": ["tribulaciones", "las tribulaciones", "angustias"],
+    "defaultLies": ["dificultades", "pruebas", "tormentas", "luchas"]
+  },
+  {
+    "id": "cc-64",
+    "question": "En Gálatas 5:22, se nombran los frutos del Espíritu: 'amor, gozo, paz, paciencia, benignidad, bondad, _____'.",
+    "reference": "Gálatas 5:22",
+    "correctAnswer": "fe",
+    "acceptedAnswers": ["fe", "la fe"],
+    "defaultLies": ["humildad", "pureza", "sabiduria", "esperanza"]
+  },
+  {
+    "id": "cc-65",
+    "question": "En 1 Corintios 13:13, 'Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el _____'.",
+    "reference": "1 Corintios 13:13",
+    "correctAnswer": "amor",
+    "acceptedAnswers": ["amor", "el amor"],
+    "defaultLies": ["fe", "esperanza", "perdon", "espiritu"]
+  },
+  {
+    "id": "cc-66",
+    "question": "En Romanos 12:2, 'No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro _____'.",
+    "reference": "Romanos 12:2",
+    "correctAnswer": "entendimiento",
+    "acceptedAnswers": ["entendimiento", "mente"],
+    "defaultLies": ["corazon", "espiritu", "alma", "caracter"]
+  },
+  {
+    "id": "cc-67",
+    "question": "En Salmos 91:1, 'El que habita al abrigo del Altísimo morará bajo la _____ del Omnipotente'.",
+    "reference": "Salmos 91:1",
+    "correctAnswer": "sombra",
+    "acceptedAnswers": ["sombra", "la sombra"],
+    "defaultLies": ["presencia", "gloria", "mano", "luz"]
+  },
+  {
+    "id": "cc-68",
+    "question": "En Mateo 28:19, la Gran Comisión ordena bautizar 'en el nombre del Padre, y del Hijo, y del Espíritu _____'.",
+    "reference": "Mateo 28:19",
+    "correctAnswer": "santo",
+    "acceptedAnswers": ["santo", "espiritu santo"],
+    "defaultLies": ["eterno", "divino", "consolador", "supremo"]
+  },
+  {
+    "id": "cc-69",
+    "question": "En Hebreos 11:1, 'Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se _____'.",
+    "reference": "Hebreos 11:1",
+    "correctAnswer": "ve",
+    "acceptedAnswers": ["ve", "no se ve", "mira"],
+    "defaultLies": ["siente", "comprende", "toca", "conoce"]
+  },
+  {
+    "id": "cc-70",
+    "question": "En Miqueas 6:8, '...solamente hacer justicia, y amar misericordia, y humillarte ante tu _____'.",
+    "reference": "Miqueas 6:8",
+    "correctAnswer": "dios",
+    "acceptedAnswers": ["dios", "tu dios"],
+    "defaultLies": ["creador", "rey", "projimo", "padre"]
+  },
+  {
+    "id": "cc-71",
+    "question": "En Salmos 37:4, 'Deléitate asimismo en el Señor, y él te concederá las peticiones de tu _____'.",
+    "reference": "Salmos 37:4",
+    "correctAnswer": "corazon",
+    "acceptedAnswers": ["corazon", "corazón", "tu corazon"],
+    "defaultLies": ["alma", "vida", "espiritu", "oracion"]
+  },
+  {
+    "id": "cc-72",
+    "question": "En Juan 14:6, Jesús declaró categóricamente: 'Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por _____'.",
+    "reference": "Juan 14:6",
+    "correctAnswer": "mi",
+    "acceptedAnswers": ["mi", "mí", "por mi"],
+    "defaultLies": ["gracia", "fe", "oracion", "amor"]
+  },
+  {
+    "id": "cc-73",
+    "question": "En 1 Pedro 5:7, se nos exhorta diciendo: 'Echando toda vuestra _____ sobre él, porque él tiene cuidado de vosotros'.",
+    "reference": "1 Pedro 5:7",
+    "correctAnswer": "ansiedad",
+    "acceptedAnswers": ["ansiedad", "vuestra ansiedad", "cargas"],
+    "defaultLies": ["carga", "preocupacion", "pena", "duda"]
+  },
+  {
+    "id": "cc-74",
+    "question": "En Efesios 2:8, 'Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de _____'.",
+    "reference": "Efesios 2:8",
+    "correctAnswer": "dios",
+    "acceptedAnswers": ["dios", "de dios"],
+    "defaultLies": ["cielo", "salvacion", "amor", "vida"]
+  },
+  {
+    "id": "cc-75",
+    "question": "En Proverbios 4:23, 'Sobre toda cosa guardada, guarda tu _____; porque de él mana la vida'.",
+    "reference": "Proverbios 4:23",
+    "correctAnswer": "corazon",
+    "acceptedAnswers": ["corazon", "corazón", "tu corazon"],
+    "defaultLies": ["mente", "boca", "alma", "lengua"]
+  },
+  {
+    "id": "cc-76",
+    "question": "En Romanos 3:23, 'Por cuanto todos pecaron, y están destituidos de la _____ de Dios'.",
+    "reference": "Romanos 3:23",
+    "correctAnswer": "gloria",
+    "acceptedAnswers": ["gloria", "la gloria"],
+    "defaultLies": ["gracia", "presencia", "paz", "justicia"]
+  },
+  {
+    "id": "cc-77",
+    "question": "En Salmos 121:1-2, '¿De dónde vendrá mi socorro? Mi socorro viene del Señor, que hizo los cielos y la _____'.",
+    "reference": "Salmos 121:1",
+    "correctAnswer": "tierra",
+    "acceptedAnswers": ["tierra", "la tierra"],
+    "defaultLies": ["luz", "mar", "vida", "estrellas"]
+  },
+  {
+    "id": "cc-78",
+    "question": "En Santiago 1:5, 'Si alguno tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin _____'.",
+    "reference": "Santiago 1:5",
+    "correctAnswer": "reproche",
+    "acceptedAnswers": ["reproche", "sin reproche"],
+    "defaultLies": ["limite", "medida", "tardanza", "condicion"]
+  },
+  {
+    "id": "cc-79",
+    "question": "En Mateo 11:28, la tierna invitación de Jesús: 'Venid a mí todos los que estáis trabajados y cargados, y yo os haré _____'.",
+    "reference": "Mateo 11:28",
+    "correctAnswer": "descansar",
+    "acceptedAnswers": ["descansar", "reposar"],
+    "defaultLies": ["libres", "fuertes", "felices", "sanar"]
+  },
+  {
+    "id": "cc-80",
+    "question": "En Isaías 53:5, 'El castigo de nuestra paz fue sobre él, y por su llaga fuimos nosotros _____'.",
+    "reference": "Isaías 53:5",
+    "correctAnswer": "curados",
+    "acceptedAnswers": ["curados", "sanados", "salvados"],
+    "defaultLies": ["limpios", "liberados", "perdonados", "restaurados"]
+  }
+]
+

@@ -32,7 +32,7 @@ export function RoundResultView({
           <div className="bg-amber-950/60 border border-amber-500/50 p-3 rounded-xl flex items-center gap-3">
             <span className="text-2xl">🌟</span>
             <div>
-              <p className="text-sm font-bold text-amber-300">¡Sabio Bíblico!</p>
+              <p className="text-sm font-bold text-amber-300">¡Modo Sabio!</p>
               <p className="text-xs text-amber-200">
                 +2 puntos asegurados por saberte la respuesta de antemano.
               </p>
@@ -52,7 +52,7 @@ export function RoundResultView({
             }`}
           >
             {myVoteEvent.result === "CORRECT" && (
-              <p>🎉 ¡Acertaste la verdad bíblica! (+3 pts)</p>
+              <p>🎉 ¡Acertaste la respuesta verdadera! (+3 pts)</p>
             )}
             {myVoteEvent.result === "FOOLED_BY_SABIO" && (
               <p>

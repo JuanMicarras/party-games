@@ -1,8 +1,13 @@
 import { RoomState } from "@party-games/shared";
-import dayjs from "dayjs";
-import duration from 'dayjs/plugin/duration';
 
-dayjs.extend(duration)
+function formatTime(totalSeconds: number): string {
+  const safeSeconds = Math.max(0, Math.floor(totalSeconds || 0));
+  const mins = Math.floor(safeSeconds / 60)
+    .toString()
+    .padStart(2, "0");
+  const secs = (safeSeconds % 60).toString().padStart(2, "0");
+  return `${mins}:${secs}`;
+}
 
 interface HostBoardProps {
   room: RoomState;
@@ -33,9 +38,16 @@ export function HostBoard({ room, onResetToLobby }: HostBoardProps) {
         </span>
       </div>
 
-      <h1 className="text-5xl font-black text-amber-400 mb-8 tracking-wider">
-        MIMIRETO
-      </h1>
+      <div className="mb-8 space-y-2">
+        <h1 className="text-5xl font-black text-amber-400 tracking-wider">
+          MIMIRETO
+        </h1>
+        {room.mimireto.categoryName && (
+          <span className="inline-block text-xs font-bold uppercase tracking-widest bg-blue-500/20 text-blue-300 px-3.5 py-1 rounded-full border border-blue-500/30">
+            Categoría: {room.mimireto.categoryName}
+          </span>
+        )}
+      </div>
       <div className="flex justify-between items-center bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-2xl">
         <div className="text-center min-w-[150px]">
           <h2 className="text-2xl text-blue-400 font-bold mb-2">EQUIPO A</h2>
@@ -75,8 +87,7 @@ export function HostBoard({ room, onResetToLobby }: HostBoardProps) {
                 : "text-emerald-400"
               }`}
           >
-            {/* {dayjs(room.mimireto.timeLeft).format('mm:ss')} */}
-            {dayjs.duration(parseInt(room.mimireto.timeLeft.toString()), 'seconds').format('mm:ss')}
+            {formatTime(Number(room.mimireto.timeLeft))}
           </div>
 
           <div className="mt-4">

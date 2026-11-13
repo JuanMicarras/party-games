@@ -1,0 +1,162 @@
+[
+  {
+    "word": "AEROPUERTO",
+    "forbidden": ["AVIÓN", "VIAJAR", "MALETA", "PASAPORTE", "VUELO", "PILOTO"]
+  },
+  {
+    "word": "CAFÉ",
+    "forbidden": ["TAZA", "MAÑANA", "DESPERTAR", "CAFEÍNA", "CALIENTE", "GRANO"]
+  },
+  {
+    "word": "DENTISTA",
+    "forbidden": ["DIENTES", "MUELA", "BOCA", "CARIES", "DOLOR", "CEPILLO"]
+  },
+  {
+    "word": "CUMPLEAÑOS",
+    "forbidden": ["TORTA", "PASTEL", "VELAS", "REGALO", "FIESTA", "CANTAR"]
+  },
+  {
+    "word": "SEMÁFORO",
+    "forbidden": ["ROJO", "VERDE", "AMARILLO", "CALLE", "CARROS", "PARAR"]
+  },
+  {
+    "word": "PIZZA",
+    "forbidden": ["QUESO", "ITALIA", "PEPPERONI", "MASA", "PORCIÓN", "CAJA"]
+  },
+  {
+    "word": "LAVADORA",
+    "forbidden": ["ROPA", "JABÓN", "AGUA", "LIMPIAR", "CENTRIFUGAR", "SUCIA"]
+  },
+  {
+    "word": "GIMNASIO",
+    "forbidden": ["EJERCICIO", "PESAS", "MÚSCULOS", "SUDAR", "ENTRENAR", "CORRER"]
+  },
+  {
+    "word": "PARAGUAS",
+    "forbidden": ["LLUVIA", "MOJARSE", "AGUA", "ABRIR", "TECHO", "TORMENTA"]
+  },
+  {
+    "word": "DESPERTADOR",
+    "forbidden": ["ALARMA", "SONAR", "MAÑANA", "DORMIR", "RELOJ", "LEVANTARSE"]
+  },
+  {
+    "word": "BOMBERO",
+    "forbidden": ["FUEGO", "APAGAR", "MANGUERA", "CAMIÓN", "INCENDIO", "SIRENA"]
+  },
+  {
+    "word": "ASCENSOR",
+    "forbidden": ["SUBIR", "BAJAR", "PISOS", "EDIFICIO", "BOTONES", "ESCALERAS"]
+  },
+  {
+    "word": "NEVERA",
+    "forbidden": ["FRÍO", "COMIDA", "CONGELADOR", "HIELO", "COCINA", "GUARDAR"]
+  },
+  {
+    "word": "PELUQUERÍA",
+    "forbidden": ["CABELLO", "CORTAR", "TIJERAS", "PEINAR", "TINTE", "BARBERÍA"]
+  },
+  {
+    "word": "ALMOHADA",
+    "forbidden": ["CAMA", "CABEZA", "DORMIR", "SUAVE", "SUEÑO", "PLUMAS"]
+  },
+  {
+    "word": "SUPERMERCADO",
+    "forbidden": ["COMPRAR", "CARRITO", "COMIDA", "CAJERO", "FILA", "MERCADO"]
+  },
+  {
+    "word": "GAFAS DE SOL",
+    "forbidden": ["OJOS", "PLAYA", "LUZ", "LENTES", "OSCURO", "VERANO"]
+  },
+  {
+    "word": "MICROONDAS",
+    "forbidden": ["CALENTAR", "COCINA", "SEGUNDOS", "PLATO", "COMIDA", "HORNO"]
+  },
+  {
+    "word": "PASAPORTE",
+    "forbidden": ["PAÍS", "VIAJE", "FRONTERA", "SELLO", "AEROPUERTO", "DOCUMENTO"]
+  },
+  {
+    "word": "BICICLETA",
+    "forbidden": ["RUEDAS", "PEDALES", "CASCO", "MANUBRIO", "CADENA", "MONTAR"]
+  },
+  {
+    "word": "CINE",
+    "forbidden": ["PELÍCULA", "CRISPETAS", "PALOMITAS", "PANTALLA", "BUTACA", "OSCURO"]
+  },
+  {
+    "word": "CONTROL REMOTO",
+    "forbidden": ["TELEVISOR", "CAMBIAR", "CANAL", "BOTONES", "PILAS", "VOLUMEN"]
+  },
+  {
+    "word": "CEPILLO DE DIENTES",
+    "forbidden": ["CREMA", "PASTA", "BOCA", "LAVAR", "MUELAS", "BAÑO"]
+  },
+  {
+    "word": "PLAYA",
+    "forbidden": ["ARENA", "MAR", "OLAS", "SOL", "VACACIONES", "BRONCEADO"]
+  },
+  {
+    "word": "CHOCOLATE",
+    "forbidden": ["DULCE", "CACAO", "LECHE", "BARRA", "BOMBÓN", "POSTRE"]
+  },
+  {
+    "word": "VETERINARIO",
+    "forbidden": ["ANIMALES", "PERRO", "GATO", "MÉDICO", "MASCOTA", "CURAR"]
+  },
+  {
+    "word": "MOCHILA",
+    "forbidden": ["ESPALDA", "COLEGIO", "LIBROS", "GUARDAR", "BOLSO", "CREMALLERA"]
+  },
+  {
+    "word": "HAMBURGUESA",
+    "forbidden": ["CARNE", "PAN", "QUESO", "PAPAS FRITAS", "COMIDA RÁPIDA", "SALSA"]
+  },
+  {
+    "word": "ESPEJO",
+    "forbidden": ["REFLEJO", "MIRARSE", "VIDRIO", "CARA", "BAÑO", "IMAGEN"]
+  },
+  {
+    "word": "FOTOGRAFÍA",
+    "forbidden": ["CÁMARA", "SONREÍR", "FLASH", "RECUERDO", "IMAGEN", "RETRATO"]
+  },
+  {
+    "word": "RELOJ DE ARENA",
+    "forbidden": ["TIEMPO", "GRANOS", "VOLTEAR", "MINUTOS", "VIDRIO", "ANTIGUO"]
+  },
+  {
+    "word": "MUDANZA",
+    "forbidden": ["CAJAS", "CASA", "CAMIÓN", "MUEBLES", "EMPACAR", "CAMBIAR"]
+  },
+  {
+    "word": "FOGATA",
+    "forbidden": ["FUEGO", "CAMPAMENTO", "LEÑA", "MASMELOS", "NOCHE", "CALOR"]
+  },
+  {
+    "word": "SEMILLA",
+    "forbidden": ["PLANTA", "TIERRA", "AGUA", "CRECER", "ÁRBOL", "FRUTO"]
+  },
+  {
+    "word": "KARAOKE",
+    "forbidden": ["CANTAR", "MICRÓFONO", "LETRA", "MÚSICA", "PANTALLA", "FIESTA"]
+  },
+  {
+    "word": "SUBMARINO",
+    "forbidden": ["AGUA", "PROFUNDO", "OCÉANO", "PERISCOPIO", "BARCO", "SUMERGIR"]
+  },
+  {
+    "word": "ROMPECABEZAS",
+    "forbidden": ["PIEZAS", "ARMAR", "IMAGEN", "ENCAMINAR", "CAJA", "MESA"]
+  },
+  {
+    "word": "ASTRONAUTA",
+    "forbidden": ["ESPACIO", "LUNA", "COHETE", "TRAJE", "GRAVEDAD", "NASA"]
+  },
+  {
+    "word": "HELADO",
+    "forbidden": ["FRÍO", "CONO", "DERRETIR", "VAINILLA", "POSTRE", "BOLA"]
+  },
+  {
+    "word": "MONTANA RUSA",
+    "forbidden": ["PARQUE", "DIVERSIONES", "GRITAR", "VUELTAS", "CARRITO", "ALTURA"]
+  }
+]
