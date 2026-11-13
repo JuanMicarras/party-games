@@ -1,17 +1,137 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { RoomState, Player, MimiretoState } from '@party-games/shared';
+import {
+  RoomState,
+  Player,
+  MimiretoCard,
+  CategoryInfo,
+  validateMimiretoDeck,
+} from '@party-games/shared';
 import { DeckService } from './deck.service.js';
+
+interface RoomDeckState {
+  drawPile: MimiretoCard[];
+  discardPile: MimiretoCard[];
+}
+
+function shuffleCards(cards: MimiretoCard[]): MimiretoCard[] {
+  const copy = [...cards];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 @Injectable()
 export class MimiretoService {
   private readonly logger = new Logger(MimiretoService.name);
+  private roomDeckStates: Map<string, RoomDeckState> = new Map();
 
   constructor(private readonly deckService: DeckService) {}
 
-  initGame(room: RoomState, roundsMultiplier: number = 1): RoomState | null {
+  getCategories(): CategoryInfo[] {
+    return this.deckService.getCategories();
+  }
+
+  private drawNextCard(
+    roomCode: string,
+    categoryId?: string,
+    currentWord?: string,
+  ): MimiretoCard {
+    let deckState = this.roomDeckStates.get(roomCode);
+
+    if (!deckState) {
+      const baseDeck = this.deckService.getDeckByCategory(categoryId);
+      deckState = {
+        drawPile: shuffleCards(baseDeck),
+        discardPile: [],
+      };
+      this.roomDeckStates.set(roomCode, deckState);
+    }
+
+    // Si ya se jugaron todas las cartas del mazo, rebarajar el descarte
+    if (deckState.drawPile.length === 0) {
+      if (deckState.discardPile.length === 0) {
+        return { word: 'SIN CARTAS', forbidden: ['MAZO', 'VACÍO'] };
+      }
+
+      const reshuffled = shuffleCards(deckState.discardPile);
+      // Evitar que la última carta vista sea justo la primera del nuevo ciclo
+      if (
+        reshuffled.length > 1 &&
+        currentWord &&
+        reshuffled[reshuffled.length - 1].word === currentWord
+      ) {
+        [reshuffled[0], reshuffled[reshuffled.length - 1]] = [
+          reshuffled[reshuffled.length - 1],
+          reshuffled[0],
+        ];
+      }
+
+      deckState.drawPile = reshuffled;
+      deckState.discardPile = [];
+      this.logger.log(
+        `♻️ Se agotaron las cartas en sala ${roomCode}. Mazo rebarajado (${deckState.drawPile.length} cartas).`,
+      );
+    }
+
+    const nextCard = deckState.drawPile.pop()!;
+    deckState.discardPile.push(nextCard);
+    return nextCard;
+  }
+
+  initGame(
+    room: RoomState,
+    roundsMultiplier: number = 1,
+    options?: {
+      category?: string;
+      customCategoryName?: string;
+      customDeck?: MimiretoCard[];
+      turnDuration?: number;
+    },
+  ): RoomState | null {
     if (room.players.length < 2) return null;
 
     room.mode = 'MIMIRETO';
+
+    const turnDuration = options?.turnDuration ?? 60;
+    let deck: MimiretoCard[];
+    let categoryId = options?.category || 'biblico';
+    let categoryName = '📖 Bíblico / Célula';
+
+    if (options?.customDeck && options.customDeck.length > 0) {
+      const validation = validateMimiretoDeck(options.customDeck);
+      if (validation.valid && validation.cards.length > 0) {
+        deck = validation.cards;
+        categoryId = 'custom';
+        categoryName = options.customCategoryName?.trim()
+          ? `⚡ ${options.customCategoryName.trim()}`
+          : '⚡ Mazo Personalizado';
+      } else {
+        deck = this.deckService.getDeckByCategory(categoryId);
+      }
+    } else {
+      deck = this.deckService.getDeckByCategory(categoryId);
+      const info = this.deckService.getCategoryInfo(categoryId);
+      if (info) {
+        categoryId = info.id;
+        categoryName = `${info.icon} ${info.name}`;
+      }
+    }
+
+    // Deduplicar palabras por si el mazo origen tuviera alguna repetida y barajar con Fisher-Yates
+    const seenWords = new Set<string>();
+    const uniqueDeck = deck.filter((card) => {
+      const key = card.word.trim().toUpperCase();
+      if (seenWords.has(key)) return false;
+      seenWords.add(key);
+      return true;
+    });
+
+    this.roomDeckStates.set(room.roomCode, {
+      drawPile: shuffleCards(uniqueDeck),
+      discardPile: [],
+    });
 
     // Mezclar jugadores aleatoriamente
     const shuffledPlayers = [...room.players].sort(() => Math.random() - 0.5);
@@ -33,7 +153,7 @@ export class MimiretoService {
 
     const maxTeamSize = Math.max(teamA.length, teamB.length);
     const totalTurns = maxTeamSize * 2 * roundsMultiplier;
-    const initialCard = this.deckService.getRandomCard();
+    const initialCard = this.drawNextCard(room.roomCode, categoryId);
 
     room.mimireto = {
       teamAScore: 0,
@@ -43,17 +163,20 @@ export class MimiretoService {
       judgeId: teamBPlayerIds[0] || null,
       currentCard: initialCard,
       status: 'WAITING',
-      timeLeft: 120,
+      timeLeft: turnDuration,
+      turnDuration,
       teamASpeakerIndex: 0,
       teamBSpeakerIndex: 0,
       totalTurns,
       turnsPlayed: 0,
       teamAPlayerIds,
       teamBPlayerIds,
+      categoryId,
+      categoryName,
     };
 
     this.logger.log(
-      `🎲 Juego Mimireto iniciado en sala ${room.roomCode}: ${teamA.length} en A vs ${teamB.length} en B. Turnos totales: ${totalTurns}`,
+      `🎲 Juego Mimireto [${categoryName}] iniciado en sala ${room.roomCode}: ${teamA.length} en A vs ${teamB.length} en B. Turnos totales: ${totalTurns}`,
     );
 
     return room;
@@ -101,8 +224,10 @@ export class MimiretoService {
       else state.teamBScore -= 1;
     }
 
-    // Siguiente carta sin repetir la actual
-    state.currentCard = this.deckService.getNextCardExcept(
+    // Robar siguiente carta de la baraja de la sala sin repetir cartas ya jugadas
+    state.currentCard = this.drawNextCard(
+      room.roomCode,
+      state.categoryId,
       state.currentCard?.word,
     );
 
@@ -117,6 +242,7 @@ export class MimiretoService {
 
     if (state.turnsPlayed >= state.totalTurns) {
       state.status = 'FINISHED';
+      this.roomDeckStates.delete(room.roomCode);
       return room;
     }
 
@@ -163,8 +289,10 @@ export class MimiretoService {
     }
 
     state.status = 'TIME_UP';
-    state.timeLeft = 120;
-    state.currentCard = this.deckService.getNextCardExcept(
+    state.timeLeft = state.turnDuration || 60;
+    state.currentCard = this.drawNextCard(
+      room.roomCode,
+      state.categoryId,
       state.currentCard?.word,
     );
 

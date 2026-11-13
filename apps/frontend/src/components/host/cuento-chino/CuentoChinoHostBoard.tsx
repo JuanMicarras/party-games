@@ -47,11 +47,18 @@ export function CuentoChinoHostBoard({
 
       {/* Título de Juego y Progreso */}
       <div>
-        <span className="text-xs font-bold uppercase tracking-widest bg-amber-500/20 text-amber-300 px-4 py-1 rounded-full border border-amber-500/30">
-          Cita Verdadera o Cuento Chino
-        </span>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <span className="text-xs font-bold uppercase tracking-widest bg-amber-500/20 text-amber-300 px-4 py-1 rounded-full border border-amber-500/30">
+            Cita Verdadera o Cuento Chino
+          </span>
+          {cuentoChino.categoryName && (
+            <span className="text-xs font-bold uppercase tracking-widest bg-slate-800 text-slate-200 px-3.5 py-1 rounded-full border border-slate-700">
+              {cuentoChino.categoryName}
+            </span>
+          )}
+        </div>
         <h2 className="text-slate-400 text-sm font-semibold mt-2">
-          Pregunta {currentQuestionIndex + 1} de {totalQuestions} • Cita:{" "}
+          Pregunta {currentQuestionIndex + 1} de {totalQuestions} • Referencia:{" "}
           <span className="text-amber-400 font-bold">
             {currentQuestion.reference}
           </span>
@@ -120,7 +127,7 @@ export function CuentoChinoHostBoard({
         {status === "VOTING" && (
           <div className="space-y-6 pt-4 border-t border-slate-700">
             <p className="text-amber-300 text-lg font-bold animate-pulse">
-              🗳️ ¿Cuál es la verdad bíblica? Voten en su celular:
+              🗳️ ¿Cuál es la respuesta verdadera? Voten en su celular:
             </p>
 
             {/* Opciones en minúsculas unificadas */}
@@ -160,7 +167,7 @@ export function CuentoChinoHostBoard({
           <div className="space-y-8 pt-4 border-t border-slate-700 text-left">
             <div>
               <p className="text-xs uppercase font-bold text-emerald-400 tracking-wider mb-1">
-                Respuesta Bíblica Correcta:
+                Respuesta Correcta:
               </p>
               <div className="inline-block bg-emerald-950/80 border-2 border-emerald-500 px-6 py-2 rounded-2xl">
                 <span className="text-2xl font-black text-emerald-300 lowercase">

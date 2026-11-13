@@ -1,7 +1,24 @@
 import { useEffect, useState } from "react";
 import { socket } from "@/lib/socket";
 import { playSoundEffect } from "@/lib/audio";
-import { RoomState, SocketEvents, GameMode } from "@party-games/shared";
+import {
+  RoomState,
+  SocketEvents,
+  GameMode,
+  MimiretoCard,
+  CuentoChinoQuestion,
+} from "@party-games/shared";
+
+export interface StartGameOptions {
+  roundsMultiplier?: number;
+  turnDuration?: number;
+  totalQuestions?: number;
+  writingTime?: number;
+  category?: string;
+  customCategoryName?: string;
+  customMimiretoDeck?: MimiretoCard[];
+  customCuentoChinoDeck?: CuentoChinoQuestion[];
+}
 
 export function useHostRoom() {
   const [room, setRoom] = useState<RoomState | null>(null);
@@ -36,14 +53,20 @@ export function useHostRoom() {
 
   const startGame = (
     gameMode: GameMode = "MIMIRETO",
-    options?: { roundsMultiplier?: number; totalQuestions?: number },
+    options?: StartGameOptions,
   ) => {
     if (room && room.players.length >= 2) {
       socket.emit(SocketEvents.START_GAME, {
         roomCode: room.roomCode,
         gameMode,
         roundsMultiplier: options?.roundsMultiplier ?? 1,
+        turnDuration: options?.turnDuration ?? 60,
         totalQuestions: options?.totalQuestions ?? 3,
+        writingTime: options?.writingTime ?? 45,
+        category: options?.category,
+        customCategoryName: options?.customCategoryName,
+        customMimiretoDeck: options?.customMimiretoDeck,
+        customCuentoChinoDeck: options?.customCuentoChinoDeck,
       });
     }
   };

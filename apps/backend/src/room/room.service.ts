@@ -1,5 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { RoomState, Player, GameMode } from '@party-games/shared';
+import {
+  RoomState,
+  Player,
+  GameMode,
+  MimiretoCard,
+  CuentoChinoQuestion,
+} from '@party-games/shared';
 import { MimiretoService } from './mimireto.service.js';
 import { CuentoChinoService } from './cuento-chino.service.js';
 
@@ -27,6 +33,10 @@ export class RoomService {
       mode: 'LOBBY',
       players: [],
       hostId,
+      availableCategories: {
+        mimireto: this.mimiretoService.getCategories(),
+        cuentoChino: this.cuentoChinoService.getCategories(),
+      },
     };
 
     this.rooms.set(roomCode, newRoom);
@@ -132,7 +142,16 @@ export class RoomService {
   startGame(
     roomCode: string,
     gameMode: GameMode = 'MIMIRETO',
-    options?: { roundsMultiplier?: number; totalQuestions?: number },
+    options?: {
+      roundsMultiplier?: number;
+      turnDuration?: number;
+      totalQuestions?: number;
+      writingTime?: number;
+      category?: string;
+      customCategoryName?: string;
+      customMimiretoDeck?: MimiretoCard[];
+      customCuentoChinoDeck?: CuentoChinoQuestion[];
+    },
   ): RoomState | null {
     const room = this.rooms.get(roomCode);
     if (!room) return null;
@@ -142,12 +161,24 @@ export class RoomService {
       return this.cuentoChinoService.initGame(
         room,
         options?.totalQuestions ?? 3,
+        {
+          category: options?.category,
+          customCategoryName: options?.customCategoryName,
+          customDeck: options?.customCuentoChinoDeck,
+          writingTime: options?.writingTime,
+        },
       );
     } else {
       delete room.cuentoChino;
       return this.mimiretoService.initGame(
         room,
         options?.roundsMultiplier ?? 1,
+        {
+          category: options?.category,
+          customCategoryName: options?.customCategoryName,
+          customDeck: options?.customMimiretoDeck,
+          turnDuration: options?.turnDuration,
+        },
       );
     }
   }

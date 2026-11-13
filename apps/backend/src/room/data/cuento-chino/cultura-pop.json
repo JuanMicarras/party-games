@@ -1,0 +1,162 @@
+[
+  {
+    "id": "pop-1",
+    "question": "Durante el rodaje de 'Titanic', las manos que aparecen dibujando a Rose en realidad pertenecen a _____.",
+    "reference": "Cine y Curiosidades",
+    "correctAnswer": "james cameron",
+    "acceptedAnswers": ["james cameron", "cameron", "el director", "director"],
+    "defaultLies": ["leonardo dicaprio", "un doble", "billy zane", "kate winslet"]
+  },
+  {
+    "id": "pop-2",
+    "question": "El icónico rugido del T-Rex en la película 'Jurassic Park' se creó combinando los sonidos de un tigre, un caimán y un bebé _____.",
+    "reference": "Secretos de Hollywood",
+    "correctAnswer": "elefante",
+    "acceptedAnswers": ["elefante", "elefantito"],
+    "defaultLies": ["hipopotamo", "oso", "ballena", "rinoceronte"]
+  },
+  {
+    "id": "pop-3",
+    "question": "Antes de llamarse 'Backstreet Boys', los productores consideraron llamar a la famosa banda con el nombre de '_____'.",
+    "reference": "Historia del Pop",
+    "correctAnswer": "orlando",
+    "acceptedAnswers": ["orlando", "the heartbreakers"],
+    "defaultLies": ["sunshine boys", "florida five", "street kings", "golden boys"]
+  },
+  {
+    "id": "pop-4",
+    "question": "En la película 'El Padrino', el gato que acaricia Marlon Brando en la escena inicial no estaba en el guion: era un gato _____ que encontró en el estudio.",
+    "reference": "Clásicos del Cine",
+    "correctAnswer": "callejero",
+    "acceptedAnswers": ["callejero", "abandonado", "perdido", "sin dueno"],
+    "defaultLies": ["robotico", "del productor", "ciego", "disecado"]
+  },
+  {
+    "id": "pop-5",
+    "question": "Para simular la sangre en la famosa escena de la ducha en la película 'Psicosis' (1960), el director Alfred Hitchcock utilizó jarabe de _____.",
+    "reference": "Efectos Especiales",
+    "correctAnswer": "chocolate",
+    "acceptedAnswers": ["chocolate", "salsa de chocolate", "sirope de chocolate"],
+    "defaultLies": ["fresa", "tomate", "remolacha", "cereza"]
+  },
+  {
+    "id": "pop-6",
+    "question": "El personaje de 'Chewbacca' en Star Wars estuvo inspirado en el perro de George Lucas, el cual solía sentarse en el asiento de _____ de su auto.",
+    "reference": "Universo Star Wars",
+    "correctAnswer": "copiloto",
+    "acceptedAnswers": ["copiloto", "pasajero", "adelante", "acompanante"],
+    "defaultLies": ["conductor", "atras", "baul", "techo"]
+  },
+  {
+    "id": "pop-7",
+    "question": "En las películas de 'Harry Potter', el actor Tom Felton (Draco Malfoy) tuvo que coser los bolsillos de su túnica porque siempre metía _____ a escondidas al set.",
+    "reference": "Detrás de Cámaras",
+    "correctAnswer": "comida",
+    "acceptedAnswers": ["comida", "dulces", "golosinas", "snacks"],
+    "defaultLies": ["su celular", "videojuegos", "ranas", "cartas"]
+  },
+  {
+    "id": "pop-8",
+    "question": "El código verde que cae por las pantallas en la película 'Matrix' en realidad son recetas digitales de _____ escaneadas de un libro japonés.",
+    "reference": "Curiosidades Geek",
+    "correctAnswer": "sushi",
+    "acceptedAnswers": ["sushi", "comida japonesa"],
+    "defaultLies": ["ramen", "te verde", "origami", "sake"]
+  },
+  {
+    "id": "pop-9",
+    "question": "Antes de triunfar como actor, Brad Pitt trabajó disfrazado de _____ gigante en la calle para hacer publicidad a un restaurante.",
+    "reference": "Vidas de Celebridades",
+    "correctAnswer": "pollo",
+    "acceptedAnswers": ["pollo", "gallina"],
+    "defaultLies": ["hamburguesa", "perro caliente", "taco", "pizza"]
+  },
+  {
+    "id": "pop-10",
+    "question": "La famosa canción 'Yesterday' de The Beatles tenía originalmente como título provisional '_____ revueltos'.",
+    "reference": "Leyendas del Rock",
+    "correctAnswer": "huevos",
+    "acceptedAnswers": ["huevos", "huevos revueltos"],
+    "defaultLies": ["recuerdos", "suenos", "papeles", "pensamientos"]
+  },
+  {
+    "id": "pop-11",
+    "question": "En la película 'Toy Story', el nombre de Andy está escrito debajo de la bota de Woody y Buzz, pero la suela de Buzz tiene escrito su nombre con una letra '_____' al revés.",
+    "reference": "Detalles de Pixar",
+    "correctAnswer": "n",
+    "acceptedAnswers": ["n", "letra n"],
+    "defaultLies": ["d", "y", "a", "s"]
+  },
+  {
+    "id": "pop-12",
+    "question": "Para su papel en 'El Renacido', Leonardo DiCaprio (quien es vegetariano) tuvo que comer un hígado crudo de _____ de verdad frente a la cámara.",
+    "reference": "Sacrificios de Actuación",
+    "correctAnswer": "bisonte",
+    "acceptedAnswers": ["bisonte", "bufalo"],
+    "defaultLies": ["oso", "venado", "caballo", "jabalí"]
+  },
+  {
+    "id": "pop-13",
+    "question": "En 'Los Simpson', el único personaje que es dibujado con cinco dedos en cada mano en lugar de cuatro es _____.",
+    "reference": "Series Animadas",
+    "correctAnswer": "dios",
+    "acceptedAnswers": ["dios", "jesus"],
+    "defaultLies": ["el senor burns", "krusty", "maggie", "flanders"]
+  },
+  {
+    "id": "pop-14",
+    "question": "Cuando se estrenó la película 'Shrek', el actor Mike Myers pidió regrabar toda la voz del ogro porque decidió que sonaba mejor con acento _____.",
+    "reference": "Animación y Doblaje",
+    "correctAnswer": "escoces",
+    "acceptedAnswers": ["escoces", "de escocia"],
+    "defaultLies": ["italiano", "ruso", "frances", "australiano"]
+  },
+  {
+    "id": "pop-15",
+    "question": "Durante la filmación de 'Avengers', Robert Downey Jr. escondía _____ por todo el laboratorio de Tony Stark y ni siquiera el director podía encontrarlos todos.",
+    "reference": "Universo Marvel",
+    "correctAnswer": "arandanos",
+    "acceptedAnswers": ["arandanos", "comida", "snacks", "frutos secos"],
+    "defaultLies": ["gafas", "relojes", "billetes", "chicles"]
+  },
+  {
+    "id": "pop-16",
+    "question": "El sonido de los pasos de ET el Extraterrestre fue creado por una artista de sonido aplastando _____ húmeda con sus manos.",
+    "reference": "Efectos de Sonido",
+    "correctAnswer": "gelatina",
+    "acceptedAnswers": ["gelatina", "camisetas con gelatina"],
+    "defaultLies": ["esponjas", "pasta cocida", "lechuga", "barro"]
+  },
+  {
+    "id": "pop-17",
+    "question": "Shakira fue rechazada del coro de su colegio cuando era niña porque el profesor de música decía que su vibrato sonaba como una _____.",
+    "reference": "Música Latina",
+    "correctAnswer": "cabra",
+    "acceptedAnswers": ["cabra", "chiva", "oveja"],
+    "defaultLies": ["sirena", "licuadora", "rana", "trompeta"]
+  },
+  {
+    "id": "pop-18",
+    "question": "En 'Stranger Things', para lograr que la actriz que interpreta a Eleven no tuviera miedo de raparse la cabeza, los directores le mostraron escenas de la película '_____'.",
+    "reference": "Detrás de Netflix",
+    "correctAnswer": "mad max",
+    "acceptedAnswers": ["mad max", "furiosa"],
+    "defaultLies": ["alien", "v de venganza", "matrix", "gi jane"]
+  },
+  {
+    "id": "pop-19",
+    "question": "La nieve que cae sobre Dorothy en el campo de amapolas de la película 'El Mago de Oz' (1939) estaba hecha en realidad de 100% _____ puro.",
+    "reference": "Historia del Cine",
+    "correctAnswer": "asbesto",
+    "acceptedAnswers": ["asbesto", "amianto"],
+    "defaultLies": ["azucar", "harina", "sal", "algodon"]
+  },
+  {
+    "id": "pop-20",
+    "question": "El traje blanco que usó John Travolta en 'Fiebre de Sábado por la Noche' fue comprado en una tienda de ofertas por apenas _____ dólares.",
+    "reference": "Iconos del Cine",
+    "correctAnswer": "125",
+    "acceptedAnswers": ["125", "ciento veinticinco"],
+    "defaultLies": ["15", "500", "20", "1000"]
+  }
+]
