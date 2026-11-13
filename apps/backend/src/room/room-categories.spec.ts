@@ -99,6 +99,52 @@ describe('Sistema de Categorías y Mazos Personalizados', () => {
     );
   });
 
+  it('no repite ninguna carta en Mimireto hasta haber jugado todo el mazo', () => {
+    const code = roomService.createRoom('host-1');
+    roomService.joinRoom(code, { id: 'p1', name: 'Ana', isHost: false });
+    roomService.joinRoom(code, { id: 'p2', name: 'Luis', isHost: false });
+
+    const customDeck = [
+      { word: 'CARTA 1', forbidden: ['A'] },
+      { word: 'CARTA 2', forbidden: ['B'] },
+      { word: 'CARTA 3', forbidden: ['C'] },
+      { word: 'CARTA 4', forbidden: ['D'] },
+      { word: 'CARTA 5', forbidden: ['E'] },
+      { word: 'CARTA 6', forbidden: ['F'] },
+      { word: 'CARTA 7', forbidden: ['G'] },
+      { word: 'CARTA 8', forbidden: ['H'] },
+    ];
+
+    const room = roomService.startGame(code, 'MIMIRETO', {
+      roundsMultiplier: 1,
+      category: 'custom',
+      customMimiretoDeck: customDeck,
+    })!;
+
+    // Poner la partida en PLAYING para poder pasar/acertar cartas
+    room.mimireto!.status = 'PLAYING';
+    const speakerId = room.mimireto!.speakerId!;
+
+    const seenWords = new Set<string>();
+    seenWords.add(room.mimireto!.currentCard!.word);
+
+    // Robar las 7 cartas restantes (total 8 cartas de un mazo de 8)
+    for (let i = 0; i < 7; i++) {
+      roomService.handleCardAction(code, speakerId, 'SUCCESS');
+      seenWords.add(room.mimireto!.currentCard!.word);
+    }
+
+    // Las 8 cartas vistas deben ser estrictamente las 8 cartas únicas sin ninguna repetición
+    expect(seenWords.size).toBe(8);
+
+    // Al robar la 9na carta (mazo agotado), se rebaraja automáticamente y no repite la 8va carta inmediatamente
+    const eighthWord = room.mimireto!.currentCard!.word;
+    roomService.handleCardAction(code, speakerId, 'PASS');
+    const ninthWord = room.mimireto!.currentCard!.word;
+    expect(ninthWord).toBeDefined();
+    expect(ninthWord).not.toBe(eighthWord);
+  });
+
   it('inicia Cuento Chino con un mazo personalizado en memoria', () => {
     const code = roomService.createRoom('host-1');
     roomService.joinRoom(code, { id: 'p1', name: 'Ana', isHost: false });

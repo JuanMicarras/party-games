@@ -26,8 +26,17 @@ export function CuentoChinoVictory({
       </h1>
 
       <div className="bg-slate-800 p-8 md:p-12 rounded-3xl border-4 border-slate-700 shadow-2xl space-y-8">
-        <div>
-          <p className="text-xl text-slate-300 mb-2">Gran Campeón Bíblico:</p>
+        <div className="space-y-2">
+          {cuentoChino?.categoryName && (
+            <span className="inline-block text-xs font-bold uppercase tracking-widest bg-amber-500/20 text-amber-300 px-3.5 py-1 rounded-full border border-amber-500/30 mb-1">
+              Categoría: {cuentoChino.categoryName}
+            </span>
+          )}
+          <p className="text-xl text-slate-300">
+            {cuentoChino?.categoryId === "biblico"
+              ? "Gran Campeón Bíblico:"
+              : "Gran Campeón de la Partida:"}
+          </p>
           <h2 className="text-5xl md:text-6xl font-black text-emerald-400 tracking-wide">
             {winner?.name || "Sin ganador"}
           </h2>

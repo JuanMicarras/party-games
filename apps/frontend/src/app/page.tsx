@@ -54,14 +54,22 @@ export default function Home() {
               </p>
             )}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
+            {room?.roomCode && (
+              <div className="px-2.5 py-1 bg-slate-950 border border-slate-700 rounded-lg text-xs font-mono font-black tracking-widest text-emerald-400 flex items-center gap-1.5 shadow-inner">
+                <span className="text-[10px] text-slate-400 uppercase font-sans font-bold tracking-normal">
+                  Sala
+                </span>
+                <span>{room.roomCode}</span>
+              </div>
+            )}
             {!isConnected && room && (
               <span className="text-xs text-amber-400 animate-pulse font-medium">
                 Reconectando...
               </span>
             )}
             <span
-              className={`h-3 w-3 rounded-full transition-all mt-1.5 ${
+              className={`h-3 w-3 rounded-full transition-all ${
                 isConnected
                   ? "bg-emerald-500 shadow-[0_0_8px_#10b981]"
                   : "bg-red-500"
