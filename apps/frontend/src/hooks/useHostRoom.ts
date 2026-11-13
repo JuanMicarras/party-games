@@ -11,7 +11,9 @@ import {
 
 export interface StartGameOptions {
   roundsMultiplier?: number;
+  turnDuration?: number;
   totalQuestions?: number;
+  writingTime?: number;
   category?: string;
   customCategoryName?: string;
   customMimiretoDeck?: MimiretoCard[];
@@ -58,7 +60,9 @@ export function useHostRoom() {
         roomCode: room.roomCode,
         gameMode,
         roundsMultiplier: options?.roundsMultiplier ?? 1,
+        turnDuration: options?.turnDuration ?? 60,
         totalQuestions: options?.totalQuestions ?? 3,
+        writingTime: options?.writingTime ?? 45,
         category: options?.category,
         customCategoryName: options?.customCategoryName,
         customMimiretoDeck: options?.customMimiretoDeck,

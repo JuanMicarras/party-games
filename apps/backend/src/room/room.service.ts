@@ -144,7 +144,9 @@ export class RoomService {
     gameMode: GameMode = 'MIMIRETO',
     options?: {
       roundsMultiplier?: number;
+      turnDuration?: number;
       totalQuestions?: number;
+      writingTime?: number;
       category?: string;
       customCategoryName?: string;
       customMimiretoDeck?: MimiretoCard[];
@@ -163,6 +165,7 @@ export class RoomService {
           category: options?.category,
           customCategoryName: options?.customCategoryName,
           customDeck: options?.customCuentoChinoDeck,
+          writingTime: options?.writingTime,
         },
       );
     } else {
@@ -174,6 +177,7 @@ export class RoomService {
           category: options?.category,
           customCategoryName: options?.customCategoryName,
           customDeck: options?.customMimiretoDeck,
+          turnDuration: options?.turnDuration,
         },
       );
     }

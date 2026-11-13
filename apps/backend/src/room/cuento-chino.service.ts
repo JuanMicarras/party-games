@@ -19,10 +19,28 @@ export function normalizeText(text: string): string {
     .replace(/\s+/g, ' ');
 }
 
+interface RoomQuestionDeckState {
+  categoryId: string;
+  drawPile: CuentoChinoQuestion[];
+  discardPile: CuentoChinoQuestion[];
+}
+
+function shuffleQuestions(
+  questions: CuentoChinoQuestion[],
+): CuentoChinoQuestion[] {
+  const copy = [...questions];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 @Injectable()
 export class CuentoChinoService {
   private readonly logger = new Logger(CuentoChinoService.name);
   private gameQuestions: Map<string, CuentoChinoQuestion[]> = new Map();
+  private roomQuestionStates: Map<string, RoomQuestionDeckState> = new Map();
 
   constructor(private readonly deckService: CuentoChinoDeckService) {}
 
@@ -37,47 +55,84 @@ export class CuentoChinoService {
       category?: string;
       customCategoryName?: string;
       customDeck?: CuentoChinoQuestion[];
+      writingTime?: number;
     },
   ): RoomState | null {
     if (room.players.length < 2) return null;
 
     room.mode = 'CUENTO_CHINO';
 
-    let questions: CuentoChinoQuestion[];
+    const writingTime = options?.writingTime ?? 45;
     let categoryId = options?.category || 'biblico';
     let categoryName = '📖 Bíblico / Célula';
+    let deckState = this.roomQuestionStates.get(room.roomCode);
 
     if (options?.customDeck && options.customDeck.length > 0) {
       const validation = validateCuentoChinoDeck(options.customDeck);
       if (validation.valid && validation.questions.length > 0) {
-        const shuffled = [...validation.questions].sort(
-          () => Math.random() - 0.5,
-        );
-        questions = shuffled.slice(
-          0,
-          Math.min(totalQuestions, shuffled.length),
-        );
         categoryId = 'custom';
         categoryName = options.customCategoryName?.trim()
           ? `⚡ ${options.customCategoryName.trim()}`
           : '⚡ Mazo Personalizado';
-      } else {
-        questions = this.deckService.getRandomQuestions(
-          totalQuestions,
+        deckState = {
           categoryId,
-        );
+          drawPile: shuffleQuestions(validation.questions),
+          discardPile: [],
+        };
+        this.roomQuestionStates.set(room.roomCode, deckState);
       }
-    } else {
-      questions = this.deckService.getRandomQuestions(
-        totalQuestions,
+    }
+
+    if (!deckState || deckState.categoryId !== categoryId) {
+      const baseQuestions = this.deckService.getQuestionsByCategory(categoryId);
+      const seenIds = new Set<string>();
+      const uniqueList = baseQuestions.filter((q) => {
+        const key = (q.id || q.question).trim().toLowerCase();
+        if (seenIds.has(key)) return false;
+        seenIds.add(key);
+        return true;
+      });
+
+      deckState = {
         categoryId,
-      );
+        drawPile: shuffleQuestions(uniqueList),
+        discardPile: [],
+      };
+      this.roomQuestionStates.set(room.roomCode, deckState);
+
+      const info = this.deckService.getCategoryInfo(categoryId);
+      if (info && categoryId !== 'custom') {
+        categoryName = `${info.icon} ${info.name}`;
+      }
+    } else if (categoryId !== 'custom') {
       const info = this.deckService.getCategoryInfo(categoryId);
       if (info) {
-        categoryId = info.id;
         categoryName = `${info.icon} ${info.name}`;
       }
     }
+
+    // Extraer totalQuestions de drawPile sin repetir hasta agotar el banco
+    const selectedQuestions: CuentoChinoQuestion[] = [];
+    for (let i = 0; i < totalQuestions; i++) {
+      if (deckState.drawPile.length === 0) {
+        if (deckState.discardPile.length === 0) break;
+        deckState.drawPile = shuffleQuestions(deckState.discardPile);
+        deckState.discardPile = [];
+        this.logger.log(
+          `♻️ Banco de preguntas agotado en sala ${room.roomCode}. Preguntas rebarajadas (${deckState.drawPile.length}).`,
+        );
+      }
+      const q = deckState.drawPile.pop();
+      if (q) {
+        selectedQuestions.push(q);
+        deckState.discardPile.push(q);
+      }
+    }
+
+    const questions =
+      selectedQuestions.length > 0
+        ? selectedQuestions
+        : this.deckService.getRandomQuestions(totalQuestions, categoryId);
 
     this.gameQuestions.set(room.roomCode, questions);
 
@@ -93,7 +148,8 @@ export class CuentoChinoService {
       totalQuestions: questions.length,
       currentQuestion,
       status: 'WRITING_LIES',
-      timeLeft: 45,
+      timeLeft: writingTime,
+      writingTime,
       submittedLies: {},
       sabioPlayerIds: [],
       options: [],
@@ -105,7 +161,7 @@ export class CuentoChinoService {
     };
 
     this.logger.log(
-      `🤥 Partida de Cuento Chino [${categoryName}] iniciada en sala ${room.roomCode} con ${questions.length} preguntas.`,
+      `🤥 Partida de Cuento Chino [${categoryName}] iniciada en sala ${room.roomCode} con ${questions.length} preguntas (Tiempo mentiras: ${writingTime}s).`,
     );
 
     return room;
@@ -374,7 +430,7 @@ export class CuentoChinoService {
     state.currentQuestionIndex = nextIndex;
     state.currentQuestion = questions[nextIndex];
     state.status = 'WRITING_LIES';
-    state.timeLeft = 45;
+    state.timeLeft = state.writingTime || 45;
     state.submittedLies = {};
     state.sabioPlayerIds = [];
     state.options = [];

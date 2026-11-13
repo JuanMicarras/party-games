@@ -65,6 +65,7 @@ export interface MimiretoState {
   teamBPlayerIds?: string[];
   categoryId?: string;
   categoryName?: string;
+  turnDuration?: number; // Segundos configurados por turno (45, 60, 90, 120)
 }
 
 // ----------------------------------------------------
@@ -110,6 +111,7 @@ export interface CuentoChinoState {
   roundEvents: RoundEvent[];
   categoryId?: string;
   categoryName?: string;
+  writingTime?: number; // Segundos configurados para inventar mentiras (30, 45, 60)
 }
 
 // ----------------------------------------------------
@@ -141,8 +143,10 @@ export interface RoomUpdatedPayload {
 export interface StartGamePayload {
   roomCode: string;
   gameMode?: GameMode;
-  roundsMultiplier?: number; // Para Mimireto (1x rápida, 2x estándar)
-  totalQuestions?: number;   // Para Cuento Chino (3 o 5 preguntas)
+  roundsMultiplier?: number; // Para Mimireto (1x, 2x, 3x)
+  turnDuration?: number;     // Segundos por turno en Mimireto (45, 60, 90, 120)
+  totalQuestions?: number;   // Para Cuento Chino (3, 5, 7, 10 preguntas)
+  writingTime?: number;      // Segundos para escribir mentiras en Cuento Chino (30, 45, 60)
   category?: string;         // Categoría seleccionada (ej: 'biblico', 'cultura-pop', 'general', 'amigos', 'custom')
   customCategoryName?: string;
   customMimiretoDeck?: MimiretoCard[];

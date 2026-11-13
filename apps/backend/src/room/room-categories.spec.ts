@@ -199,4 +199,86 @@ describe('Sistema de Categorías y Mazos Personalizados', () => {
     expect(goodCC.valid).toBe(true);
     expect(goodCC.questions[0].acceptedAnswers).toContain('París');
   });
+
+  it('aplica turnDuration configurado en Mimireto en el inicio y al rotar turno', () => {
+    const code = roomService.createRoom('host-1');
+    roomService.joinRoom(code, { id: 'p1', name: 'Ana', isHost: false });
+    roomService.joinRoom(code, { id: 'p2', name: 'Luis', isHost: false });
+
+    const room = roomService.startGame(code, 'MIMIRETO', {
+      roundsMultiplier: 1,
+      turnDuration: 45,
+    })!;
+
+    expect(room.mimireto?.turnDuration).toBe(45);
+    expect(room.mimireto?.timeLeft).toBe(45);
+
+    // Rotar turno
+    const rotated = roomService.rotateTurn(code)!;
+    expect(rotated.mimireto?.timeLeft).toBe(45);
+  });
+
+  it('no repite preguntas en Cuento Chino entre partidas consecutivas hasta agotar el banco', () => {
+    const code = roomService.createRoom('host-1');
+    roomService.joinRoom(code, { id: 'p1', name: 'Ana', isHost: false });
+    roomService.joinRoom(code, { id: 'p2', name: 'Luis', isHost: false });
+
+    const customQuestions = [
+      {
+        id: 'q1',
+        question: 'Pregunta 1',
+        correctAnswer: 'R1',
+        defaultLies: ['M1'],
+      },
+      {
+        id: 'q2',
+        question: 'Pregunta 2',
+        correctAnswer: 'R2',
+        defaultLies: ['M2'],
+      },
+      {
+        id: 'q3',
+        question: 'Pregunta 3',
+        correctAnswer: 'R3',
+        defaultLies: ['M3'],
+      },
+      {
+        id: 'q4',
+        question: 'Pregunta 4',
+        correctAnswer: 'R4',
+        defaultLies: ['M4'],
+      },
+    ];
+
+    // Partida 1: 2 preguntas
+    const g1 = roomService.startGame(code, 'CUENTO_CHINO', {
+      totalQuestions: 2,
+      category: 'custom',
+      customCuentoChinoDeck: customQuestions,
+      writingTime: 30,
+    })!;
+
+    expect(g1.cuentoChino?.writingTime).toBe(30);
+    expect(g1.cuentoChino?.timeLeft).toBe(30);
+
+    const questionsG1 = [g1.cuentoChino!.currentQuestion!.id];
+    const g1q2 = roomService.nextQuestion(code)!;
+    questionsG1.push(g1q2.cuentoChino!.currentQuestion!.id);
+
+    expect(questionsG1[0]).not.toBe(questionsG1[1]);
+
+    // Partida 2 en la misma sala: las siguientes 2 preguntas deben ser las restantes
+    const g2 = roomService.startGame(code, 'CUENTO_CHINO', {
+      totalQuestions: 2,
+      category: 'custom',
+    })!;
+
+    const questionsG2 = [g2.cuentoChino!.currentQuestion!.id];
+    const g2q2 = roomService.nextQuestion(code)!;
+    questionsG2.push(g2q2.cuentoChino!.currentQuestion!.id);
+
+    const allSeen = new Set([...questionsG1, ...questionsG2]);
+    // Las 4 preguntas jugadas deben ser estrictamente las 4 diferentes
+    expect(allSeen.size).toBe(4);
+  });
 });

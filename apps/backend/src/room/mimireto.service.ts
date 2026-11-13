@@ -87,12 +87,14 @@ export class MimiretoService {
       category?: string;
       customCategoryName?: string;
       customDeck?: MimiretoCard[];
+      turnDuration?: number;
     },
   ): RoomState | null {
     if (room.players.length < 2) return null;
 
     room.mode = 'MIMIRETO';
 
+    const turnDuration = options?.turnDuration ?? 60;
     let deck: MimiretoCard[];
     let categoryId = options?.category || 'biblico';
     let categoryName = '📖 Bíblico / Célula';
@@ -161,7 +163,8 @@ export class MimiretoService {
       judgeId: teamBPlayerIds[0] || null,
       currentCard: initialCard,
       status: 'WAITING',
-      timeLeft: 60,
+      timeLeft: turnDuration,
+      turnDuration,
       teamASpeakerIndex: 0,
       teamBSpeakerIndex: 0,
       totalTurns,
@@ -286,7 +289,7 @@ export class MimiretoService {
     }
 
     state.status = 'TIME_UP';
-    state.timeLeft = 120;
+    state.timeLeft = state.turnDuration || 60;
     state.currentCard = this.drawNextCard(
       room.roomCode,
       state.categoryId,

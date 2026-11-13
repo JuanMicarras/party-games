@@ -85,7 +85,9 @@ export class RoomGateway implements OnGatewayConnection, OnGatewayDisconnect {
     const gameMode = data.gameMode || 'MIMIRETO';
     const updatedRoom = this.roomService.startGame(data.roomCode, gameMode, {
       roundsMultiplier: data.roundsMultiplier ?? 1,
+      turnDuration: data.turnDuration ?? 60,
       totalQuestions: data.totalQuestions ?? 3,
+      writingTime: data.writingTime ?? 45,
       category: data.category,
       customCategoryName: data.customCategoryName,
       customMimiretoDeck: data.customMimiretoDeck,

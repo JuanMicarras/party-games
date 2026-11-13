@@ -79,7 +79,10 @@ const FALLBACK_CUENTO_CHINO_CATEGORIES: CategoryInfo[] = [
 export function HostLobby({ room, onStartGame }: HostLobbyProps) {
   const [selectedMode, setSelectedMode] = useState<GameMode>("CUENTO_CHINO");
   const [mimiretoMultiplier, setMimiretoMultiplier] = useState<number>(1);
-  const [totalQuestions, setTotalQuestions] = useState<number>(3);
+  const [mimiretoTurnDuration, setMimiretoTurnDuration] = useState<number>(60);
+  const [totalQuestions, setTotalQuestions] = useState<number>(5);
+  const [cuentoChinoWritingTime, setCuentoChinoWritingTime] =
+    useState<number>(45);
 
   // Categoría seleccionada por juego
   const [mimiretoCategory, setMimiretoCategory] = useState<string>("biblico");
@@ -143,6 +146,7 @@ export function HostLobby({ room, onStartGame }: HostLobbyProps) {
       const isCustom = mimiretoCategory === "custom" && customMimireto;
       onStartGame("MIMIRETO", {
         roundsMultiplier: mimiretoMultiplier,
+        turnDuration: mimiretoTurnDuration,
         category: isCustom ? "custom" : mimiretoCategory,
         customCategoryName: isCustom ? customMimireto.name : undefined,
         customMimiretoDeck: isCustom ? customMimireto.cards : undefined,
@@ -151,6 +155,7 @@ export function HostLobby({ room, onStartGame }: HostLobbyProps) {
       const isCustom = cuentoChinoCategory === "custom" && customCuentoChino;
       onStartGame("CUENTO_CHINO", {
         totalQuestions,
+        writingTime: cuentoChinoWritingTime,
         category: isCustom ? "custom" : cuentoChinoCategory,
         customCategoryName: isCustom ? customCuentoChino.name : undefined,
         customCuentoChinoDeck: isCustom
@@ -339,60 +344,124 @@ export function HostLobby({ room, onStartGame }: HostLobbyProps) {
           </div>
 
           {/* 3. Duración / Configuración de la partida */}
-          <div className="flex flex-col items-center gap-3 pt-2 border-t border-slate-800/80">
-            <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
-              3. Duración de la partida
-            </span>
+          <div className="space-y-4 pt-3 border-t border-slate-800/80">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider">
+              3. Opciones de la partida
+            </h3>
 
             {selectedMode === "CUENTO_CHINO" ? (
-              <div className="flex gap-3 p-1.5 bg-slate-900 rounded-2xl border border-slate-800">
-                <button
-                  type="button"
-                  onClick={() => setTotalQuestions(3)}
-                  className={`px-6 py-2 rounded-xl font-bold text-sm transition cursor-pointer ${
-                    totalQuestions === 3
-                      ? "bg-amber-600 text-white shadow-md"
-                      : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  3 Preguntas (Rápida)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setTotalQuestions(5)}
-                  className={`px-6 py-2 rounded-xl font-bold text-sm transition cursor-pointer ${
-                    totalQuestions === 5
-                      ? "bg-amber-600 text-white shadow-md"
-                      : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  5 Preguntas (Estándar)
-                </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                {/* Cantidad de preguntas */}
+                <div className="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800/80 space-y-2">
+                  <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">
+                    ❓ Número de Preguntas
+                  </span>
+                  <div className="flex flex-wrap gap-1.5 justify-center">
+                    {[
+                      { val: 3, label: "3 Preguntas" },
+                      { val: 5, label: "5 Preguntas (Recomendado)" },
+                      { val: 7, label: "7 Preguntas" },
+                      { val: 10, label: "10 Preguntas" },
+                    ].map((item) => (
+                      <button
+                        key={item.val}
+                        type="button"
+                        onClick={() => setTotalQuestions(item.val)}
+                        className={`px-3 py-1.5 rounded-xl font-bold text-xs transition cursor-pointer ${
+                          totalQuestions === item.val
+                            ? "bg-amber-600 text-white shadow-md"
+                            : "bg-slate-800/80 text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tiempo para escribir mentiras */}
+                <div className="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800/80 space-y-2">
+                  <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">
+                    ⏳ Tiempo para Escribir Mentiras
+                  </span>
+                  <div className="flex flex-wrap gap-1.5 justify-center">
+                    {[
+                      { sec: 30, label: "30s (Presión)" },
+                      { sec: 45, label: "45s (Recomendado)" },
+                      { sec: 60, label: "60s (Creativo)" },
+                    ].map((item) => (
+                      <button
+                        key={item.sec}
+                        type="button"
+                        onClick={() => setCuentoChinoWritingTime(item.sec)}
+                        className={`px-3.5 py-1.5 rounded-xl font-bold text-xs transition cursor-pointer ${
+                          cuentoChinoWritingTime === item.sec
+                            ? "bg-amber-600 text-white shadow-md"
+                            : "bg-slate-800/80 text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             ) : (
-              <div className="flex gap-3 p-1.5 bg-slate-900 rounded-2xl border border-slate-800">
-                <button
-                  type="button"
-                  onClick={() => setMimiretoMultiplier(1)}
-                  className={`px-6 py-2 rounded-xl font-bold text-sm transition cursor-pointer ${
-                    mimiretoMultiplier === 1
-                      ? "bg-blue-600 text-white shadow-md"
-                      : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  Rápida (1x)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setMimiretoMultiplier(2)}
-                  className={`px-6 py-2 rounded-xl font-bold text-sm transition cursor-pointer ${
-                    mimiretoMultiplier === 2
-                      ? "bg-blue-600 text-white shadow-md"
-                      : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  Estándar (2x)
-                </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                {/* Tiempo por turno */}
+                <div className="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800/80 space-y-2">
+                  <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">
+                    ⏱️ Segundos por Turno
+                  </span>
+                  <div className="flex flex-wrap gap-1.5 justify-center">
+                    {[
+                      { sec: 45, label: "45s (Rápido)" },
+                      { sec: 60, label: "60s (Estándar)" },
+                      { sec: 90, label: "90s (Tranquilo)" },
+                      { sec: 120, label: "120s (Largo)" },
+                    ].map((item) => (
+                      <button
+                        key={item.sec}
+                        type="button"
+                        onClick={() => setMimiretoTurnDuration(item.sec)}
+                        className={`px-3 py-1.5 rounded-xl font-bold text-xs transition cursor-pointer ${
+                          mimiretoTurnDuration === item.sec
+                            ? "bg-blue-600 text-white shadow-md"
+                            : "bg-slate-800/80 text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Rondas por persona */}
+                <div className="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800/80 space-y-2">
+                  <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block">
+                    🔄 Rondas por Persona
+                  </span>
+                  <div className="flex flex-wrap gap-1.5 justify-center">
+                    {[
+                      { val: 1, label: "1 Ronda (Rápida)" },
+                      { val: 2, label: "2 Rondas (Estándar)" },
+                      { val: 3, label: "3 Rondas (Larga)" },
+                    ].map((item) => (
+                      <button
+                        key={item.val}
+                        type="button"
+                        onClick={() => setMimiretoMultiplier(item.val)}
+                        className={`px-3 py-1.5 rounded-xl font-bold text-xs transition cursor-pointer ${
+                          mimiretoMultiplier === item.val
+                            ? "bg-blue-600 text-white shadow-md"
+                            : "bg-slate-800/80 text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
           </div>
